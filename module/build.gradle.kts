@@ -37,16 +37,18 @@ android {
 }
 
 dependencies {
-    //Libs
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
-    //kotlin
+
     implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.core)
-    //View
     implementation(Deps.Jetpack.appcompat)
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)
-    //Test
+    implementation(Deps.Arch.retrofit2)
+    implementation(Deps.Arch.loggingInterceptor)
+    implementation(Deps.Arch.coroutinesCore)
+    implementation(Deps.Arch.coreHiltAndroid)
+
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
