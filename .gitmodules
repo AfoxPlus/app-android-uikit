@@ -1,0 +1,3 @@
+[submodule "buildSrc/src/main/kotlin/app-android-dependencies"]
+	path = buildSrc/src/main/kotlin/app-android-dependencies
+	url = https://github.com/AfoxPlus/app-android-dependencies.git
