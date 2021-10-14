@@ -16,6 +16,12 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
       - name: Run lint
         run: ./gradlew module:lint
 
@@ -23,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: lint_report
-          path: app/build/reports/lint-results.html
+          path: module/build/reports/lint-results.html
 
   unit-test:
     name: Unit Test
@@ -36,6 +42,12 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
       - name: Run tests
         run: ./gradlew module:test
 
@@ -43,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: unit_test_report
-          path: app/build/reports/tests/testDebugUnitTest/
+          path: module/build/reports/tests/testDebugUnitTest/
 
   jacoco:
     name: Coverage Test
@@ -56,6 +68,12 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
       - name: Run Jacoco Test Report
         run: ./gradlew module:jacocoTestReport
 
@@ -63,28 +81,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: jacoco_test_report
-          path: app/build/reports/jacoco/jacocoTestReport/
+          path: module/build/reports/jacoco/jacocoTestReport/
 
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
-
-          #  sonarqube:
-          #    name: Analysis Code
-          #needs: [ jacoco ]
-          #runs-on: ubuntu-latest
-          #steps:
-          #- name: Checkout the code
-          #uses: actions/checkout@v2
-          #
-          #- name: set up JDK 11
-          #uses: actions/setup-java@v1
-          #with:
-          #java-version: 11
-
-          #- name: Make Gradle executable
-          #run: chmod +x ./gradlew
-
-          #- name: SonarCloud Scan
-          #run: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }} -Dsonar.host.url="https://sonarcloud.io/"
-        #env:
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
