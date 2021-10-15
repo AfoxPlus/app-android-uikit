@@ -3,10 +3,10 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
-    id("maven-publish")
 }
 
 apply(from = "jacoco.gradle")
+apply(from = "distribution.gradle")
 
 android {
     compileSdk = Versions.compileSdkVersion
