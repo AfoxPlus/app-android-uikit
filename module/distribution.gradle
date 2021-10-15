@@ -5,13 +5,13 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.afoxplus.uikit'
+                groupId = 'com.afoxplus.android'
                 artifactId = 'uikit'
                 version = '1.0.0'
             }
             debug(MavenPublication) {
                 from components.debug
-                groupId = 'com.afoxplus.uikit'
+                groupId = 'com.afoxplus.android'
                 artifactId = 'uikit'
                 version = "1.0.0-SNAPSHOT"
             }
