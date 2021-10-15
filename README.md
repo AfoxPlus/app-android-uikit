@@ -1,4 +1,5 @@
 # Welcome to module-android-uikit!
+[![](https://jitpack.io/v/AfoxPlus/app-android-uikit.svg)](https://jitpack.io/#AfoxPlus/app-android-uikit)
 
 UIKit is an library for UI Orders application
 
