@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("dagger.hilt.android.plugin")
 }
 
 apply(from = "jacoco.gradle")
@@ -27,6 +28,7 @@ android {
             )
         }
     }
+    buildFeatures { viewBinding = true }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -38,17 +40,16 @@ android {
 
 dependencies {
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
-
-    implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.core)
+    implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.appcompat)
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)
-    implementation(Deps.Arch.retrofit2)
-    implementation(Deps.Arch.loggingInterceptor)
+    api(Deps.Arch.retrofit2)
+    api(Deps.Arch.loggingInterceptor)
     implementation(Deps.Arch.coroutinesCore)
-    implementation(Deps.Arch.coreHiltAndroid)
-
+    implementation(Deps.Arch.hiltAndroid)
+    kapt(Deps.Arch.hiltCompiler)
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)

@@ -1,8 +1,10 @@
 plugins {
     id("com.android.application")
+    id("dagger.hilt.android.plugin")
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+
 }
 
 android {
@@ -28,6 +30,8 @@ android {
             )
         }
     }
+    buildFeatures { viewBinding = true }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -35,23 +39,19 @@ android {
 
     kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
 
-    buildFeatures { viewBinding = true }
 }
 
 dependencies {
-    //Libs
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
-    //kotlin
     implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.core)
-    //View
     implementation(Deps.Jetpack.appcompat)
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)
-    //Test
+    implementation(Deps.Arch.hiltAndroid)
+    kapt(Deps.Arch.hiltCompiler)
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
-    //Modules
     implementation(project(mapOf("path" to ":module")))
 }
