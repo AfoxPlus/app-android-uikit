@@ -50,6 +50,8 @@ dependencies {
     implementation(Deps.Arch.coroutinesCore)
     implementation(Deps.Arch.hiltAndroid)
     kapt(Deps.Arch.hiltCompiler)
+    api(Deps.Arch.gson)
+    api(Deps.Arch.loggingInterceptor)
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
