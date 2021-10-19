@@ -1,9 +1,10 @@
-name: Android Build UIKit QA
+name: Android Build QA
 
 on:
   push:
     branches:
-      - develop
+      - '*'
+      - '!master'
 
 jobs:
   lint:
@@ -39,14 +40,14 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
       - name: Submodule Init
         run: git submodule init
 
       - name: Submodule Update
         run: git submodule update
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
 
       - name: Run tests
         run: ./gradlew module:test
@@ -65,14 +66,14 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
       - name: Submodule Init
         run: git submodule init
 
       - name: Submodule Update
         run: git submodule update
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
 
       - name: Run Jacoco Test Report
         run: ./gradlew module:jacocoTestReport
@@ -85,3 +86,59 @@ jobs:
 
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
+
+  sonarqube:
+    name: Analysis Code
+    needs: [ jacoco ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
+      - name: SonarCloud Scan
+        run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=afoxplus -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  artifact:
+    name: Generate Artifact
+    needs: [ sonarqube ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
+      - name: Upload Artifact
+        env:
+          REPO_USERID: ${{secrets.REPO_USERID}}
+          REPO_TOKEN: ${{secrets.REPO_TOKEN}}
+        run: ./gradlew module:publishDebugPublicationToGithubPackagesRepository

@@ -7,7 +7,8 @@ plugins {
 }
 
 apply(from = "jacoco.gradle")
-apply(from = "distribution.gradle")
+apply(from = "distribution.gradle.kts")
+apply(from = "sonarqube.gradle")
 
 android {
     compileSdk = Versions.compileSdkVersion

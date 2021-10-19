@@ -24,11 +24,10 @@ android {
 
     sonarqube {
         properties {
-            property("sonar.projectKey", org.gradle.api.artifacts.Configuration.applicationId)
-            property("sonar.organization", "afoxplus")
-            property("sonar.projectName", org.gradle.api.artifacts.Configuration.artifactId)
+            property("sonar.projectKey", ConfigApp.applicationId)
+            property("sonar.projectName", ConfigApp.artifactId)
             property("sonar.projectDescription", "Module")
-            property("sonar.projectVersion", org.gradle.api.artifacts.Configuration.version)
+            property("sonar.projectVersion", ConfigApp.version)
             property("sonar.projectBaseDir", rootProject.rootDir.toString() + "/module")
             property("sonar.sources", "./src/main/")
             property("sonar.sourceEncoding", "UTF-8")
