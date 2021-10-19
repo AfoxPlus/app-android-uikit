@@ -6,9 +6,9 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-apply(from = "jacoco.gradle")
-apply(from = "distribution.gradle.kts")
 apply(from = "sonarqube.gradle")
+apply(from = "jacoco.gradle")
+apply(from = "upload.gradle")
 
 android {
     compileSdk = Versions.compileSdkVersion
