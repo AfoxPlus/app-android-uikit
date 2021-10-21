@@ -4,7 +4,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
-
 }
 
 android {
@@ -21,7 +20,6 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -33,12 +31,11 @@ android {
     buildFeatures { viewBinding = true }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
-
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
 }
 
 dependencies {
