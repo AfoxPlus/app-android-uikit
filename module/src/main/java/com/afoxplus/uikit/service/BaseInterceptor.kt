@@ -13,9 +13,9 @@ interface BaseInterceptor : Interceptor {
     companion object {
         val JSON_MEDIA_TYPE = "application/json".toMediaTypeOrNull()
 
-        inline operator fun invoke(
+        operator fun invoke(
             context: Context,
-            crossinline block: (chain: Interceptor.Chain) -> Response
+            block: (chain: Interceptor.Chain) -> Response
         ): Interceptor = Interceptor { chain ->
             if (!context.isConnected() || context.isAirplaneModeActive()) {
                 throw NetworkException()
