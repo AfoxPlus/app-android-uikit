@@ -12,7 +12,7 @@ android {
     buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
-        applicationId = "com.afoxplus.app_android_home.demo"
+        applicationId = "com.afoxplus.uikit.demo"
         minSdk = Versions.minSdkVersion
         targetSdk = Versions.targetSdkVersion
         versionCode = 1
