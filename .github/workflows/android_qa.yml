@@ -3,7 +3,8 @@ name: Android Build QA
 on:
   push:
     branches:
-      - develop
+      - '*'
+      - '!master'
 
 jobs:
   lint:
@@ -105,6 +106,7 @@ jobs:
     name: Generate Artifact
     needs: [ sonarqube ]
     runs-on: ubuntu-latest
+    if: contains('refs/heads/develop', github.ref)
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2

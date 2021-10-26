@@ -10,22 +10,22 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = ConfigApp.groupId
-                artifactId = ConfigApp.artifactId
+                groupId = ConfigureApp.groupId
+                artifactId = ConfigureApp.artifactId
                 version = versionApp
             }
 
             debug(MavenPublication) {
                 from components.debug
-                groupId = ConfigApp.groupId
-                artifactId = ConfigApp.artifactId
+                groupId = ConfigureApp.groupId
+                artifactId = ConfigureApp.artifactId
                 version = versionApp
             }
         }
         repositories {
             maven {
                 name = "GithubPackages"
-                url = ConfigApp.urlRepoDependencies
+                url = ConfigureApp.urlRepoDependencies
                 allowInsecureProtocol(true)
                 credentials {
                     username = repoUsername
