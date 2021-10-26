@@ -16,7 +16,7 @@ git submodule update
 ```kotlin
 dependencies {
     ...
-    implementation("com.afoxplus.android:uikit:1.0.0")
+    implementation("com.afoxplus.android:uikit:1.1.0")
 }
 ```
 
