@@ -14,20 +14,23 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Submodule
-        uses: ./.github/workflows/submodule-action
-
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
       - name: Run lint
-        run: ./gradlew module:lintDebug
+        run: ./gradlew module:lint
 
       - name: Upload html test report
         uses: actions/upload-artifact@v2
         with:
           name: lint_report
-          path: module/build/reports/lint-results-debug.html
+          path: module/build/reports/lint-results.html
 
   unit-test:
     name: Unit Test
@@ -37,14 +40,17 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Submodule
-        uses: ./.github/workflows/submodule-action
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
 
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
       - name: Run tests
-        run: ./gradlew module:testDebug
+        run: ./gradlew module:test
 
       - name: Upload test report
         uses: actions/upload-artifact@v2
@@ -60,8 +66,11 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Submodule
-        uses: ./.github/workflows/submodule-action
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
 
       - name: Make Gradle executable
         run: chmod +x ./gradlew
@@ -98,7 +107,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: SonarCloud Scan
-        run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
+        run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=afoxplus -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -111,14 +120,23 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Submodule
-        uses: ./.github/workflows/submodule-action
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
 
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Submodule Init
+        run: git submodule init
+
+      - name: Submodule Update
+        run: git submodule update
+
       - name: Upload Artifact
         env:
-          REPO_USERID: ${{ secrets.REPO_USERID }}
-          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+          REPO_USERID: ${{secrets.REPO_USERID}}
+          REPO_TOKEN: ${{secrets.REPO_TOKEN}}
         run: ./gradlew module:publishDebugPublicationToGithubPackagesRepository
