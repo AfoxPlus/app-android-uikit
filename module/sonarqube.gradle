@@ -1,7 +1,7 @@
 apply plugin: "org.sonarqube"
 
 sonarqube {
-    version = "2.6.1"
+    version = "3.3"
 }
 
 android {
@@ -26,7 +26,7 @@ android {
         properties {
             property("sonar.projectKey", ConfigureApp.applicationId)
             property("sonar.organization", ConfigureApp.organization)
-            property("sonar.projectName", ConfigureApp.artifactId)
+            property("sonar.projectName", ConfigureApp.projectName)
             property("sonar.projectDescription", "This project is: $ConfigureApp.applicationId")
             property("sonar.projectVersion", ConfigureApp.version)
             property("sonar.projectBaseDir", "${projectDir.absolutePath}")
