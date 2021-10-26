@@ -24,11 +24,11 @@ android {
 
     sonarqube {
         properties {
-            property("sonar.projectKey", ConfigApp.applicationId)
-            property("sonar.organization", "AfoxPlus")
-            property("sonar.projectName", ConfigApp.artifactId)
-            property("sonar.projectDescription", "This project is: $ConfigApp.applicationId")
-            property("sonar.projectVersion", ConfigApp.version)
+            property("sonar.projectKey", ConfigureApp.applicationId)
+            property("sonar.organization", ConfigureApp.organization)
+            property("sonar.projectName", ConfigureApp.artifactId)
+            property("sonar.projectDescription", "This project is: $ConfigureApp.applicationId")
+            property("sonar.projectVersion", ConfigureApp.version)
             property("sonar.projectBaseDir", "${projectDir.absolutePath}")
             property("sonar.sources", "./src/main/")
             property("sonar.sourceEncoding", "UTF-8")
