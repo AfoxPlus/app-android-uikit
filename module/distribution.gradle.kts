@@ -5,7 +5,7 @@ version = generateVersion(ConfigApp.version)
 
 fun generateVersion(version: String): String {
     val branchName = getBranchName()
-    val isDevelopBranch = "develop" == branchName
+    val isDevelopBranch = "master" == branchName
     if (isDevelopBranch) {
         return version
     }
