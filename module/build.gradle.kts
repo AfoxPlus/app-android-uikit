@@ -7,7 +7,7 @@ plugins {
 }
 
 apply(from = "sonarqube.gradle")
-apply(from = "jacoco.gradle")
+//apply(from = "jacoco.gradle")
 apply(from = "upload.gradle")
 
 android {
@@ -38,10 +38,6 @@ android {
 
     kotlinOptions{
         jvmTarget = "${JavaVersion.VERSION_11}"
-    }
-
-    kapt {
-        correctErrorTypes = true
     }
 }
 
