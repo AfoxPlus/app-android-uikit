@@ -1,15 +1,17 @@
-name: Android Build QA
+name: Android Devops
 
 on:
   push:
     branches:
-      - '*'
-      - '!master'
+      - 'develop'
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    env:
+      REPO_USERID: ${{ secrets.REPO_USERID }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -33,6 +35,9 @@ jobs:
     name: Unit Test
     needs: [ lint ]
     runs-on: ubuntu-latest
+    env:
+      REPO_USERID: ${{ secrets.REPO_USERID }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -44,7 +49,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run tests
-        run: ./gradlew module:testDebug
+        run: ./gradlew module:testDebugUnitTest
 
       - name: Upload test report
         uses: actions/upload-artifact@v2
@@ -52,10 +57,42 @@ jobs:
           name: unit_test_report
           path: module/build/reports/tests/testDebugUnitTest/
 
-  sonarqube:
-    name: Analysis Code
+  jacoco:
+    name: Coverage Test
     needs: [ unit-test ]
     runs-on: ubuntu-latest
+    env:
+      REPO_USERID: ${{ secrets.REPO_USERID }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Submodule
+        uses: ./.github/workflows/submodule-action
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
+      - name: Run Jacoco Test Report
+        run: ./gradlew module:jacocoTestReport
+
+      - name: Upload coverage test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: jacoco_test_report
+          path: module/build/reports/jacoco/jacocoTestReport/
+
+      - name: Run Jacoco Test Coverage Verification
+        run: ./gradlew module:jacocoTestCoverageVerification
+
+  sonarqube:
+    name: Analysis Code
+    needs: [ jacoco ]
+    runs-on: ubuntu-latest
+    env:
+      REPO_USERID: ${{ secrets.REPO_USERID }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -71,16 +108,27 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Run lint
+        run: ./gradlew module:lintDebug
+
+      - name: Run tests
+        run: ./gradlew module:testDebugUnitTest
+
+      - name: Run Jacoco Test Report
+        run: ./gradlew module:jacocoTestReport
+
       - name: SonarCloud Scan
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   artifact:
-    name: Generate Artifact
+    name: Artifact
     needs: [ sonarqube ]
     runs-on: ubuntu-latest
-    if: contains('refs/heads/develop', github.ref)
+    env:
+      REPO_USERID: ${{ secrets.REPO_USERID }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -88,11 +136,13 @@ jobs:
       - name: Submodule
         uses: ./.github/workflows/submodule-action
 
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
       - name: Upload Artifact
-        env:
-          REPO_USERID: ${{ secrets.REPO_USERID }}
-          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-        run: ./gradlew module:publishDebugPublicationToGithubPackagesRepository
+        run: ./gradlew module:publishReleasePublicationToGithubPackagesRepository
