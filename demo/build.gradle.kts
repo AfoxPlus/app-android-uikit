@@ -17,18 +17,18 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = Versions.testInstrumentationRunner
-        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
-    buildFeatures { viewBinding = true }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -36,6 +36,12 @@ android {
     }
 
     kotlinOptions.jvmTarget = "${JavaVersion.VERSION_11}"
+
+    buildFeatures { viewBinding = true }
+
+    lint {
+        isCheckDependencies = true
+    }
 }
 
 dependencies {
@@ -43,12 +49,16 @@ dependencies {
     implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.core)
     implementation(Deps.Jetpack.appcompat)
+
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)
+
     implementation(Deps.Arch.hiltAndroid)
     kapt(Deps.Arch.hiltCompiler)
+
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
+
     implementation(project(mapOf("path" to ":module")))
 }

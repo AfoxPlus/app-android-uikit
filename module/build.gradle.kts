@@ -3,11 +3,12 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("maven-publish")
     id("dagger.hilt.android.plugin")
 }
 
 apply(from = "sonarqube.gradle")
-//apply(from = "jacoco.gradle")
+apply(from = "jacoco.gradle")
 apply(from = "upload.gradle")
 
 android {
@@ -23,13 +24,23 @@ android {
 
     buildTypes {
         getByName("release") {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            buildConfigField("String", "EXAMPLE_FIELD", "\"example-release\"")
+        }
+
+        getByName("debug") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
+            buildConfigField("String", "EXAMPLE_FIELD", "\"example-debug\"")
         }
     }
-    buildFeatures { viewBinding = true }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -39,6 +50,12 @@ android {
     kotlinOptions{
         jvmTarget = "${JavaVersion.VERSION_11}"
     }
+
+    buildFeatures { viewBinding = true }
+
+    lint {
+        isCheckDependencies = true
+    }
 }
 
 dependencies {
@@ -46,8 +63,10 @@ dependencies {
     implementation(Deps.Jetpack.core)
     implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.appcompat)
+
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)
+
     implementation(Deps.Arch.retrofit2)
     implementation(Deps.Arch.loggingInterceptor)
     implementation(Deps.Arch.coroutinesCore)
@@ -55,6 +74,7 @@ dependencies {
     kapt(Deps.Arch.hiltCompiler)
     implementation(Deps.Arch.gson)
     implementation(Deps.Arch.loggingInterceptor)
+
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
