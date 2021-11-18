@@ -145,4 +145,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Upload Artifact
-        run: ./gradlew module:publishDebugPublicationToGithubPackagesRepository
+        run: ./gradlew module:publishAarPublicationToGithubPackagesRepository
