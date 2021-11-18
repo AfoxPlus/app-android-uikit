@@ -29,7 +29,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "EXAMPLE_FIELD", "\"example-release\"")
         }
 
         getByName("debug") {
@@ -38,7 +37,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "EXAMPLE_FIELD", "\"example-debug\"")
         }
     }
 
