@@ -63,4 +63,4 @@ jobs:
         env:
           REPO_USERID: ${{ secrets.REPO_USERID }}
           REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-        run: ./gradlew module:publishDebugPublicationToGithubPackagesRepository
+        run: ./gradlew module:publishAarPublicationToGithubPackagesRepository

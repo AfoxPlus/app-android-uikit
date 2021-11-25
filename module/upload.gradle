@@ -5,21 +5,20 @@ def repoUsername = findProperty("REPO_USERID") ?: System.getenv("REPO_USERID")
 def repoPassword = findProperty("REPO_TOKEN") ?: System.getenv("REPO_TOKEN")
 def versionApp = version
 
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-                from components.release
+            aar(MavenPublication) {
                 groupId = ConfigureApp.groupId
                 artifactId = ConfigureApp.artifactId
                 version = versionApp
-            }
-
-            debug(MavenPublication) {
-                from components.debug
-                groupId = ConfigureApp.groupId
-                artifactId = ConfigureApp.artifactId
-                version = versionApp
+                artifact(bundleReleaseAar)
+                artifact(sourceJar)
             }
         }
         repositories {
