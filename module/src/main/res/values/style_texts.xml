@@ -2,14 +2,19 @@
 <resources>
 
     <style name="UIKit" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/uikit_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/dark_01</item>
+    </style>
+
+    <style name="UIKit.Number" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textColor">@color/dark_01</item>
     </style>
 
     <style name="Title_01" parent="UIKit">
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textSize">44sp</item>
-        <item name="android:fontFamily">@font/uikit_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
         <item name="android:lineSpacingExtra">-12sp</item>
     </style>
 
@@ -17,14 +22,14 @@
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textSize">31sp</item>
         <item name="android:lineSpacingExtra">-4sp</item>
-        <item name="android:fontFamily">@font/uikit_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name="Title_05" parent="UIKit">
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textSize">24sp</item>
         <item name="android:lineSpacingExtra">-4sp</item>
-        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
 
     <style name="Title_08" parent="UIKit">
@@ -36,13 +41,13 @@
     <style name="Title_09" parent="UIKit">
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
 
     <style name="Title_10" parent="UIKit">
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/uikit_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="Paragraph_03" parent="UIKit">
@@ -51,6 +56,18 @@
 
     <style name="Paragraph_04" parent="UIKit">
         <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Number_18" parent="UIKit.Number">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Number_14" parent="UIKit.Number">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:lineSpacingExtra">0sp</item>
     </style>
 
 </resources>
