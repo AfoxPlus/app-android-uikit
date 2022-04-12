@@ -37,7 +37,10 @@ android {
 
     kotlinOptions.jvmTarget = "${JavaVersion.VERSION_11}"
 
-    buildFeatures { viewBinding = true }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 
     lint {
         isCheckDependencies = true
@@ -54,6 +57,9 @@ dependencies {
     implementation(Deps.UI.constraintLayout)
 
     implementation(Deps.Arch.hiltAndroid)
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     kapt(Deps.Arch.hiltCompiler)
 
     testImplementation(Deps.Test.jUnit)
