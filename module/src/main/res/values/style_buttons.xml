@@ -7,11 +7,11 @@
         <item name="android:textSize">16sp</item>
         <item name="cornerRadius">20dp</item>
         <item name="android:textColor">@color/light_02</item>
-        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
 
     <style name="UIKit.TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
-        <item name="fontFamily">@font/uikit_medium</item>
+        <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">12sp</item>
         <item name="android:lineSpacingExtra">0sp</item>
     </style>

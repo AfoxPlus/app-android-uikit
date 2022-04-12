@@ -1,12 +1,33 @@
 package com.afoxplus.uikit.demo.components.quantitybutton
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.afoxplus.uikit.demo.R
+import androidx.appcompat.app.AppCompatActivity
+import com.afoxplus.uikit.demo.databinding.ActivityQuantityButtonBinding
 
 class QuantityButtonActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityQuantityButtonBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quantity_button)
+        binding = ActivityQuantityButtonBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initComponents()
+    }
+
+    private fun initComponents() {
+        binding.quantityButtonDelete.onDeleteActionListener = {
+            println("Here on delete action listener")
+        }
+
+        binding.quantityButtonEditable.onEditActionListener = {
+            println("Here on edit action listener")
+        }
+
+        binding.quantityButtonQuantity.onValueChangeListener = {
+            println("Here on value change: $it")
+        }
+
+        binding.quantityButtonQuantity.onDeleteActionListener = {
+            println("Here on delete action listener")
+        }
     }
 }

@@ -6,4 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".components.quantitybutton.QuantityButtonActivity">
 
+    <com.afoxplus.uikit.customview.quantitybutton.QuantityButton
+        android:id="@+id/quantityButtonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:buttonType="delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.afoxplus.uikit.customview.quantitybutton.QuantityButton
+        android:id="@+id/quantityButtonQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:buttonType="quantity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantityButtonDelete"
+        app:value="5" />
+
+    <com.afoxplus.uikit.customview.quantitybutton.QuantityButton
+        android:id="@+id/quantityButtonEditable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:buttonType="editable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantityButtonQuantity"
+        app:value="50" />
 </androidx.constraintlayout.widget.ConstraintLayout>
