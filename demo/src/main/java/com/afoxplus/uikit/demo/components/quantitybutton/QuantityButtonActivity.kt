@@ -2,6 +2,7 @@ package com.afoxplus.uikit.demo.components.quantitybutton
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.afoxplus.uikit.customview.quantitybutton.ButtonType
 import com.afoxplus.uikit.demo.databinding.ActivityQuantityButtonBinding
 
 class QuantityButtonActivity : AppCompatActivity() {
@@ -29,5 +30,9 @@ class QuantityButtonActivity : AppCompatActivity() {
         binding.quantityButtonQuantity.onDeleteActionListener = {
             println("Here on delete action listener")
         }
+
+        binding.quantityButtonDynamicQuantity.value = 2
+
+        binding.quantityButtonDynamicType.buttonType = ButtonType.DELETE
     }
 }
