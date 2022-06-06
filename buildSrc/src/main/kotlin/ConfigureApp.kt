@@ -5,5 +5,5 @@ object ConfigureApp {
     const val applicationId = "app.android.uikit"
     const val groupId = "com.afoxplus.android"
     const val artifactId = "uikit"
-    const val version = "2.2.0"
+    const val version = "2.3.0"
 }

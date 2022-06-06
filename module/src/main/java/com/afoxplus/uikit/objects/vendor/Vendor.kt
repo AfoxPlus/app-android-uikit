@@ -1,6 +1,7 @@
 package com.afoxplus.uikit.objects.vendor
 
 data class Vendor(
-    val mesaId: String,
-    val restaurantId: String
+    val tableId: String,
+    val restaurantId: String,
+    val waiterId: String? = null
 )

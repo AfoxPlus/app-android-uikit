@@ -21,4 +21,3 @@ class VendorAction @Inject constructor() : VendorShared {
         return vendor
     }
 }
-
