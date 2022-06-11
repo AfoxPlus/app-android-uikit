@@ -16,13 +16,21 @@ class QuantityButton @JvmOverloads constructor(
     private val binding =
         CustomViewButtonQuantityBinding.inflate(LayoutInflater.from(this.context), this, true)
     var buttonType: ButtonType = ButtonType.QUANTITY
+        set(value) {
+            field = value
+            configComponentsVisibility()
+        }
+
     var quantityPlushIcon: Int = R.drawable.ic_plus
     var quantityMinusIcon: Int = R.drawable.ic_minus
     var editIcon: Int = R.drawable.ic_edit
     var deleteIcon: Int = R.drawable.ic_delete
 
     var value = 0
-
+        set(value) {
+            field = value
+            configComponentsVisibility()
+        }
     var onValueChangeListener: (Int) -> Unit = {}
     var onEditActionListener: () -> Unit = {}
     var onDeleteActionListener: () -> Unit = {}
@@ -72,6 +80,8 @@ class QuantityButton @JvmOverloads constructor(
 
     private fun configRightIconDelete() {
         binding.buttonActionRight.setImageResource(deleteIcon)
+        binding.buttonActionValue.visibility = View.GONE
+        binding.buttonActionLeft.visibility = View.GONE
     }
 
     private fun configLeftComponentVisibility() {
@@ -92,6 +102,7 @@ class QuantityButton @JvmOverloads constructor(
     private fun changeRightIconToEdit() {
         binding.buttonActionRight.setImageResource(editIcon)
         binding.buttonActionValue.visibility = View.VISIBLE
+        binding.buttonActionLeft.visibility = View.GONE
     }
 
     private fun onLeftAction() {
