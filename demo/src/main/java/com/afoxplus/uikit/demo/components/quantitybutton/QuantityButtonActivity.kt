@@ -4,14 +4,28 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.afoxplus.uikit.customview.quantitybutton.ButtonType
 import com.afoxplus.uikit.demo.databinding.ActivityQuantityButtonBinding
+import com.afoxplus.uikit.objects.vendor.Vendor
+import com.afoxplus.uikit.objects.vendor.VendorAction
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class QuantityButtonActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityQuantityButtonBinding
+
+    @Inject
+    lateinit var vendorAction: VendorAction
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuantityButtonBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initComponents()
+
+        //Example Vendor Inject
+        println("Here - QuantityButtonActivity: ${vendorAction.fetch()}")
+        vendorAction.save(Vendor("789456", "123456"))
     }
 
     private fun initComponents() {
