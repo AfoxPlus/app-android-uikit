@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/customEditTextLayout"
+    style="@style/UIKit.EditTextAppearance.OutlinedBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    app:errorIconDrawable="@null"
+    tools:hint="My hint">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/customEditTextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:lines="1"
+        tools:text="This the value" />
+</com.google.android.material.textfield.TextInputLayout>
