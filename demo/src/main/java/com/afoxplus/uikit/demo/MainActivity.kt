@@ -3,6 +3,7 @@ package com.afoxplus.uikit.demo
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
 import com.afoxplus.uikit.demo.databinding.ActivityMainBinding
 import com.afoxplus.uikit.objects.vendor.Vendor
@@ -31,6 +32,9 @@ class MainActivity : AppCompatActivity() {
     private fun loadComponents() {
         binding.openQuantity.setOnClickListener {
             startActivity(Intent(this, QuantityButtonActivity::class.java))
+        }
+        binding.openEditText.setOnClickListener {
+            startActivity(Intent(this, EditTextActivity::class.java))
         }
     }
 
