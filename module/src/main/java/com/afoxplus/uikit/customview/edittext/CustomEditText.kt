@@ -1,6 +1,5 @@
 package com.afoxplus.uikit.customview.edittext
 
-import android.R.attr.maxLength
 import android.content.Context
 import android.text.InputFilter
 import android.text.InputFilter.LengthFilter
@@ -11,7 +10,6 @@ import androidx.core.widget.doOnTextChanged
 import com.afoxplus.uikit.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-
 
 class CustomEditText @JvmOverloads constructor(
     context: Context,
@@ -50,6 +48,8 @@ class CustomEditText @JvmOverloads constructor(
             field = value
             configMaxTextSize()
         }
+
+    var onTextChangeListener: (String) -> Unit = {}
 
     init {
         loadAttributes()
@@ -92,12 +92,16 @@ class CustomEditText @JvmOverloads constructor(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
+        mEditText.hint = ""
+        setOnTextChange()
         addView(mEditText, 0, parameters)
     }
 
-    fun setOnTextChange(onTextChange: (String) -> Unit) {
+    private fun setOnTextChange() {
         mEditText.doOnTextChanged { text, _, _, _ ->
-            onTextChange(text.toString())
+            error = null
+            isErrorEnabled = false
+            onTextChangeListener(text.toString())
         }
     }
 

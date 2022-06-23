@@ -24,12 +24,16 @@ class EditTextActivity : AppCompatActivity() {
             error = "This is an invalid email"
         }
 
-        binding.editText1.setOnTextChange {
+        binding.editText1.onTextChangeListener = {
             println("Here is edittext change value $it")
         }
 
         binding.editText1.setOnFocusChangeListener {
             println("Here is edittext focus value $it")
+        }
+
+        binding.btnSetError.setOnClickListener {
+            binding.editText2.error = "This is an error"
         }
     }
 }

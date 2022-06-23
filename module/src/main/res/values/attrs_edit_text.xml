@@ -6,5 +6,6 @@
         <attr name="android:maxLines" />
         <attr name="android:inputType" />
         <attr name="android:maxLength" />
+        <attr name="android:hint"/>
     </declare-styleable>
 </resources>

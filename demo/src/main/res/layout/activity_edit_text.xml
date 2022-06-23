@@ -8,12 +8,13 @@
 
     <com.afoxplus.uikit.customview.edittext.CustomEditText
         android:id="@+id/editText1"
-        style="@style/UIKit.EditTextAppearance.OutlinedBox"
+        style="@style/UIKit.EditTextAppearance.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp24"
         android:layout_marginEnd="@dimen/dp16"
+        android:hint="Nombre*"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,4 +74,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editText4" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSetError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Error"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
