@@ -1,11 +1,17 @@
-apply(plugin = "maven-publish")
+version = obtainVersion(ConfigureApp.version)
 
-version = generateVersion(ConfigureApp.version)
+fun obtainVersion(version: String): String {
+    val version = generateVersion(ConfigureApp.version)
+    printSignature()
+    printVersionModule(version)
+    printDependencyModule(version)
+    return version
+}
 
 fun generateVersion(version: String): String {
     val branchName = getBranchName()
-    val isDevelopBranch = "develop" == branchName
-    if (isDevelopBranch) {
+    val isReleaseBranch = "develop" == branchName
+    if (isReleaseBranch) {
         return version
     }
     val sb: StringBuilder = StringBuilder()
@@ -28,6 +34,23 @@ fun getBranchName(): String {
     return sb.toString().trim().replace("\n", "")
 }
 
-tasks.register("printVersion") {
-    println(generateVersion(ConfigureApp.version))
+fun printSignature() {
+    println(
+        """
+            __            _____  _           
+     /\    / _|          |  __ \| |          
+    /  \  | |_ _____  __ | |__) | |_   _ ___ 
+   / /\ \ |  _/ _ \ \/ / |  ___/| | | | / __|
+  / ____ \| || (_) >  <  | |    | | |_| \__ \
+ /_/    \_|_| \___/_/\_\ |_|    |_|\__,_|___/
+        """.trimIndent()
+    )
+}
+
+fun printVersionModule(version: String) {
+    println("Version: $version")
+}
+
+fun printDependencyModule(version: String) {
+    println("Module: ${ConfigureApp.groupId}:${ConfigureApp.artifactId}:$version")
 }

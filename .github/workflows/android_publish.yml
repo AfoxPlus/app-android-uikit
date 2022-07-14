@@ -1,14 +1,17 @@
-name: Android Artifact
+name: Android Publish
 
-on: [ workflow_dispatch ]
+on:
+  push:
+    branches:
+      - 'master'
 
 env:
   REPO_USERID: ${{ secrets.REPO_USERID }}
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
-  artifact:
-    name: Artifact
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -26,6 +29,20 @@ jobs:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
 
+  code-analysis:
+    name: Code Analysis
+    needs: [ lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Configure Step
+        uses: ./.github/workflows/actions/configure
+
+      - name: Run Lint
+        uses: ./.github/workflows/actions/lint
+
       - name: Run Tests
         run: ./gradlew module:testDebugUnitTest
 
@@ -38,7 +55,7 @@ jobs:
       - name: Run Jacoco Test Report
         run: ./gradlew module:jacocoTestReport
 
-      - name: Upload Coverage Test Report
+      - name: Upload coverage test report
         uses: actions/upload-artifact@v2
         with:
           name: jacoco_test_report
@@ -52,8 +69,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run AssembleRelease
-        run: ./gradlew module:assembleRelease
+  tag:
+    name: Tag
+    needs: [ code-analysis ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-      - name: Run Upload Artifact
-        run: ./gradlew module:publishModulePublicationToArtifactRepository
+      - name: Configure Step
+        uses: ./.github/workflows/actions/configure
+
+      - name: Create Tag Release
+        run: |
+          currentVersion=`grep version ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
+          versionFormatted=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
+          echo "Version: $versionFormatted"
+          git tag $versionFormatted
+          git push origin --tags

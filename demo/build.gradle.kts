@@ -11,11 +11,11 @@ android {
     buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
-        applicationId = "com.afoxplus.uikit.demo"
+        applicationId = "${ConfigureApp.groupId}.${ConfigureApp.artifactId}"
         minSdk = Versions.minSdkVersion
         targetSdk = Versions.targetSdkVersion
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
         testInstrumentationRunner = Versions.testInstrumentationRunner
     }
 
@@ -28,6 +28,31 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
+
+        create("staging") {
+            initWith(getByName("debug"))
+            isDebuggable = true
+            isMinifyEnabled = false
+            isShrinkResources = false
+            applicationIdSuffix = ".staging"
+            versionNameSuffix = "-staging"
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
+        getByName("debug") {
+            isDebuggable = true
+            isMinifyEnabled = false
+            isShrinkResources = false
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
 
     compileOptions {
@@ -35,7 +60,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions.jvmTarget = "${JavaVersion.VERSION_11}"
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
 
     buildFeatures {
         viewBinding = true
@@ -43,7 +68,19 @@ android {
     }
 
     lint {
-        isCheckDependencies = true
+        disable.addAll(
+            listOf(
+                "TypographyFractions",
+                "TypographyQuotes",
+                "JvmStaticProvidesInObjectDetector",
+                "FieldSiteTargetOnQualifierAnnotation",
+                "ModuleCompanionObjects",
+                "ModuleCompanionObjectsNotInModuleParent"
+            )
+        )
+        checkDependencies = true
+        abortOnError = false
+        ignoreWarnings = false
     }
 }
 
@@ -57,14 +94,15 @@ dependencies {
     implementation(Deps.UI.constraintLayout)
 
     implementation(Deps.Arch.hiltAndroid)
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     kapt(Deps.Arch.hiltCompiler)
 
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
+
+    debugImplementation(Deps.Arch.chucker)
+    "stagingImplementation"(Deps.Arch.chucker)
+    releaseImplementation(Deps.Arch.chuckerNoOp)
 
     implementation(project(mapOf("path" to ":module")))
 }
