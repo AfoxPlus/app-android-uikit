@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - 'develop'
+      - 'RC**'
 
 jobs:
   check:
@@ -17,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Submodule
-        uses: ./.github/workflows/submodule-action
+        uses: ./.github/workflows/actions
 
       - name: set up JDK 11
         uses: actions/setup-java@v1

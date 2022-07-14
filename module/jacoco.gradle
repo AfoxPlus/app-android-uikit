@@ -1,4 +1,5 @@
 apply plugin: "jacoco"
+apply { from("filter.gradle") }
 
 jacoco {
     toolVersion = "0.8.7"
@@ -7,7 +8,7 @@ jacoco {
 android {
     buildTypes {
         debug {
-            testCoverageEnabled true
+            testCoverageEnabled false
         }
     }
     testOptions {
@@ -15,49 +16,46 @@ android {
             jacoco {
                 includeNoLocationClasses = true
                 jacoco.excludes = ['jdk.internal.*']
+                testLogging {
+                    events "passed", "skipped", "failed", "standardOut", "standardError"
+                    outputs.upToDateWhen { false }
+                    showStandardStreams = true
+                }
             }
+        }
+
+        sourceSets {
+            main.java.srcDirs += 'src/main/java'
+            test.java.srcDirs += 'src/test/java'
+            androidTest.java.srcDirs += 'src/androidTest/java'
         }
     }
 
-    def fileFilter = [
-            '*/$ViewInjector*.*',
-            '*/$ViewBinder*.*',
-            '**/R.class',
-            '*/R$.class',
-            '**/R2.class',
-            '*/R2$.class',
-            '*/BuildConfig.',
-            '*/Manifest.*',
-            '*/*Test.*',
-            'android/*/.*',
-            '*/_ViewBinding*.*',
-            '*/_Factory.*',
-            '*/_MembersInjector.*',
-            '*/$$Parcelable*.*'
-    ]
+    def fileFilter = getMyFilter()
 
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/javac/debug/classes", excludes: fileFilter)
     def kotlinTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug", excludes: fileFilter)
+
     def mainSrc = "${project.projectDir}/src/main/java"
     def kotlinSrc = "${project.projectDir}/src/main/kotlin"
 
     task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest'], group: 'jacocoReport') {
 
         reports {
-            xml.enabled = true
-            html.enabled = true
+            xml.enabled(true)
+            html.enabled(true)
         }
 
         getSourceDirectories().setFrom(files([mainSrc, kotlinSrc]))
         getClassDirectories().setFrom(files([debugTree, kotlinTree]))
-        getExecutionData().setFrom(files("${projectDir.absolutePath}/jacoco.exec"))
+        getExecutionData().setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
     }
 
     task jacocoTestCoverageVerification(type: JacocoCoverageVerification, dependsOn: 'jacocoTestReport', group: 'jacocoReport') {
 
         getSourceDirectories().setFrom(files([mainSrc, kotlinSrc]))
         getClassDirectories().setFrom(files([debugTree, kotlinTree]))
-        getExecutionData().setFrom(files("${projectDir.absolutePath}/jacoco.exec"))
+        getExecutionData().setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
 
         violationRules {
             setFailOnViolation(true)

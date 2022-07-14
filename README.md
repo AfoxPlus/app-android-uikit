@@ -1,5 +1,7 @@
 # Welcome to module-android-uikit!
 
+![GithubActions](https://github.com/afloxplus/app-android-uikit/actions/workflows/android_publish.yml/badge.svg?branch=master) ![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=app-android-uikit&metric=alert_status)
+
 UIKit is an library for UI Orders application
 
 ## Setup
@@ -16,7 +18,7 @@ git submodule update
 ```kotlin
 dependencies {
     ...
-    implementation("com.afoxplus.android:uikit:1.0.0-beta01")
+    implementation("com.afoxplus.android:uikit:2.1.1")
 }
 ```
 

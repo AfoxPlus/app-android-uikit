@@ -4,6 +4,7 @@
     <color name="dark_02">#141938</color>
     <color name="dark_03">#302F3C</color>
     <color name="dark_04">#474749</color>
+    <color name="dark_05">#474747</color>
     <color name="light_01">#FFFFFF</color>
     <color name="light_02">#FAFBFF</color>
     <color name="light_03">#F1F1F1</color>
@@ -11,4 +12,10 @@
     <color name="red_01">#fa0050</color>
     <color name="green_01">#08CA3E</color>
     <color name="orange_01">#E86A12</color>
+    <color name="orange_02">#EF6A62</color>
+    <color name="orange_03">#FFC8BD</color>
+    <color name="pink_01">#EF6A62</color>
+    <color name="pink_02">#FFC8BD</color>
+    <color name="gray_01">#C7C7C7</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

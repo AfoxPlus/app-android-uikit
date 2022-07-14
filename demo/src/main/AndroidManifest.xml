@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/UIKit.Theme">
         <activity
+            android:name=".components.edittext.EditTextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".components.quantitybutton.QuantityButtonActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/UIKit.NoActionBar.Light">
