@@ -1,5 +1,9 @@
 # app-android-uikit Changelog
 
+## Version 4.0.1
+### Updated
+- Se actualizo el upload.gradle.
+
 ## Version 4.0.0
 ### Updated
 - Se actualizo la version de gradle.

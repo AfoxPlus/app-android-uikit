@@ -11,7 +11,7 @@ def versionApp = version
 afterEvaluate {
     publishing {
         publications {
-            aar(MavenPublication) {
+            module(MavenPublication) {
                 groupId = ConfigureApp.groupId
                 artifactId = ConfigureApp.artifactId
                 version = versionApp
