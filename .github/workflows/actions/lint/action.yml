@@ -1,0 +1,8 @@
+name: "Lint"
+description: "Run command lint"
+runs:
+  using: "composite"
+  steps:
+    - name: Run Lint
+      run: ./gradlew module:lintDebug
+      shell: bash

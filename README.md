@@ -1,5 +1,7 @@
 # Welcome to module-android-uikit!
 
+![GithubActions](https://github.com/afoxplus/app-android-uikit/actions/workflows/android_publish.yml/badge.svg?branch=master) ![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=afoxplus-app-android-uikit&metric=alert_status)
+
 UIKit is an library for UI Orders application
 
 ## Setup

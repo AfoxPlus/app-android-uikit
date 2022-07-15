@@ -1,14 +1,12 @@
 apply plugin: 'maven-publish'
-apply { from("distribution.gradle.kts") }
 
-def repoUsername = findProperty("REPO_USERID") ?: System.getenv("REPO_USERID")
-def repoPassword = findProperty("REPO_TOKEN") ?: System.getenv("REPO_TOKEN")
-def versionApp = version
-
-task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier "sources"
+apply {
+    from("distribution.gradle.kts")
 }
+
+def repoUsername = findProperty("REPO_USERID_AFOX") ?: System.getenv("REPO_USERID")
+def repoPassword = findProperty("REPO_TOKEN_AFOX") ?: System.getenv("REPO_TOKEN")
+def versionApp = version
 
 afterEvaluate {
     publishing {
@@ -17,13 +15,14 @@ afterEvaluate {
                 groupId = ConfigureApp.groupId
                 artifactId = ConfigureApp.artifactId
                 version = versionApp
-                artifact(bundleReleaseAar)
-                artifact(sourceJar)
+                artifacts {
+                    artifact("$buildDir/outputs/aar/module-release.aar")
+                }
             }
         }
         repositories {
             maven {
-                name = "GithubPackages"
+                name = "Artifact"
                 url = ConfigureApp.urlRepoDependencies
                 allowInsecureProtocol(true)
                 credentials {

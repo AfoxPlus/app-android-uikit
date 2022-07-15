@@ -1,14 +1,18 @@
-name: Android Artifact
+name: Android Deploy
 
-on: [ workflow_dispatch ]
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'RC**'
 
 env:
   REPO_USERID: ${{ secrets.REPO_USERID }}
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
-  artifact:
-    name: Artifact
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -26,6 +30,20 @@ jobs:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
 
+  code-analysis:
+    name: Code Analysis
+    needs: [ lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Configure Step
+        uses: ./.github/workflows/actions/configure
+
+      - name: Run Lint
+        uses: ./.github/workflows/actions/lint
+
       - name: Run Tests
         run: ./gradlew module:testDebugUnitTest
 
@@ -38,7 +56,7 @@ jobs:
       - name: Run Jacoco Test Report
         run: ./gradlew module:jacocoTestReport
 
-      - name: Upload Coverage Test Report
+      - name: Upload coverage test report
         uses: actions/upload-artifact@v2
         with:
           name: jacoco_test_report
@@ -51,6 +69,17 @@ jobs:
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  artifact:
+    name: Artifact
+    needs: [ code-analysis ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Configure Step
+        uses: ./.github/workflows/actions/configure
 
       - name: Run AssembleRelease
         run: ./gradlew module:assembleRelease

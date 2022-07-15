@@ -3,13 +3,14 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
-    id("maven-publish")
     id("dagger.hilt.android.plugin")
 }
 
-apply(from = "sonarqube.gradle")
-apply(from = "jacoco.gradle")
-apply(from = "upload.gradle")
+apply {
+    from("sonarqube.gradle")
+    from("jacoco.gradle")
+    from("upload.gradle")
+}
 
 android {
     compileSdk = Versions.compileSdkVersion
@@ -20,10 +21,20 @@ android {
         targetSdk = Versions.targetSdkVersion
         testInstrumentationRunner = Versions.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
+        renderscriptSupportModeEnabled = true
     }
 
     buildTypes {
         getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
+        create("staging") {
+            initWith(getByName("debug"))
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -45,14 +56,31 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions{
-        jvmTarget = "${JavaVersion.VERSION_11}"
-    }
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
 
     buildFeatures { viewBinding = true }
 
     lint {
-        isCheckDependencies = true
+        disable.addAll(
+            listOf(
+                "TypographyFractions",
+                "TypographyQuotes",
+                "JvmStaticProvidesInObjectDetector",
+                "FieldSiteTargetOnQualifierAnnotation",
+                "ModuleCompanionObjects",
+                "ModuleCompanionObjectsNotInModuleParent"
+            )
+        )
+        checkDependencies = true
+        abortOnError = false
+        ignoreWarnings = false
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
@@ -72,4 +100,8 @@ dependencies {
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
     androidTestImplementation(Deps.Test.espresso)
+
+    debugImplementation(Deps.Arch.chucker)
+    "stagingImplementation"(Deps.Arch.chucker)
+    releaseImplementation(Deps.Arch.chuckerNoOp)
 }
