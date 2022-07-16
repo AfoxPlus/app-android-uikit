@@ -1,4 +1,4 @@
-name: Android Check
+name: Android Validation
 
 on:
   pull_request:
@@ -6,41 +6,34 @@ on:
       - 'develop'
       - 'RC**'
 
+env:
+  REPO_USERID: ${{ secrets.REPO_USERID }}
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+
 jobs:
-  check:
-    name: Check
+  validation:
+    name: Validation
     runs-on: ubuntu-latest
-    env:
-      REPO_USERID: ${{ secrets.REPO_USERID }}
-      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
     steps:
-      - name: Checkout the code
+      - name: Checkout Ccode
         uses: actions/checkout@v2
 
-      - name: Submodule
-        uses: ./.github/workflows/actions
+      - name: Configure Step
+        uses: ./.github/workflows/actions/configure
 
-      - name: set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
-      - name: Run lint
-        run: ./gradlew module:lintDebug
-
-      - name: Upload html test report
+      - name: Run Lint
+        uses: ./.github/workflows/actions/lint
+        
+      - name: Upload Lint Test Report
         uses: actions/upload-artifact@v2
         with:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
-
-      - name: Run tests
+          
+      - name: Run Tests
         run: ./gradlew module:testDebugUnitTest
 
-      - name: Upload test report
+      - name: Upload Test Report
         uses: actions/upload-artifact@v2
         with:
           name: unit_test_report
@@ -49,7 +42,7 @@ jobs:
       - name: Run Jacoco Test Report
         run: ./gradlew module:jacocoTestReport
 
-      - name: Upload coverage test report
+      - name: Upload Coverage Test Report
         uses: actions/upload-artifact@v2
         with:
           name: jacoco_test_report
@@ -58,7 +51,7 @@ jobs:
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
 
-      - name: SonarCloud Scan
+      - name: Run SonarQube Scan
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
