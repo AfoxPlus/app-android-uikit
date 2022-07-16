@@ -15,7 +15,7 @@ jobs:
     name: Validation
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Ccode
+      - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Configure Step
