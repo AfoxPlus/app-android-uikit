@@ -40,17 +40,19 @@ android {
     def kotlinSrc = "${project.projectDir}/src/main/kotlin"
 
     task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest'], group: 'jacocoReport') {
-
-        getSourceDirectories().setFrom(files([mainSrc, kotlinSrc]))
-        getClassDirectories().setFrom(files([debugTree, kotlinTree]))
-        getExecutionData().setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
+        reports {
+            xml.required = true
+            html.required = true
+        }
+        sourceDirectories.from = files([mainSrc, kotlinSrc])
+        classDirectories.from = files([debugTree, kotlinTree])
+        executionData.from = files("${buildDir}/jacoco/testDebugUnitTest.exec")
     }
 
     task jacocoTestCoverageVerification(type: JacocoCoverageVerification, dependsOn: 'jacocoTestReport', group: 'jacocoReport') {
-
-        getSourceDirectories().setFrom(files([mainSrc, kotlinSrc]))
-        getClassDirectories().setFrom(files([debugTree, kotlinTree]))
-        getExecutionData().setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
+        sourceDirectories.from = files([mainSrc, kotlinSrc])
+        classDirectories.from = files([debugTree, kotlinTree])
+        executionData.from = files("${buildDir}/jacoco/testDebugUnitTest.exec")
 
         violationRules {
             setFailOnViolation(true)
@@ -61,5 +63,10 @@ android {
                 }
             }
         }
+    }
+
+    task jacocoTestCoverageViewResult(type: Exec, dependsOn: 'jacocoTestReport', group: 'jacocoReport') {
+        executable "sh"
+        args "-c", "open '${buildDir}/reports/jacoco/jacocoTestReport/html/index.html'"
     }
 }

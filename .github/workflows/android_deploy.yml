@@ -21,9 +21,6 @@ jobs:
       - name: Configure Step
         uses: ./.github/workflows/actions/configure
 
-      - name: Run AssembleRelease
-        run: ./gradlew module:assembleRelease
-
       - name: Cache local
         uses: actions/cache@v3
         with:
@@ -33,6 +30,9 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
 
   code-analysis:
     name: Code Analysis
