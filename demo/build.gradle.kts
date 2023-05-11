@@ -1,14 +1,16 @@
 plugins {
-    id("com.android.application")
-    id("dagger.hilt.android.plugin")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
+    id("com.android.application") version "7.3.1"
+    id("org.jetbrains.kotlin.android") version "1.7.20"
+    id("org.jetbrains.kotlin.kapt") version "1.7.20"
+    id("com.google.dagger.hilt.android") version "2.44.2"
+    id("org.jetbrains.kotlin.plugin.parcelize") version "1.7.20"
+    id("org.sonarqube") version "3.3"
+    id("jacoco")
 }
 
 android {
+    namespace = "com.afoxplus.uikit.demo"
     compileSdk = Versions.compileSdkVersion
-    buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
         applicationId = "${ConfigureApp.groupId}.${ConfigureApp.artifactId}"
@@ -86,7 +88,7 @@ android {
 
 dependencies {
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
-    implementation(Deps.Jetpack.kotlin)
+
     implementation(Deps.Jetpack.core)
     implementation(Deps.Jetpack.appcompat)
 
