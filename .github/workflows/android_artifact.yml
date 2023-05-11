@@ -12,10 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Configure Step
         uses: ./.github/workflows/actions/configure
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
+
+      - name: Cache local
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Run Lint
         uses: ./.github/workflows/actions/lint
@@ -51,9 +64,6 @@ jobs:
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Run AssembleRelease
-        run: ./gradlew module:assembleRelease
 
       - name: Run Upload Artifact
         run: ./gradlew module:publishModulePublicationToArtifactRepository
