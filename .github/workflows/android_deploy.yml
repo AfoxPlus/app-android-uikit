@@ -43,7 +43,7 @@ jobs:
         uses: ./.github/workflows/actions/lint
 
       - name: Upload Lint Test Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
@@ -52,7 +52,7 @@ jobs:
         run: ./gradlew module:testDebugUnitTest
 
       - name: Upload Test Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: unit_test_report
           path: module/build/reports/tests/testDebugUnitTest/
@@ -61,7 +61,7 @@ jobs:
         run: ./gradlew module:jacocoTestReport
 
       - name: Upload coverage test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: jacoco_test_report
           path: module/build/reports/jacoco/jacocoTestReport/
