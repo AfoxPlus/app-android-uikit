@@ -10,59 +10,57 @@ env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
-  lint:
-    name: Lint
+  build:
+    name: Setup Environment and Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Configure Step
         uses: ./.github/workflows/actions/configure
 
+      - name: Cache local
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
+
+  code-analysis:
+    name: Code Analysis
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
       - name: Run Lint
         uses: ./.github/workflows/actions/lint
 
       - name: Upload Lint Test Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
 
-  code-analysis:
-    name: Code Analysis
-    needs: [ lint ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Configure Step
-        uses: ./.github/workflows/actions/configure
-
-      - name: Run Lint
-        uses: ./.github/workflows/actions/lint
-
-      - name: Run Tests
-        run: ./gradlew module:testDebugUnitTest
+      - name: Run Jacoco Test Coverage Verification
+        run: ./gradlew module:jacocoTestCoverageVerification
 
       - name: Upload Test Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: unit_test_report
           path: module/build/reports/tests/testDebugUnitTest/
 
-      - name: Run Jacoco Test Report
-        run: ./gradlew module:jacocoTestReport
-
       - name: Upload coverage test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: jacoco_test_report
           path: module/build/reports/jacoco/jacocoTestReport/
-
-      - name: Run Jacoco Test Coverage Verification
-        run: ./gradlew module:jacocoTestCoverageVerification
 
       - name: Run SonarQube Scan
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
@@ -74,12 +72,6 @@ jobs:
     needs: [ code-analysis ]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Configure Step
-        uses: ./.github/workflows/actions/configure
-
       - name: Create Tag Release
         run: |
           currentVersion=`grep version ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
