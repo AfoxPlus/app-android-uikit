@@ -20,6 +20,7 @@ jobs:
 
   test:
     name: Code Analysis
+    needs: [ lint ]
     uses: ./.github/workflows/android_main.yml
     secrets: inherit
     steps:
