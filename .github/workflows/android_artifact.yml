@@ -10,8 +10,11 @@ env:
 jobs:
   lint:
     name: Lint
-    uses: AfoxPlus/app-android-uikit/.github/workflows/android_main.yml@main
+    runs-on: ubuntu-latest
     steps:
+      - name: Setup Project
+        uses: ./.github/actions/android
+
       - name: Run Lint
         run: ./gradlew module:lintDebug
 
@@ -23,9 +26,10 @@ jobs:
 
   test:
     name: Code Analysis
-    uses: AfoxPlus/app-android-uikit/.github/workflows/android_main.yml@main
-    needs: [ lint ]
+    runs-on: ubuntu-latest
     steps:
+      - name: Setup Project
+        uses: ./.github/actions/android
 
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
