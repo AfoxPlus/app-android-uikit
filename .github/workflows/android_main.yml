@@ -1,0 +1,32 @@
+name: Android-Main
+run-name: Android-Main execute by @${{ github.actor }}
+
+on: [ workflow_dispatch ]
+
+env:
+  REPO_USERID: ${{ secrets.REPO_USERID }}
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+
+jobs:
+  build:
+    name: Setup and Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Configure Step
+        uses: ./.github/actions/configure
+
+      - name: Cache local
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
