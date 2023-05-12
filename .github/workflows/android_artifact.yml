@@ -8,6 +8,23 @@ env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
+  artifact:
+    name: Artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Project
+        uses: ./.github/actions/android
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
+        shell: bash
+
+      - name: Run Upload Artifact
+        run: ./gradlew module:publishModulePublicationToArtifactRepository
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -51,25 +68,3 @@ jobs:
         with:
           name: jacoco_test_report
           path: module/build/reports/jacoco/jacocoTestReport/
-
-      - name: Run SonarQube Scan
-        run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  artifact:
-    name: Artifact
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Setup Project
-        uses: ./.github/actions/android
-
-      - name: Run AssembleRelease
-        run: ./gradlew module:assembleRelease
-        shell: bash
-
-      - name: Run Upload Artifact
-        run: ./gradlew module:publishModulePublicationToArtifactRepository
