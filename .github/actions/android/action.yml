@@ -3,9 +3,6 @@ description: "Run steps to build project"
 runs:
   using: "composite"
   steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
     - name: Configure Step
       uses: ./.github/actions/configure
 
