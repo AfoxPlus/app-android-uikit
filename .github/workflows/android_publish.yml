@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Lint
-        uses: ./.github/actions/lint
+        run: ./gradlew module:lintDebug
 
       - name: Upload Lint Test Report
         uses: actions/upload-artifact@v3
