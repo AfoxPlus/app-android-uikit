@@ -57,5 +57,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  artifact:
+    name: Artifact
+    run-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Project
+        uses: ./.github/actions/android
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
+        shell: bash
+
       - name: Run Upload Artifact
         run: ./gradlew module:publishModulePublicationToArtifactRepository

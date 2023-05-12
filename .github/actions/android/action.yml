@@ -15,7 +15,3 @@ runs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
-
-    - name: Run AssembleRelease
-      run: ./gradlew module:assembleRelease
-      shell: bash
