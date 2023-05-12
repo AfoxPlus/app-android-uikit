@@ -34,7 +34,7 @@ jobs:
 
   code-analysis:
     name: Code Analysis
-    needs: [ build ]
+    needs: [ artifact ]
     runs-on: ubuntu-latest
     steps:
       - name: Run Lint
