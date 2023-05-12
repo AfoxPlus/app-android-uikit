@@ -3,10 +3,6 @@ run-name: Android-Main execute by @${{ github.actor }}
 
 on: [ workflow_dispatch ]
 
-env:
-  REPO_USERID: ${{ secrets.REPO_USERID }}
-  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-
 jobs:
   build:
     name: Setup and Build

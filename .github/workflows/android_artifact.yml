@@ -1,14 +1,19 @@
-name: Android-Artifact
-run-name: Android-Artifact execute by @${{ github.actor }}
+name: Android Artifact
+run-name: Android Artifact execute by @${{ github.actor }}
 
 on: [ workflow_dispatch ]
+
+env:
+  REPO_USERID: ${{ secrets.REPO_USERID }}
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
   lint:
     name: Lint
-    uses: ./.github/workflows/android_main.yml
-    secrets: inherit
     steps:
+      - name: Setup Project
+        uses: ./.github/workflows/android_main.yml
+
       - name: Run Lint
         run: ./gradlew module:lintDebug
 
@@ -21,9 +26,10 @@ jobs:
   test:
     name: Code Analysis
     needs: [ lint ]
-    uses: ./.github/workflows/android_main.yml
-    secrets: inherit
     steps:
+      - name: Setup Project
+        uses: ./.github/workflows/android_main.yml
+
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
 
