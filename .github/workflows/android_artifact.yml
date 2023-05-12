@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Step
-        uses: ./.github/workflows/actions/configure
+        uses: ./.github/actions/configure
 
       - name: Cache local
         uses: actions/cache@v3
@@ -31,7 +31,7 @@ jobs:
         run: ./gradlew module:assembleRelease
 
       - name: Run Lint
-        uses: ./.github/workflows/actions/lint
+        uses: ./.github/actions/lint
 
       - name: Upload Lint Test Report
         uses: actions/upload-artifact@v3
