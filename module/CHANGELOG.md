@@ -1,5 +1,17 @@
 # app-android-uikit Changelog
 
+
+## Version 5.1.0
+### Added
+- Se actualizaron los Github Actions.
+
+## Version 5.0.0
+### Added
+- Se actualizaron las dependencias.
+- - Se definieron los plugin en el modulo.
+- Se actualizaro el GithubActions.
+- Se migro a Gradle 8.
+
 ## Version 4.0.1
 ### Updated
 - Se actualizo el upload.gradle.

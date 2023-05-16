@@ -13,8 +13,11 @@ class QuantityButton @JvmOverloads constructor(
     private val attrs: AttributeSet,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    private val binding =
-        CustomViewButtonQuantityBinding.inflate(LayoutInflater.from(this.context), this, true)
+
+    private val binding = CustomViewButtonQuantityBinding.inflate(
+        LayoutInflater.from(this.context), this, true
+    )
+
     var buttonType: ButtonType = ButtonType.QUANTITY
         set(value) {
             field = value
@@ -59,10 +62,12 @@ class QuantityButton @JvmOverloads constructor(
                 configLeftIconQuantity()
                 displayValue()
             }
+
             ButtonType.EDITABLE -> {
                 changeRightIconToEdit()
                 displayValue()
             }
+
             else -> {
                 configRightIconDelete()
             }
@@ -119,10 +124,12 @@ class QuantityButton @JvmOverloads constructor(
                 configComponentsVisibility()
                 configLeftIconQuantity()
             }
+
             ButtonType.EDITABLE -> {
                 changeRightIconToEdit()
                 editAction()
             }
+
             else -> {
                 deleteAction()
             }

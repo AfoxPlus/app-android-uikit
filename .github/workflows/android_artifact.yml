@@ -1,4 +1,5 @@
 name: Android Artifact
+run-name: Android Artifact execute by @${{ github.actor }}
 
 on: [ workflow_dispatch ]
 
@@ -12,48 +13,58 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Configure Step
-        uses: ./.github/workflows/actions/configure
+      - name: Setup Project
+        uses: ./.github/actions/android
+
+      - name: Run AssembleRelease
+        run: ./gradlew module:assembleRelease
+        shell: bash
+
+      - name: Run Upload Artifact
+        run: ./gradlew module:publishModulePublicationToArtifactRepository
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Project
+        uses: ./.github/actions/android
 
       - name: Run Lint
-        uses: ./.github/workflows/actions/lint
+        run: ./gradlew module:lintDebug
 
       - name: Upload Lint Test Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
 
-      - name: Run Tests
-        run: ./gradlew module:testDebugUnitTest
+  test:
+    name: Code Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: unit_test_report
-          path: module/build/reports/tests/testDebugUnitTest/
-
-      - name: Run Jacoco Test Report
-        run: ./gradlew module:jacocoTestReport
-
-      - name: Upload Coverage Test Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: jacoco_test_report
-          path: module/build/reports/jacoco/jacocoTestReport/
+      - name: Setup Project
+        uses: ./.github/actions/android
 
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
 
-      - name: Run SonarQube Scan
-        run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit_test_report
+          path: module/build/reports/tests/testDebugUnitTest/
 
-      - name: Run AssembleRelease
-        run: ./gradlew module:assembleRelease
-
-      - name: Run Upload Artifact
-        run: ./gradlew module:publishModulePublicationToArtifactRepository
+      - name: Upload Coverage Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco_test_report
+          path: module/build/reports/jacoco/jacocoTestReport/

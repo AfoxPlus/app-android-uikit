@@ -1,9 +1,11 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
-    id("dagger.hilt.android.plugin")
+    id("com.android.library") version "7.3.1"
+    id("org.jetbrains.kotlin.android") version "1.7.20"
+    id("org.jetbrains.kotlin.kapt") version "1.7.20"
+    id("com.google.dagger.hilt.android") version "2.44.2"
+    id("org.jetbrains.kotlin.plugin.parcelize") version "1.7.20"
+    id("org.sonarqube") version "3.3"
+    id("jacoco")
 }
 
 apply {
@@ -13,8 +15,8 @@ apply {
 }
 
 android {
+    namespace = "com.afoxplus.uikit"
     compileSdk = Versions.compileSdkVersion
-    buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
         minSdk = Versions.minSdkVersion
@@ -86,8 +88,8 @@ android {
 
 dependencies {
     implementation(fileTree("libs") { include(listOf("*.jar", "*.aar")) })
+
     implementation(Deps.Jetpack.core)
-    implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.appcompat)
 
     implementation(Deps.UI.materialDesign)
