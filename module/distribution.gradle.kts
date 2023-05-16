@@ -10,7 +10,7 @@ fun obtainVersion(version: String): String {
 
 fun generateVersion(version: String): String {
     val branchName = getBranchName()
-    val isReleaseBranch = branchName[0].equals("R") && branchName[1].equals("C")
+    val isReleaseBranch = branchName[0].equals('R') && branchName[1].equals('C')
     if (isReleaseBranch) {
         return version
     }
