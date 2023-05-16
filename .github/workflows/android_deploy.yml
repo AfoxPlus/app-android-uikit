@@ -4,7 +4,6 @@ run-name: Android Deploy execute by @${{ github.actor }}
 on:
   push:
     branches:
-      - 'develop'
       - 'RC**'
 
 env:

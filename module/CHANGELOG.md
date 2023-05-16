@@ -1,5 +1,10 @@
 # app-android-uikit Changelog
 
+
+## Version 5.1.0
+### Added
+- Se actualizaron los Github Actions.
+
 ## Version 5.0.0
 ### Added
 - Se actualizaron las dependencias.

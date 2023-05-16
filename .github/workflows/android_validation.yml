@@ -4,7 +4,6 @@ run-name: Android Validation execute by @${{ github.actor }}
 on:
   pull_request:
     branches:
-      - 'develop'
       - 'RC**'
 
 env:
