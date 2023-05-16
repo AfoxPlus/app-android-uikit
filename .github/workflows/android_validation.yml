@@ -1,9 +1,9 @@
 name: Android Validation
+run-name: Android Validation execute by @${{ github.actor }}
 
 on:
   pull_request:
     branches:
-      - 'develop'
       - 'RC**'
 
 env:
@@ -11,35 +11,35 @@ env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
-  validation:
-    name: Validation
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Configure Step
-        uses: ./.github/workflows/actions/configure
-
-      - name: Cache local
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-        
+      - name: Setup Project
+        uses: ./.github/actions/android
 
       - name: Run Lint
-        uses: ./.github/workflows/actions/lint
-        
+        run: ./gradlew module:lintDebug
+
       - name: Upload Lint Test Report
         uses: actions/upload-artifact@v3
         with:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
-          
+
+  test:
+    name: Code Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Project
+        uses: ./.github/actions/android
+
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
 
@@ -54,8 +54,3 @@ jobs:
         with:
           name: jacoco_test_report
           path: module/build/reports/jacoco/jacocoTestReport/
-
-      - name: Run SonarQube Scan
-        run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
