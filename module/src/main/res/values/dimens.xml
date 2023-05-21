@@ -33,6 +33,23 @@
     <dimen name="dp74">74dp</dimen>
     <dimen name="dp78">78dp</dimen>
     <dimen name="dp80">80dp</dimen>
+
+    <dimen name="card_corner_radius_default">@dimen/dp10</dimen>
+    <dimen name="screen_margin_start_end_default">@dimen/dp16</dimen>
+    <dimen name="content_margin_start_end_default">@dimen/dp12</dimen>
+
+    <dimen name="layoutMarginSmall">16dp</dimen>
+    <dimen name="layoutMarginMedium">40dp</dimen>
+    <dimen name="layoutMarginXlarge">80dp</dimen>
+
+    <dimen name="borderWidth0">0dp</dimen>
+    <dimen name="borderWidth1">1dp</dimen>
+    <dimen name="borderWidth2">2dp</dimen>
+
+    <dimen name="iconSizeSmall">16dp</dimen>
+    <dimen name="iconSizeMedium">24dp</dimen>
+    <dimen name="iconSizeXlarge">40dp</dimen>
+
     <dimen name="sp2">2sp</dimen>
     <dimen name="sp4">4sp</dimen>
     <dimen name="sp6">6sp</dimen>
@@ -92,7 +109,4 @@
     <dimen name="sp86">86sp</dimen>
     <dimen name="sp88">88sp</dimen>
     <dimen name="sp90">90sp</dimen>
-    <dimen name="card_corner_radius_default">@dimen/dp10</dimen>
-    <dimen name="screen_margin_start_end_default">@dimen/dp16</dimen>
-    <dimen name="content_margin_start_end_default">@dimen/dp12</dimen>
 </resources>

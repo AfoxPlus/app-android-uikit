@@ -2,9 +2,9 @@
 <resources>
 
     <style name="UIKit.Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/dark_01</item>
-        <item name="colorPrimaryDark">@color/dark_01</item>
-        <item name="colorAccent">@color/dark_02</item>
+        <item name="colorPrimary">@color/orange_01</item>
+        <item name="colorPrimaryDark">@color/orange_01</item>
+        <item name="colorAccent">@color/pink_02</item>
     </style>
 
     <style name="UIKit.NoActionBar.Light" parent="UIKit.Theme">

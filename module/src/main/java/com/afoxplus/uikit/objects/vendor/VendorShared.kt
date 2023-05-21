@@ -7,7 +7,7 @@ interface VendorShared {
     fun fetch(): Vendor?
 }
 
-class VendorAction @Inject constructor() : VendorShared {
+internal class VendorAction @Inject constructor() : VendorShared {
 
     companion object {
         var vendor: Vendor? = null
