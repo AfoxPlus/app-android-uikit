@@ -1,5 +1,5 @@
 package com.afoxplus.uikit.validators
 
-interface Validator {
+fun interface  Validator {
     fun isValid(): Boolean
 }

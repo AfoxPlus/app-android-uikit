@@ -1,39 +1,28 @@
 package com.afoxplus.uikit.di
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import javax.inject.Qualifier
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class UIKitMainDispatcher
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class UIKitIODispatcher
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class UIKitDefaultDispatcher
+import javax.inject.Inject
 
 @Module
 @InstallIn(SingletonComponent::class)
-class UIKitDispatcherModule {
-
-    @UIKitMainDispatcher
-    @Provides
-    fun providesMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
-
-    @UIKitIODispatcher
-    @Provides
-    fun providesIODispatcher(): CoroutineDispatcher = Dispatchers.IO
-
-    @UIKitDefaultDispatcher
-    @Provides
-    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
+internal abstract class UIKitDispatcherModule {
+    @Binds
+    abstract fun bindUIKitCoroutineDispatcher(impl: UIKitCoroutineDispatcherImpl): UIKitCoroutineDispatcher
 }
 
+interface UIKitCoroutineDispatcher {
+    fun getMainDispatcher(): CoroutineDispatcher
+    fun getIODispatcher(): CoroutineDispatcher
+    fun getDefaultDispatcher(): CoroutineDispatcher
+}
+
+internal class UIKitCoroutineDispatcherImpl @Inject constructor() : UIKitCoroutineDispatcher {
+    override fun getMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+    override fun getIODispatcher(): CoroutineDispatcher = Dispatchers.IO
+    override fun getDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
+}

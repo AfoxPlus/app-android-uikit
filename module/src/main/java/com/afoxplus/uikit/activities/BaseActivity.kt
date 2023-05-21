@@ -7,9 +7,6 @@ import com.afoxplus.uikit.views.OnSetUpView
 
 abstract class BaseActivity : AppCompatActivity(), OnSetUpView, OnObserverViewModel {
     abstract fun setMainView()
-    override fun setUpView() {
-        //Do nothing
-    }
 
     override fun observerViewModel() {
         //Do nothing

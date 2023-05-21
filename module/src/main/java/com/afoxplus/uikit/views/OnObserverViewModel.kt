@@ -1,5 +1,5 @@
 package com.afoxplus.uikit.views
 
-interface OnObserverViewModel {
+fun interface OnObserverViewModel {
     fun observerViewModel()
 }
