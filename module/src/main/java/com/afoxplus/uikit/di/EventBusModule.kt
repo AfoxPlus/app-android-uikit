@@ -1,7 +1,7 @@
 package com.afoxplus.uikit.di
 
-import com.afoxplus.uikit.bus.BusEventHandler
-import com.afoxplus.uikit.bus.BusEventHandlerImpl
+import com.afoxplus.uikit.bus.UIKitEventBusWrapper
+import com.afoxplus.uikit.bus.UIKitEventBusWrapperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,5 +13,5 @@ import javax.inject.Singleton
 class EventBusModule {
     @Provides
     @Singleton
-    fun bindEventBus(): BusEventHandler = BusEventHandlerImpl()
+    fun bindEventBus(): UIKitEventBusWrapper = UIKitEventBusWrapperImpl()
 }
