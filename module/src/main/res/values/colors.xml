@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dark_01">#100423</color>
+    <color name="dark_01">#120329</color>
     <color name="dark_02">#141938</color>
     <color name="dark_03">#302F3C</color>
     <color name="dark_04">#474749</color>
@@ -12,11 +12,11 @@
     <color name="light_04">#FCF8F5</color>
     <color name="light_05">#FAFAFA</color>
 
-    <color name="red_01">#FA0050</color>
+    <color name="red_01">#F10450</color>
 
-    <color name="green_01">#08CA3E</color>
+    <color name="green_01">#0AEA48</color>
 
-    <color name="orange_01">#F56606</color>
+    <color name="orange_01">#F64107</color>
 
     <color name="pink_01">#EF6A62</color>
     <color name="pink_02">#FFC8BD</color>
