@@ -27,17 +27,19 @@
         app:layout_constraintStart_toStartOf="@id/openQuantity"
         app:layout_constraintTop_toBottomOf="@id/openQuantity" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/openEditText">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/dp16">
 
             <TextView
                 style="@style/Title01"
@@ -221,8 +223,30 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp" />
 
+            <com.afoxplus.uikit.customview.type.order.OrderTypeStatus
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:description="01"
+                app:orderType="restaurant"
+                app:title="Mesa" />
+
+            <com.afoxplus.uikit.customview.type.order.OrderTypeStatus
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp4"
+                app:orderType="delivery"
+                app:title="Delivery" />
+
+            <com.afoxplus.uikit.customview.type.order.OrderTypeStatus
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp4"
+                app:description="S/125.40"
+                app:orderType="amount"
+                app:title="Total" />
+
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
