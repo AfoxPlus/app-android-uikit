@@ -1,5 +1,8 @@
 # app-android-uikit Changelog
 
+## Version 5.3.2
+### Added
+- Se agrego componente OrderTypeStatus.
 
 ## Version 5.1.0
 ### Added
