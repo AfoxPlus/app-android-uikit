@@ -37,6 +37,11 @@ class QuantityButton @JvmOverloads constructor(
     var onValueChangeListener: (Int) -> Unit = {}
     var onEditActionListener: () -> Unit = {}
     var onDeleteActionListener: () -> Unit = {}
+    var isEnable = true
+        set(value) {
+            field = value
+            configEnableButton()
+        }
 
     init {
         loadAttributes()
@@ -50,6 +55,7 @@ class QuantityButton @JvmOverloads constructor(
                 this.getInt(R.styleable.QuantityButton_buttonType, ButtonType.QUANTITY.code)
             )
             value = this.getInt(R.styleable.QuantityButton_value, 0)
+            isEnable = this.getBoolean(R.styleable.QuantityButton_isEnable, true)
         }.recycle()
     }
 
@@ -108,6 +114,23 @@ class QuantityButton @JvmOverloads constructor(
         binding.buttonActionRight.setImageResource(editIcon)
         binding.buttonActionValue.visibility = View.VISIBLE
         binding.buttonActionLeft.visibility = View.GONE
+    }
+
+    private fun configEnableButton() {
+        binding.buttonActionRight.apply {
+            isClickable = isEnable
+            isEnabled = isEnable
+        }
+
+        binding.buttonActionLeft.apply {
+            isClickable = isEnable
+            isEnabled = isEnable
+        }
+
+        binding.buttonActionContainer.apply {
+            isClickable = isEnable
+            isEnabled = isEnable
+        }
     }
 
     private fun onLeftAction() {

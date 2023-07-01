@@ -45,8 +45,14 @@ class QuantityButtonActivity : AppCompatActivity() {
             println("Here on delete action listener")
         }
 
+        binding.quantityButtonEnableAction.setOnClickListener {
+            binding.quantityButtonEnableType.isEnable = !binding.quantityButtonEnableType.isEnable
+            binding.quantityButtonEnableAction.text = if (binding.quantityButtonEnableType.isEnable) "Deshabilitar" else "Habilitar"
+        }
+
         binding.quantityButtonDynamicQuantity.value = 2
 
         binding.quantityButtonDynamicType.buttonType = ButtonType.DELETE
+
     }
 }
