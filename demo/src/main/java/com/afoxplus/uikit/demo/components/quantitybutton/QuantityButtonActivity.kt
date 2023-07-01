@@ -47,7 +47,7 @@ class QuantityButtonActivity : AppCompatActivity() {
 
         binding.quantityButtonEnableAction.setOnClickListener {
             binding.quantityButtonEnableType.isEnable = !binding.quantityButtonEnableType.isEnable
-            binding.quantityButtonEnableAction.text = if (binding.quantityButtonEnableType.isEnable) "Disable" else "Enable"
+            binding.quantityButtonEnableAction.text = if (binding.quantityButtonEnableType.isEnable) "Habilitar" else "Deshabilitar"
         }
 
         binding.quantityButtonDynamicQuantity.value = 2
