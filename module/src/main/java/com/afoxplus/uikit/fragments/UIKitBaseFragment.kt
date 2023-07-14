@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.afoxplus.uikit.views.OnObserverViewModel
 import com.afoxplus.uikit.views.OnSetUpView
 
-abstract class BaseFragment : Fragment(), OnSetUpView, OnObserverViewModel {
+abstract class UIKitBaseFragment : Fragment(), OnSetUpView, OnObserverViewModel {
     abstract fun getMainView(inflater: LayoutInflater, container: ViewGroup?): View
     override fun setUpView() {
         //Do nothing

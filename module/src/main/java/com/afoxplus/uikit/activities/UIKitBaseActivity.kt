@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.afoxplus.uikit.views.OnObserverViewModel
 import com.afoxplus.uikit.views.OnSetUpView
 
-abstract class BaseActivity : AppCompatActivity(), OnSetUpView, OnObserverViewModel {
+abstract class UIKitBaseActivity : AppCompatActivity(), OnSetUpView, OnObserverViewModel {
     abstract fun setMainView()
-    override fun setUpView() {
-        //Do nothing
-    }
 
     override fun observerViewModel() {
         //Do nothing

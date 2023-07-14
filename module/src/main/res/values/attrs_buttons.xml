@@ -8,5 +8,16 @@
         </attr>
         <attr name="defaultIcon" format="reference" />
         <attr name="value" format="integer" />
+        <attr name="isEnable" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="OrderTypeStatus">
+        <attr name="orderType" format="enum">
+            <enum name="restaurant" value="1" />
+            <enum name="delivery" value="2" />
+            <enum name="amount" value="3" />
+        </attr>
+        <attr name="title" format="string|reference" />
+        <attr name="description" format="string|reference" />
+    </declare-styleable>
+
 </resources>

@@ -2,15 +2,15 @@
 <resources>
 
     <style name="UIKit.Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/dark_01</item>
-        <item name="colorPrimaryDark">@color/dark_01</item>
-        <item name="colorAccent">@color/dark_02</item>
+        <item name="colorPrimary">@color/orange_01</item>
+        <item name="colorPrimaryDark">@color/orange_01</item>
+        <item name="colorAccent">@color/pink_02</item>
     </style>
 
     <style name="UIKit.NoActionBar.Light" parent="UIKit.Theme">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/light_02</item>
-        <item name="android:windowBackground">@color/light_02</item>
+        <item name="android:statusBarColor">@color/light_01</item>
+        <item name="android:windowBackground">@color/light_01</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowDisablePreview">true</item>

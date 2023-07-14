@@ -15,11 +15,11 @@
             android:exported="false" />
         <activity
             android:name=".components.quantitybutton.QuantityButtonActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/UIKit.NoActionBar.Light" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/UIKit.NoActionBar.Light">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,19 +2,146 @@
 <resources>
 
     <style name="UIKit" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/uikit_regular</item>
         <item name="android:textColor">@color/dark_01</item>
     </style>
 
     <style name="UIKit.Number" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/uikit_regular</item>
         <item name="android:textColor">@color/dark_01</item>
     </style>
 
+    <style name="Header01" parent="UIKit">
+        <item name="android:textSize">@dimen/sp32</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Header01_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp32</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Header01_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp32</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+    <style name="Header02" parent="UIKit">
+        <item name="android:textSize">@dimen/sp24</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Header02_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp24</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Header02_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp24</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+    <style name="Header03" parent="UIKit">
+        <item name="android:textSize">@dimen/sp20</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Header03_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp20</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Header03_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp20</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+    <style name="Header04" parent="UIKit">
+        <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Header04_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Header04_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+    <style name="Header05" parent="UIKit">
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Header05_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Header05_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+
+    <style name="Paragraph01" parent="UIKit">
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Paragraph01_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Paragraph01_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+    <style name="Paragraph02" parent="UIKit">
+        <item name="android:textSize">@dimen/sp12</item>
+        <item name="android:fontFamily">@font/uikit_medium</item>
+    </style>
+
+    <style name="Paragraph02_SemiBold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp12</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Paragraph02_Bold" parent="UIKit">
+        <item name="android:textSize">@dimen/sp12</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
+    </style>
+
+    <style name="Title01" parent="UIKit">
+        <item name="android:textSize">@dimen/sp64</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Title02" parent="UIKit">
+        <item name="android:textSize">@dimen/sp48</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Title03" parent="UIKit">
+        <item name="android:textSize">@dimen/sp40</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <style name="Title04" parent="UIKit">
+        <item name="android:textSize">@dimen/sp36</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
+    </style>
+
+    <!-- Deprecated ============================================================= -->
     <style name="Title_01" parent="UIKit">
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textSize">44sp</item>
-        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
         <item name="android:lineSpacingExtra">-12sp</item>
     </style>
 
@@ -22,32 +149,32 @@
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textSize">31sp</item>
         <item name="android:lineSpacingExtra">-4sp</item>
-        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/uikit_bold</item>
     </style>
 
     <style name="Title_05" parent="UIKit">
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textSize">24sp</item>
         <item name="android:lineSpacingExtra">-4sp</item>
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
     </style>
 
     <style name="Title_08" parent="UIKit">
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
     </style>
 
     <style name="Title_09" parent="UIKit">
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/uikit_semi_bold</item>
     </style>
 
     <style name="Title_10" parent="UIKit">
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/uikit_regular</item>
     </style>
 
     <style name="Paragraph_03" parent="UIKit">

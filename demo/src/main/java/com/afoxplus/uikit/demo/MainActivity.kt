@@ -7,7 +7,8 @@ import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
 import com.afoxplus.uikit.demo.databinding.ActivityMainBinding
 import com.afoxplus.uikit.objects.vendor.Vendor
-import com.afoxplus.uikit.objects.vendor.VendorAction
+import com.afoxplus.uikit.objects.vendor.VendorShared
+
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @Inject
-    lateinit var vendorAction: VendorAction
+    lateinit var vendorAction: VendorShared
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
