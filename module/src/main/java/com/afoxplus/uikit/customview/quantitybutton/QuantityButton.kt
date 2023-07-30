@@ -52,7 +52,6 @@ class QuantityButton @JvmOverloads constructor(
                 this.getInt(R.styleable.QuantityButton_buttonType, ButtonType.QUANTITY.code)
             )
             value = this.getInt(R.styleable.QuantityButton_value, 0)
-            //isEnable = this.getBoolean(R.styleable.QuantityButton_isEnable, true)
         }.recycle()
     }
 
