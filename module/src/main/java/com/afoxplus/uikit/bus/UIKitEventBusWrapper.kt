@@ -1,8 +1,8 @@
 package com.afoxplus.uikit.bus
 
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharedFlow
 
 interface UIKitEventBusWrapper {
     suspend fun send(event: UIKitEventBus)
-    fun getBusEventFlow(): Flow<UIKitEventBus>
+    fun listen(): SharedFlow<UIKitEventBus>
 }

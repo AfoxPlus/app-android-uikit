@@ -76,3 +76,21 @@ jobs:
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tag:
+    name: Tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Project
+        uses: ./.github/actions/android
+
+      - name: Create Tag Release
+        run: |
+          currentVersion=`grep version ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
+          versionFormatted=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
+          echo "Version: $versionFormatted"
+          git tag $versionFormatted
+          git push origin --tags
