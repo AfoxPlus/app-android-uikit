@@ -35,8 +35,10 @@ fun View.setVisible() {
 
 fun View.setOnClickListenerDelay(action: () -> Unit) {
     setOnClickListener {
+        action()
+        this.isClickable = false
         Handler(Looper.getMainLooper()).postDelayed({
-            action()
-        }, 800)
+            this.isClickable = true
+        }, 700)
     }
 }
