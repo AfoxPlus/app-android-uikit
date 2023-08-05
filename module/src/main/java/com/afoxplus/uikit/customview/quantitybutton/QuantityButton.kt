@@ -7,6 +7,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.afoxplus.uikit.R
 import com.afoxplus.uikit.databinding.CustomViewButtonQuantityBinding
+import com.afoxplus.uikit.extensions.setOnClickListenerDelay
 
 class QuantityButton @JvmOverloads constructor(
     context: Context,
@@ -77,10 +78,10 @@ class QuantityButton @JvmOverloads constructor(
     }
 
     private fun configActions() {
-        binding.buttonActionRight.setOnClickListener {
+        binding.buttonActionRight.setOnClickListenerDelay {
             onRightAction()
         }
-        binding.buttonActionLeft.setOnClickListener {
+        binding.buttonActionLeft.setOnClickListenerDelay {
             onLeftAction()
         }
     }

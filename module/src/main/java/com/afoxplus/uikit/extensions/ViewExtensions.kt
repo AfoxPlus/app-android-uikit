@@ -1,5 +1,7 @@
 package com.afoxplus.uikit.extensions
 
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
@@ -29,4 +31,12 @@ fun View.setGone() {
 
 fun View.setVisible() {
     this.visibility = View.VISIBLE
+}
+
+fun View.setOnClickListenerDelay(action: () -> Unit) {
+    setOnClickListener {
+        Handler(Looper.getMainLooper()).postDelayed({
+            action()
+        }, 800)
+    }
 }
