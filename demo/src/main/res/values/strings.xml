@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">app-android-uikit</string>
+    <string name="display_modal">Display Modal</string>
 </resources>
