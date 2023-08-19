@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UIKitAlertView">
+        <attr name="alert_color" format="color" />
+        <attr name="alert_title" format="string|reference" />
+        <attr name="alert_message" format="string|reference" />
+    </declare-styleable>
+</resources>

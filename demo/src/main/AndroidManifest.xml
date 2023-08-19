@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/UIKit.Theme">
         <activity
+            android:name=".components.alert.AlertsActivity"
+            android:exported="false" />
+        <activity
             android:name=".components.modal.ModalActivity"
             android:exported="false" />
         <activity
