@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.afoxplus.uikit.R
 
-val Mulish = FontFamily(
+internal val Mulish = FontFamily(
     Font(R.font.mulish_bold, FontWeight.Bold),
     Font(R.font.mulish_extra_bold, FontWeight.ExtraBold),
     Font(R.font.mulish_light, FontWeight.Light),
@@ -185,6 +185,6 @@ private fun defaultTextStyle(
     color = color
 )
 
-private val LetterSpacing = (0.12f).sp
+internal val LetterSpacing = (0.12f).sp
 
 internal val LocalUIKitTypography = staticCompositionLocalOf { UIKitTypography() }

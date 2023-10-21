@@ -5,29 +5,29 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-val Dark01 = Color(0xFF120329)
-val Dark02 = Color(0xFF141938)
-val Dark03 = Color(0xFF302F3C)
-val Dark04 = Color(0xFF474749)
-val Dark05 = Color(0xFF474747)
+internal val Dark01 = Color(0xFF120329)
+internal val Dark02 = Color(0xFF141938)
+internal val Dark03 = Color(0xFF302F3C)
+internal val Dark04 = Color(0xFF474749)
+internal val Dark05 = Color(0xFF474747)
 
-val Light01 = Color(0xFFFFFFFF)
-val Light02 = Color(0xFFFAFBFF)
-val Light03 = Color(0xFFF1F1F1)
-val Light04 = Color(0xFFFCF8F5)
-val Light05 = Color(0xFFFAFAFA)
-val Light06 = Color(0xFFF2F2F2)
+internal val Light01 = Color(0xFFFFFFFF)
+internal val Light02 = Color(0xFFFAFBFF)
+internal val Light03 = Color(0xFFF1F1F1)
+internal val Light04 = Color(0xFFFCF8F5)
+internal val Light05 = Color(0xFFFAFAFA)
+internal val Light06 = Color(0xFFF2F2F2)
 
-val Orange01 = Color(0xFFF64107)
-val Red01 = Color(0xFFF10450)
-val Green01 = Color(0xFF0AEA48)
-val Green02 = Color(0xFF2CB742)
-val Pink01 = Color(0xFFEF6A62)
-val Pink02 = Color(0xFFFFC8BD)
-val Gray01 = Color(0xFFC7C7C7)
+internal val Orange01 = Color(0xFFF64107)
+internal val Red01 = Color(0xFFF10450)
+internal val Green01 = Color(0xFF0AEA48)
+internal val Green02 = Color(0xFF2CB742)
+internal val Pink01 = Color(0xFFEF6A62)
+internal val Pink02 = Color(0xFFFFC8BD)
+internal val Gray01 = Color(0xFFC7C7C7)
 
-val Blue01 = Color(0xFF1F8AEC)
-val Blue02 = Color(0xFF5DA9EF)
+internal val Blue01 = Color(0xFF1F8AEC)
+internal val Blue02 = Color(0xFF5DA9EF)
 
 @Immutable
 data class UIKitColors(

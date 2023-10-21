@@ -8,14 +8,14 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 
-private val DefaultShape = RectangleShape
-private val ExtraSmallShape = RoundedCornerShape(4.dp)
-private val SmallShape = RoundedCornerShape(8.dp)
-private val SmallMediumShape = RoundedCornerShape(12.dp)
-private val MediumShape = RoundedCornerShape(16.dp)
-private val ExtraMediumShape = RoundedCornerShape(24.dp)
-private val LargeShape = RoundedCornerShape(32.dp)
-private val ExtraLargeShape = RoundedCornerShape(40.dp)
+internal val DefaultShape = RectangleShape
+internal val ExtraSmallShape = RoundedCornerShape(4.dp)
+internal val SmallShape = RoundedCornerShape(8.dp)
+internal val SmallMediumShape = RoundedCornerShape(12.dp)
+internal val MediumShape = RoundedCornerShape(16.dp)
+internal val ExtraMediumShape = RoundedCornerShape(24.dp)
+internal val LargeShape = RoundedCornerShape(32.dp)
+internal val ExtraLargeShape = RoundedCornerShape(40.dp)
 
 internal val Shapes = Shapes(small = SmallShape, medium = MediumShape, large = LargeShape)
 
