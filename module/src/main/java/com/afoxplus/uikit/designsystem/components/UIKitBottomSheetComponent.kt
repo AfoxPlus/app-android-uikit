@@ -23,7 +23,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.R
 import com.afoxplus.uikit.designsystem.extensions.noRippleClickable
 import com.afoxplus.uikit.designsystem.theme.UIKitTheme
@@ -39,7 +38,7 @@ fun <T> UIKitBottomSheet(
     onClick: (T) -> Unit,
     onDismiss: () -> Unit,
     sheetState: SheetState,
-    color: Color = Color.White
+    color: Color = UIKitTheme.colors.light01
 ) {
     ModalBottomSheet(
         onDismissRequest = { onDismiss() },
@@ -51,16 +50,16 @@ fun <T> UIKitBottomSheet(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,
                 style = UIKitTheme.typography.header05SemiBold,
-                color = UIKitTheme.colors.dark01,
+                color = UIKitTheme.colors.secondaryColor,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
             Divider(
                 modifier = Modifier
                     .height(UIKitTheme.spacing.spacing02)
-                    .background(color = UIKitTheme.colors.light03)
+                    .background(color = UIKitTheme.colors.gray100)
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
             LazyColumn(modifier = modifier.fillMaxWidth()) {
                 items(list.size) { itemPosition ->
                     Column(
@@ -74,13 +73,13 @@ fun <T> UIKitBottomSheet(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(12.dp),
+                                .padding(UIKitTheme.spacing.spacing12),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(
                                 text = description(list[itemPosition]),
                                 style = UIKitTheme.typography.paragraph01SemiBold,
-                                color = UIKitTheme.colors.dark03
+                                color = UIKitTheme.colors.gray100
                             )
                             if (showIcon(list[itemPosition])) {
                                 Icon(
@@ -90,20 +89,20 @@ fun <T> UIKitBottomSheet(
                             }
                         }
                         if ((list.size - 1) != itemPosition) {
-                            Spacer(modifier = Modifier.height(8.dp))
+                            Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
                             Divider(
                                 modifier = Modifier
-                                    .height(1.dp)
-                                    .background(color = UIKitTheme.colors.light03)
+                                    .height(UIKitTheme.spacing.spacing01)
+                                    .background(color = UIKitTheme.colors.gray100)
                             )
-                            Spacer(modifier = Modifier.height(8.dp))
+                            Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
                         }
                     }
 
                 }
             }
         }
-        Spacer(modifier = Modifier.height(70.dp))
+        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing70))
     }
 }
 

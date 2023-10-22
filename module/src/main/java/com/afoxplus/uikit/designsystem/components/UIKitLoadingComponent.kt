@@ -27,7 +27,7 @@ import kotlinx.coroutines.delay
 fun UIKitLoading(
     modifier: Modifier = Modifier,
     circleSize: Dp = UIKitTheme.spacing.spacing16,
-    circleColor: Color = UIKitTheme.colors.orange01,
+    circleColor: Color = UIKitTheme.colors.primaryColor,
     spaceBetween: Dp = UIKitTheme.spacing.spacing10,
     travelDistance: Dp = UIKitTheme.spacing.spacing20
 ) {

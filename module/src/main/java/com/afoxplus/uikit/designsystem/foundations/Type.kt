@@ -176,7 +176,7 @@ private fun defaultTextStyle(
     fontSize: TextUnit,
     fontWeight: FontWeight,
     letterSpacing: TextUnit = LetterSpacing,
-    color: Color = Dark01
+    color: Color = BlueGray900
 ) = TextStyle(
     fontSize = fontSize,
     fontWeight = fontWeight,

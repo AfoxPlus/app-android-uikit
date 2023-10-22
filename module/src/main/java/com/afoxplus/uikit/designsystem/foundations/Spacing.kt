@@ -36,6 +36,7 @@ internal val Spacing40 = 40.dp
 internal val Spacing44 = 44.dp
 internal val Spacing48 = 48.dp
 internal val Spacing60 = 60.dp
+internal val Spacing70 = 70.dp
 
 @Immutable
 data class UIKitSpacing(
@@ -69,7 +70,8 @@ data class UIKitSpacing(
     val spacing40: Dp = Spacing40,
     val spacing44: Dp = Spacing44,
     val spacing48: Dp = Spacing48,
-    val spacing60: Dp = Spacing60
+    val spacing60: Dp = Spacing60,
+    val spacing70: Dp = Spacing70
 )
 
 internal val LocalUIKitSpacing = staticCompositionLocalOf { UIKitSpacing() }

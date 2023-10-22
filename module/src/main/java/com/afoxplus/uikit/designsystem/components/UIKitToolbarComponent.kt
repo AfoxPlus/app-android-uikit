@@ -42,7 +42,7 @@ fun UIKitTopBar(
                 modifier = modifier.size(UIKitTheme.spacing.spacing24),
                 painter = painterResource(id = R.drawable.ic_uikit_back),
                 contentDescription = "uikit_icon_back",
-                tint = UIKitTheme.colors.dark01
+                tint = UIKitTheme.colors.primaryColor
             )
         }
         Spacer(modifier = Modifier.width(UIKitTheme.spacing.spacing12))
@@ -57,12 +57,11 @@ fun UIKitTopBar(
         ) {
             Text(
                 text = title,
-                color = UIKitTheme.colors.dark02,
+                color = UIKitTheme.colors.blueGray700,
                 style = UIKitTheme.typography.paragraph01
             )
             Text(
                 text = description,
-                color = UIKitTheme.colors.dark01,
                 style = UIKitTheme.typography.header04Bold
             )
 
