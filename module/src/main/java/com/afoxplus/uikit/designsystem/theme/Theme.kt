@@ -18,6 +18,7 @@ import com.afoxplus.uikit.designsystem.foundations.UIKitSpacing
 import com.afoxplus.uikit.designsystem.foundations.UIKitTypography
 import com.afoxplus.uikit.designsystem.foundations.Shapes
 import com.afoxplus.uikit.designsystem.foundations.Typography
+import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
 
 @Composable
 fun UIKitTheme(
@@ -36,7 +37,7 @@ fun UIKitTheme(
 @Composable
 private fun ProvideUIKitThemeDependencies(content: @Composable () -> Unit) {
     CompositionLocalProvider(
-        LocalUIKitColors provides UIKitColors(),
+        LocalUIKitColors provides UIKitColorTheme,
         LocalUIKitShapes provides UIKitShapes(),
         LocalUIKitTypography provides UIKitTypography(),
         LocalUIKitSpacing provides UIKitSpacing()

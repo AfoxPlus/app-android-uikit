@@ -2,6 +2,7 @@ package com.afoxplus.uikit.designsystem.foundations
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
@@ -105,109 +106,211 @@ internal val Gray25 = Color(0xFFFCFCFD)
 
 
 @Immutable
-data class UIKitColors(
-    val default: Color = Color.Unspecified,
+abstract class UIKitColors {
+    abstract val default: Color
+    abstract val primaryColor: Color
+    abstract val secondaryColor: Color
+    abstract val light01: Color
+    abstract val orange900: Color
+    abstract val orange800: Color
+    abstract val orange700: Color
+    abstract val orange600: Color
+    abstract val orange500: Color
+    abstract val orange400: Color
+    abstract val orange300: Color
+    abstract val orange200: Color
+    abstract val orange100: Color
+    abstract val orange50: Color
+    abstract val orange25: Color
 
-    val primaryColor: Color = Orange600,
-    val secondaryColor: Color = BlueGray900,
-    val light01: Color = Light01,
+    abstract val rose900: Color
+    abstract val rose800: Color
+    abstract val rose700: Color
+    abstract val rose600: Color
+    abstract val rose500: Color
+    abstract val rose400: Color
+    abstract val rose300: Color
+    abstract val rose200: Color
+    abstract val rose100: Color
+    abstract val rose50: Color
+    abstract val rose25: Color
 
-    val orange900: Color = Orange900,
-    val orange800: Color = Orange800,
-    val orange700: Color = Orange700,
-    val orange600: Color = Orange600,
-    val orange500: Color = Orange500,
-    val orange400: Color = Orange400,
-    val orange300: Color = Orange300,
-    val orange200: Color = Orange200,
-    val orange100: Color = Orange100,
-    val orange50: Color = Orange50,
-    val orange25: Color = Orange25,
+    abstract val blue900: Color
+    abstract val blue800: Color
+    abstract val blue700: Color
+    abstract val blue600: Color
+    abstract val blue500: Color
+    abstract val blue400: Color
+    abstract val blue300: Color
+    abstract val blue200: Color
+    abstract val blue100: Color
+    abstract val blue50: Color
+    abstract val blue25: Color
 
-    val rose900: Color = Rose900,
-    val rose800: Color = Rose800,
-    val rose700: Color = Rose700,
-    val rose600: Color = Rose600,
-    val rose500: Color = Rose500,
-    val rose400: Color = Rose400,
-    val rose300: Color = Rose300,
-    val rose200: Color = Rose200,
-    val rose100: Color = Rose100,
-    val rose50: Color = Rose50,
-    val rose25: Color = Rose25,
+    abstract val blueGray900: Color
+    abstract val blueGray800: Color
+    abstract val blueGray700: Color
+    abstract val blueGray600: Color
+    abstract val blueGray500: Color
+    abstract val blueGray400: Color
+    abstract val blueGray300: Color
+    abstract val blueGray200: Color
+    abstract val blueGray100: Color
+    abstract val blueGray50: Color
+    abstract val blueGray25: Color
 
-    val blue900: Color = Blue900,
-    val blue800: Color = Blue800,
-    val blue700: Color = Blue700,
-    val blue600: Color = Blue600,
-    val blue500: Color = Blue500,
-    val blue400: Color = Blue400,
-    val blue300: Color = Blue300,
-    val blue200: Color = Blue200,
-    val blue100: Color = Blue100,
-    val blue50: Color = Blue50,
-    val blue25: Color = Blue25,
+    abstract val green900: Color
+    abstract val green800: Color
+    abstract val green700: Color
+    abstract val green600: Color
+    abstract val green500: Color
+    abstract val green400: Color
+    abstract val green300: Color
+    abstract val green200: Color
+    abstract val green100: Color
+    abstract val green50: Color
+    abstract val green25: Color
 
-    val blueGray900: Color = BlueGray900,
-    val blueGray800: Color = BlueGray800,
-    val blueGray700: Color = BlueGray700,
-    val blueGray600: Color = BlueGray600,
-    val blueGray500: Color = BlueGray500,
-    val blueGray400: Color = BlueGray400,
-    val blueGray300: Color = BlueGray300,
-    val blueGray200: Color = BlueGray200,
-    val blueGray100: Color = BlueGray100,
-    val blueGray50: Color = BlueGray50,
-    val blueGray25: Color = BlueGray25,
+    abstract val yellow900: Color
+    abstract val yellow800: Color
+    abstract val yellow700: Color
+    abstract val yellow600: Color
+    abstract val yellow500: Color
+    abstract val yellow400: Color
+    abstract val yellow300: Color
+    abstract val yellow200: Color
+    abstract val yellow100: Color
+    abstract val yellow50: Color
+    abstract val yellow25: Color
 
-    val green900: Color = Green900,
-    val green800: Color = Green800,
-    val green700: Color = Green700,
-    val green600: Color = Green600,
-    val green500: Color = Green500,
-    val green400: Color = Green400,
-    val green300: Color = Green300,
-    val green200: Color = Green200,
-    val green100: Color = Green100,
-    val green50: Color = Green50,
-    val green25: Color = Green25,
+    abstract val red900: Color
+    abstract val red800: Color
+    abstract val red700: Color
+    abstract val red600: Color
+    abstract val red500: Color
+    abstract val red400: Color
+    abstract val red300: Color
+    abstract val red200: Color
+    abstract val red100: Color
+    abstract val red50: Color
+    abstract val red25: Color
 
-    val yellow900: Color = Yellow900,
-    val yellow800: Color = Yellow800,
-    val yellow700: Color = Yellow700,
-    val yellow600: Color = Yellow600,
-    val yellow500: Color = Yellow500,
-    val yellow400: Color = Yellow400,
-    val yellow300: Color = Yellow300,
-    val yellow200: Color = Yellow200,
-    val yellow100: Color = Yellow100,
-    val yellow50: Color = Yellow50,
-    val yellow25: Color = Yellow25,
+    abstract val gray900: Color
+    abstract val gray800: Color
+    abstract val gray700: Color
+    abstract val gray600: Color
+    abstract val gray500: Color
+    abstract val gray400: Color
+    abstract val gray300: Color
+    abstract val gray200: Color
+    abstract val gray100: Color
+    abstract val gray50: Color
+    abstract val gray25: Color
+}
 
-    val red900: Color = Red900,
-    val red800: Color = Red800,
-    val red700: Color = Red700,
-    val red600: Color = Red600,
-    val red500: Color = Red500,
-    val red400: Color = Red400,
-    val red300: Color = Red300,
-    val red200: Color = Red200,
-    val red100: Color = Red100,
-    val red50: Color = Red50,
-    val red25: Color = Red25,
+val UIKitColorTheme = object : UIKitColors() {
+    override val default: Color = Color.Unspecified
 
-    val gray900: Color = Gray900,
-    val gray800: Color = Gray800,
-    val gray700: Color = Gray700,
-    val gray600: Color = Gray600,
-    val gray500: Color = Gray500,
-    val gray400: Color = Gray400,
-    val gray300: Color = Gray300,
-    val gray200: Color = Gray200,
-    val gray100: Color = Gray100,
-    val gray50: Color = Gray50,
-    val gray25: Color = Gray25,
-)
+    override val primaryColor: Color = Orange600
+    override val secondaryColor: Color = BlueGray900
+    override val light01: Color = Light01
+
+    override val orange900: Color = Orange900
+    override val orange800: Color = Orange800
+    override val orange700: Color = Orange700
+    override val orange600: Color = Orange600
+    override val orange500: Color = Orange500
+    override val orange400: Color = Orange400
+    override val orange300: Color = Orange300
+    override val orange200: Color = Orange200
+    override val orange100: Color = Orange100
+    override val orange50: Color = Orange50
+    override val orange25: Color = Orange25
+
+    override val rose900: Color = Rose900
+    override val rose800: Color = Rose800
+    override val rose700: Color = Rose700
+    override val rose600: Color = Rose600
+    override val rose500: Color = Rose500
+    override val rose400: Color = Rose400
+    override val rose300: Color = Rose300
+    override val rose200: Color = Rose200
+    override val rose100: Color = Rose100
+    override val rose50: Color = Rose50
+    override val rose25: Color = Rose25
+
+    override val blue900: Color = Blue900
+    override val blue800: Color = Blue800
+    override val blue700: Color = Blue700
+    override val blue600: Color = Blue600
+    override val blue500: Color = Blue500
+    override val blue400: Color = Blue400
+    override val blue300: Color = Blue300
+    override val blue200: Color = Blue200
+    override val blue100: Color = Blue100
+    override val blue50: Color = Blue50
+    override val blue25: Color = Blue25
+
+    override val blueGray900: Color = BlueGray900
+    override val blueGray800: Color = BlueGray800
+    override val blueGray700: Color = BlueGray700
+    override val blueGray600: Color = BlueGray600
+    override val blueGray500: Color = BlueGray500
+    override val blueGray400: Color = BlueGray400
+    override val blueGray300: Color = BlueGray300
+    override val blueGray200: Color = BlueGray200
+    override val blueGray100: Color = BlueGray100
+    override val blueGray50: Color = BlueGray50
+    override val blueGray25: Color = BlueGray25
+
+    override val green900: Color = Green900
+    override val green800: Color = Green800
+    override val green700: Color = Green700
+    override val green600: Color = Green600
+    override val green500: Color = Green500
+    override val green400: Color = Green400
+    override val green300: Color = Green300
+    override val green200: Color = Green200
+    override val green100: Color = Green100
+    override val green50: Color = Green50
+    override val green25: Color = Green25
+
+    override val yellow900: Color = Yellow900
+    override val yellow800: Color = Yellow800
+    override val yellow700: Color = Yellow700
+    override val yellow600: Color = Yellow600
+    override val yellow500: Color = Yellow500
+    override val yellow400: Color = Yellow400
+    override val yellow300: Color = Yellow300
+    override val yellow200: Color = Yellow200
+    override val yellow100: Color = Yellow100
+    override val yellow50: Color = Yellow50
+    override val yellow25: Color = Yellow25
+
+    override val red900: Color = Red900
+    override val red800: Color = Red800
+    override val red700: Color = Red700
+    override val red600: Color = Red600
+    override val red500: Color = Red500
+    override val red400: Color = Red400
+    override val red300: Color = Red300
+    override val red200: Color = Red200
+    override val red100: Color = Red100
+    override val red50: Color = Red50
+    override val red25: Color = Red25
+
+    override val gray900: Color = Gray900
+    override val gray800: Color = Gray800
+    override val gray700: Color = Gray700
+    override val gray600: Color = Gray600
+    override val gray500: Color = Gray500
+    override val gray400: Color = Gray400
+    override val gray300: Color = Gray300
+    override val gray200: Color = Gray200
+    override val gray100: Color = Gray100
+    override val gray50: Color = Gray50
+    override val gray25: Color = Gray25
+}
 
 internal val DarkColorScheme = darkColorScheme(
     primary = Orange600,
@@ -215,4 +318,7 @@ internal val DarkColorScheme = darkColorScheme(
     background = Light01,
     surface = Light01
 )
-internal val LocalUIKitColors = staticCompositionLocalOf { UIKitColors() }
+
+val LocalUIKitColors: ProvidableCompositionLocal<UIKitColors> = staticCompositionLocalOf {
+    error("No ColorTheme provided")
+}
