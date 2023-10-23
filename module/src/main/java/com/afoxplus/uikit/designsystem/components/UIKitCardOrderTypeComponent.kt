@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.afoxplus.uikit.designsystem.foundations.BlueGray800
 import com.afoxplus.uikit.designsystem.foundations.BlueGray900
-import com.afoxplus.uikit.designsystem.foundations.Gray400
-import com.afoxplus.uikit.designsystem.foundations.Gray700
+import com.afoxplus.uikit.designsystem.foundations.Gray600
 import com.afoxplus.uikit.designsystem.foundations.Light01
 import com.afoxplus.uikit.designsystem.foundations.Red600
 import com.afoxplus.uikit.designsystem.theme.UIKitTheme
@@ -110,7 +110,7 @@ sealed class UIKitOrderType(
     val textTitleColor: Color,
     val textDescriptionColor: Color? = null
 ) {
-    class Table : UIKitOrderType(Gray700, Light01, Light01)
+    class Table : UIKitOrderType(BlueGray800, Light01, Light01)
     class Delivery : UIKitOrderType(Red600, Light01)
-    class Amount : UIKitOrderType(Light01, Gray400, BlueGray900)
+    class Amount : UIKitOrderType(Light01, Gray600, BlueGray900)
 }
