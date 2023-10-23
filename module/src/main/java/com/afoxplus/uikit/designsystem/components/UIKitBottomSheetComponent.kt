@@ -79,12 +79,13 @@ fun <T> UIKitBottomSheet(
                             Text(
                                 text = description(list[itemPosition]),
                                 style = UIKitTheme.typography.paragraph01SemiBold,
-                                color = UIKitTheme.colors.gray100
+                                color = UIKitTheme.colors.secondaryColor
                             )
                             if (showIcon(list[itemPosition])) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_uikit_check),
-                                    contentDescription = "check_icon"
+                                    contentDescription = "check_icon",
+                                    tint = UIKitTheme.colors.secondaryColor
                                 )
                             }
                         }
