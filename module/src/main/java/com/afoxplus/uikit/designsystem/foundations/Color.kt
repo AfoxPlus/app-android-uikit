@@ -1,6 +1,7 @@
 package com.afoxplus.uikit.designsystem.foundations
 
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -312,13 +313,20 @@ val UIKitColorTheme = object : UIKitColors() {
     override val gray25: Color = Gray25
 }
 
-internal val DarkColorScheme = darkColorScheme(
-    primary = Orange600,
-    secondary = BlueGray900,
+internal val UIKitDarkColorScheme = darkColorScheme(
+    primary = BlueGray900,
+    secondary = BlueGray800,
     background = Light01,
     surface = Light01
 )
 
-val LocalUIKitColors: ProvidableCompositionLocal<UIKitColors> = staticCompositionLocalOf {
+internal val UIKitLightColorScheme = lightColorScheme(
+    primary = BlueGray900,
+    secondary = BlueGray800,
+    background = Light01,
+    surface = Light01
+)
+
+internal val LocalUIKitColors: ProvidableCompositionLocal<UIKitColors> = staticCompositionLocalOf {
     error("No ColorTheme provided")
 }
