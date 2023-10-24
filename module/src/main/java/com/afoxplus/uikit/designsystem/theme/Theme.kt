@@ -32,7 +32,7 @@ import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
 fun UIKitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     shapes: Shapes = Shapes,
-    typography: MaterialTypography = Typography,
+    //typography: MaterialTypography = Typography,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -52,7 +52,7 @@ fun UIKitTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         shapes = shapes,
-        typography = typography
+        //typography = typography
     ) { ProvideUIKitThemeDependencies(content = content) }
 }
 
