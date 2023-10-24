@@ -9,13 +9,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.foundations.BlueGray800
 import com.afoxplus.uikit.designsystem.foundations.BlueGray900
 import com.afoxplus.uikit.designsystem.foundations.Gray600
@@ -49,28 +49,28 @@ fun UIKitCardOrderType(
                 .align(Alignment.Center)
         ) {
             if (orderType is UIKitOrderType.Delivery) {
-                Text(
+                UIKitText(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.title,
                     color = orderType.textTitleColor,
-                    style = UIKitTheme.typography.paragraph02
+                    typography = UIKitTheme.typography.paragraph02
                 )
             } else {
-                Text(
+                UIKitText(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.title,
                     color = orderType.textTitleColor,
-                    style = UIKitTheme.typography.paragraph02
+                    typography = UIKitTheme.typography.paragraph02
                 )
                 Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing02))
-                Text(
+                UIKitText(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.description ?: "",
                     color = orderType.textDescriptionColor ?: Light01,
-                    style = UIKitTheme.typography.header03Bold
+                    typography = UIKitTheme.typography.header03Bold
                 )
             }
         }

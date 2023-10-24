@@ -4,7 +4,6 @@ import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Typography as MaterialTypography
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Shapes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -23,7 +22,7 @@ import com.afoxplus.uikit.designsystem.foundations.UIKitShapes
 import com.afoxplus.uikit.designsystem.foundations.UIKitSpacing
 import com.afoxplus.uikit.designsystem.foundations.UIKitTypography
 import com.afoxplus.uikit.designsystem.foundations.Shapes
-import com.afoxplus.uikit.designsystem.foundations.Typography
+import com.afoxplus.uikit.designsystem.foundations.TypographyTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitLightColorScheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
@@ -32,7 +31,7 @@ import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
 fun UIKitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     shapes: Shapes = Shapes,
-    //typography: MaterialTypography = Typography,
+    typography: MaterialTypography = TypographyTheme,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -52,7 +51,7 @@ fun UIKitTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         shapes = shapes,
-        //typography = typography
+        typography = typography
     ) { ProvideUIKitThemeDependencies(content = content) }
 }
 
@@ -64,7 +63,7 @@ private fun ProvideUIKitThemeDependencies(content: @Composable () -> Unit) {
         LocalUIKitShapes provides UIKitShapes(),
         LocalUIKitSpacing provides UIKitSpacing()
     ) {
-        ProvideTextStyle(value = UIKitTheme.typography.header05, content = content)
+        content()
     }
 }
 

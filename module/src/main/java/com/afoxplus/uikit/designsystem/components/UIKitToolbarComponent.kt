@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.R
+import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.theme.UIKitTheme
 
 @Composable
@@ -55,14 +55,14 @@ fun UIKitTopBar(
             ),
             horizontalAlignment = Alignment.Start
         ) {
-            Text(
+            UIKitText(
                 text = title,
                 color = UIKitTheme.colors.blueGray700,
-                style = UIKitTheme.typography.paragraph01
+                typography = UIKitTheme.typography.paragraph01
             )
-            Text(
+            UIKitText(
                 text = description,
-                style = UIKitTheme.typography.header04Bold
+                typography = UIKitTheme.typography.header04Bold
             )
 
         }

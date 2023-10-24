@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.components
+package com.afoxplus.uikit.designsystem.atoms
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
@@ -8,7 +8,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,14 +37,14 @@ fun UIKitButtonPrimaryLarge(
         colors = colors,
         shape = shape
     ) {
-        Text(
+        UIKitText(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(UIKitTheme.spacing.spacing10)
                 .align(Alignment.CenterVertically),
             text = text,
             textAlign = TextAlign.Center,
-            style = UIKitTheme.typography.header05SemiBold,
+            typography = UIKitTheme.typography.header05SemiBold,
             color = UIKitTheme.colors.light01
         )
     }
@@ -75,14 +74,14 @@ fun UIKitButtonOutlineLarge(
             onClick()
         }
     ) {
-        Text(
+        UIKitText(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(UIKitTheme.spacing.spacing10)
                 .align(Alignment.CenterVertically),
             text = text,
             textAlign = TextAlign.Center,
-            style = UIKitTheme.typography.header05SemiBold,
+            typography = UIKitTheme.typography.header05SemiBold,
             color = textColor
         )
     }

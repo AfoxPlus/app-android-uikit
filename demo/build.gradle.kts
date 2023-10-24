@@ -99,6 +99,15 @@ dependencies {
 
     implementation(Deps.JetpackCompose.activity)
 
+    implementation(Deps.JetpackCompose.constraintlayout)
+    implementation(Deps.JetpackCompose.navigation)
+    implementation(platform(Deps.JetpackCompose.bom))
+    implementation(Deps.JetpackCompose.ui)
+    implementation(Deps.JetpackCompose.graphics)
+    implementation(Deps.JetpackCompose.toolingPreview)
+    implementation(Deps.JetpackCompose.material3)
+    implementation(Deps.JetpackCompose.materialIconExtended)
+
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)
 

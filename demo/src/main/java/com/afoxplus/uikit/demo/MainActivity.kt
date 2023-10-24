@@ -2,13 +2,20 @@ package com.afoxplus.uikit.demo
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.demo.components.alert.AlertsActivity
 import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.modal.ModalActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
 import com.afoxplus.uikit.demo.databinding.ActivityMainBinding
-import com.afoxplus.uikit.objects.vendor.Vendor
+import com.afoxplus.uikit.designsystem.atoms.UIKitText
+import com.afoxplus.uikit.designsystem.theme.UIKitTheme
 import com.afoxplus.uikit.objects.vendor.VendorShared
 
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,12 +31,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        loadComponents()
-        //Example Vendor Inject
-        vendorAction.save(Vendor("121", "212"))
-        println("Here - MainActivity: ${vendorAction.fetch()}")
+        setContent {
+            UIKitTheme {
+                Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+                    UIKitText(text = "Hello World!", typography = UIKitTheme.typography.title03)
+                }
+            }
+        }
+
+        /* binding = ActivityMainBinding.inflate(layoutInflater)
+         setContentView(binding.root)
+         loadComponents()
+         //Example Vendor Inject
+         vendorAction.save(Vendor("121", "212"))
+         println("Here - MainActivity: ${vendorAction.fetch()}")*/
     }
 
     private fun loadComponents() {

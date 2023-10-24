@@ -15,7 +15,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
-import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.afoxplus.uikit.R
+import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.extensions.noRippleClickable
 import com.afoxplus.uikit.designsystem.theme.UIKitTheme
 
@@ -46,10 +46,10 @@ fun <T> UIKitBottomSheet(
         containerColor = color
     ) {
         Column {
-            Text(
+            UIKitText(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,
-                style = UIKitTheme.typography.header05SemiBold,
+                typography = UIKitTheme.typography.header05SemiBold,
                 color = UIKitTheme.colors.secondaryColor,
                 textAlign = TextAlign.Center
             )
@@ -76,9 +76,9 @@ fun <T> UIKitBottomSheet(
                                 .padding(UIKitTheme.spacing.spacing12),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(
+                            UIKitText(
                                 text = description(list[itemPosition]),
-                                style = UIKitTheme.typography.paragraph01SemiBold,
+                                typography = UIKitTheme.typography.paragraph01SemiBold,
                                 color = UIKitTheme.colors.secondaryColor
                             )
                             if (showIcon(list[itemPosition])) {

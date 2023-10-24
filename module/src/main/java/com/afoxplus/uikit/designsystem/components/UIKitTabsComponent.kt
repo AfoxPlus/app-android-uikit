@@ -8,7 +8,6 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -18,6 +17,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.theme.UIKitTheme
 import kotlinx.coroutines.launch
 
@@ -48,7 +48,12 @@ fun UIKitTabs(
                             pagerState.animateScrollToPage(selectedTabIndex)
                         }
                     },
-                    text = { Text(text = item.title, style = UIKitTheme.typography.header05Bold) }
+                    text = {
+                        UIKitText(
+                            text = item.title,
+                            typography = UIKitTheme.typography.header05Bold
+                        )
+                    }
                 )
             }
         }
