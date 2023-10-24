@@ -51,7 +51,7 @@ fun UIKitTabs(
                     text = {
                         UIKitText(
                             text = item.title,
-                            typography = UIKitTheme.typography.header05Bold
+                            style = UIKitTheme.typography.header05Bold
                         )
                     }
                 )

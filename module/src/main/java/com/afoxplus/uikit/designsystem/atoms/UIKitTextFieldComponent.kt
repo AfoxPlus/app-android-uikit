@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.components
+package com.afoxplus.uikit.designsystem.atoms
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text

@@ -44,7 +44,7 @@ fun UIKitButtonPrimaryLarge(
                 .align(Alignment.CenterVertically),
             text = text,
             textAlign = TextAlign.Center,
-            typography = UIKitTheme.typography.header05SemiBold,
+            style = UIKitTheme.typography.header05SemiBold,
             color = UIKitTheme.colors.light01
         )
     }
@@ -81,7 +81,7 @@ fun UIKitButtonOutlineLarge(
                 .align(Alignment.CenterVertically),
             text = text,
             textAlign = TextAlign.Center,
-            typography = UIKitTheme.typography.header05SemiBold,
+            style = UIKitTheme.typography.header05SemiBold,
             color = textColor
         )
     }

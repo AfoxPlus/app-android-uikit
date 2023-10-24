@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             UIKitTheme {
                 Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-                    UIKitText(text = "Hello World!", typography = UIKitTheme.typography.title03)
+                    UIKitText(text = "Hello World!", style = UIKitTheme.typography.title03)
                 }
             }
         }

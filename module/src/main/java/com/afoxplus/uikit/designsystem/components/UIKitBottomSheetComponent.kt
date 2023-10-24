@@ -49,7 +49,7 @@ fun <T> UIKitBottomSheet(
             UIKitText(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,
-                typography = UIKitTheme.typography.header05SemiBold,
+                style = UIKitTheme.typography.header05SemiBold,
                 color = UIKitTheme.colors.secondaryColor,
                 textAlign = TextAlign.Center
             )
@@ -78,7 +78,7 @@ fun <T> UIKitBottomSheet(
                         ) {
                             UIKitText(
                                 text = description(list[itemPosition]),
-                                typography = UIKitTheme.typography.paragraph01SemiBold,
+                                style = UIKitTheme.typography.paragraph01SemiBold,
                                 color = UIKitTheme.colors.secondaryColor
                             )
                             if (showIcon(list[itemPosition])) {

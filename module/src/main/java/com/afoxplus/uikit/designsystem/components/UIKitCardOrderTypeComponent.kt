@@ -54,7 +54,7 @@ fun UIKitCardOrderType(
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.title,
                     color = orderType.textTitleColor,
-                    typography = UIKitTheme.typography.paragraph02
+                    style = UIKitTheme.typography.paragraph02
                 )
             } else {
                 UIKitText(
@@ -62,7 +62,7 @@ fun UIKitCardOrderType(
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.title,
                     color = orderType.textTitleColor,
-                    typography = UIKitTheme.typography.paragraph02
+                    style = UIKitTheme.typography.paragraph02
                 )
                 Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing02))
                 UIKitText(
@@ -70,7 +70,7 @@ fun UIKitCardOrderType(
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.description ?: "",
                     color = orderType.textDescriptionColor ?: Light01,
-                    typography = UIKitTheme.typography.header03Bold
+                    style = UIKitTheme.typography.header03Bold
                 )
             }
         }

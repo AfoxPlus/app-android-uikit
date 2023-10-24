@@ -58,11 +58,11 @@ fun UIKitTopBar(
             UIKitText(
                 text = title,
                 color = UIKitTheme.colors.blueGray700,
-                typography = UIKitTheme.typography.paragraph01
+                style = UIKitTheme.typography.paragraph01
             )
             UIKitText(
                 text = description,
-                typography = UIKitTheme.typography.header04Bold
+                style = UIKitTheme.typography.header04Bold
             )
 
         }
