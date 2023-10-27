@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".components.alert.AlertsActivity">
+
+    <com.afoxplus.uikit.customview.alerts.UIKitAlertView
+        android:id="@+id/alertNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        app:alert_color="@color/blue_01"
+        app:alert_message="This is a message for all of the thing that we care about"
+        app:alert_title="Nota del momento"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.afoxplus.uikit.customview.alerts.UIKitAlertView
+        android:id="@+id/alertSuccess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        app:alert_color="#0AEA48"
+        app:alert_message="This is a message for all of the thing that we care about"
+        app:alert_title="Nota del momento"
+        app:layout_constraintTop_toBottomOf="@id/alertNote" />
+
+    <com.afoxplus.uikit.customview.alerts.UIKitAlertView
+        android:id="@+id/alertError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        app:alert_color="@color/red_01"
+        app:alert_message="This is a message for all of the thing that we care about"
+        app:alert_title="Nota del momento"
+        app:layout_constraintTop_toBottomOf="@id/alertSuccess" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

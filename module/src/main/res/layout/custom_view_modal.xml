@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_modal"
+    android:padding="@dimen/dp24">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/uikitModalTitle"
+            style="@style/TitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="¿Quieres seguir?" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/uikitModalMessage"
+            style="@style/BodyTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp12"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/uikitModalTitle"
+            tools:text="Vas a perder los productos que agregaste a tu pedido." />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uikitModalPositive"
+            style="@style/PositiveButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp18"
+            android:background="@drawable/bg_button_positive_modal"
+            android:gravity="center_horizontal"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/uikitModalMessage"
+            tools:text="Si, salir" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uikitModalNegative"
+            style="@style/NegativeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp12"
+            android:background="@drawable/bg_button_negative_modal"
+            android:gravity="center"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/uikitModalPositive"
+            tools:text="No, continuar pedido" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

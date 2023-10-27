@@ -7,6 +7,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.afoxplus.uikit.R
 import com.afoxplus.uikit.databinding.CustomViewButtonQuantityBinding
+import com.afoxplus.uikit.extensions.setOnClickListenerDelay
 
 class QuantityButton @JvmOverloads constructor(
     context: Context,
@@ -37,11 +38,8 @@ class QuantityButton @JvmOverloads constructor(
     var onValueChangeListener: (Int) -> Unit = {}
     var onEditActionListener: () -> Unit = {}
     var onDeleteActionListener: () -> Unit = {}
-    var isEnable = true
-        set(value) {
-            field = value
-            configEnableButton()
-        }
+
+    private var buttonEnableType = ButtonEnableType.NONE
 
     init {
         loadAttributes()
@@ -55,7 +53,6 @@ class QuantityButton @JvmOverloads constructor(
                 this.getInt(R.styleable.QuantityButton_buttonType, ButtonType.QUANTITY.code)
             )
             value = this.getInt(R.styleable.QuantityButton_value, 0)
-            isEnable = this.getBoolean(R.styleable.QuantityButton_isEnable, true)
         }.recycle()
     }
 
@@ -81,10 +78,10 @@ class QuantityButton @JvmOverloads constructor(
     }
 
     private fun configActions() {
-        binding.buttonActionRight.setOnClickListener {
+        binding.buttonActionRight.setOnClickListenerDelay {
             onRightAction()
         }
-        binding.buttonActionLeft.setOnClickListener {
+        binding.buttonActionLeft.setOnClickListenerDelay {
             onLeftAction()
         }
     }
@@ -116,18 +113,32 @@ class QuantityButton @JvmOverloads constructor(
         binding.buttonActionLeft.visibility = View.GONE
     }
 
-    private fun configEnableButton() {
-        binding.buttonActionRight.apply {
-            isClickable = isEnable
-            isEnabled = isEnable
-        }
+    private fun configEnableButton(isEnable: Boolean) {
+        when (buttonEnableType) {
+            ButtonEnableType.MINUS -> {
+                handleButtonEnable(binding.buttonActionLeft, isEnable)
+            }
 
-        binding.buttonActionLeft.apply {
-            isClickable = isEnable
-            isEnabled = isEnable
-        }
+            ButtonEnableType.PLUS -> {
+                handleButtonEnable(binding.buttonActionRight, isEnable)
+            }
 
-        binding.buttonActionContainer.apply {
+            ButtonEnableType.ALL -> {
+                handleButtonEnable(binding.buttonActionLeft, isEnable)
+                handleButtonEnable(binding.buttonActionRight, isEnable)
+                handleButtonEnable(binding.buttonActionValue, isEnable)
+            }
+
+            ButtonEnableType.NONE -> {
+                handleButtonEnable(binding.buttonActionLeft, true)
+                handleButtonEnable(binding.buttonActionRight, true)
+                handleButtonEnable(binding.buttonActionValue, true)
+            }
+        }
+    }
+
+    private fun handleButtonEnable(view: View, isEnable: Boolean) {
+        view.apply {
             isClickable = isEnable
             isEnabled = isEnable
         }
@@ -185,5 +196,10 @@ class QuantityButton @JvmOverloads constructor(
 
     private fun changedValue() {
         onValueChangeListener(value)
+    }
+
+    fun setEnableButtonType(buttonEnableType: ButtonEnableType, isEnable: Boolean) {
+        this.buttonEnableType = buttonEnableType
+        configEnableButton(isEnable)
     }
 }

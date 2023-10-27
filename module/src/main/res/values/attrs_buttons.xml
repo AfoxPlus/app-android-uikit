@@ -8,7 +8,6 @@
         </attr>
         <attr name="defaultIcon" format="reference" />
         <attr name="value" format="integer" />
-        <attr name="isEnable" format="boolean" />
     </declare-styleable>
     <declare-styleable name="OrderTypeStatus">
         <attr name="orderType" format="enum">

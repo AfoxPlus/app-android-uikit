@@ -2,6 +2,8 @@ package com.afoxplus.uikit.demo.components.quantitybutton
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.afoxplus.uikit.R
+import com.afoxplus.uikit.customview.quantitybutton.ButtonEnableType
 import com.afoxplus.uikit.customview.quantitybutton.ButtonType
 import com.afoxplus.uikit.demo.databinding.ActivityQuantityButtonBinding
 import com.afoxplus.uikit.objects.vendor.Vendor
@@ -16,6 +18,8 @@ class QuantityButtonActivity : AppCompatActivity() {
 
     @Inject
     lateinit var vendorAction: VendorShared
+
+    private var isActionEnable = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +49,15 @@ class QuantityButtonActivity : AppCompatActivity() {
             println("Here on delete action listener")
         }
 
+        binding.quantityButtonEnableType.deleteIcon = R.drawable.ic_minus
+
         binding.quantityButtonEnableAction.setOnClickListener {
-            binding.quantityButtonEnableType.isEnable = !binding.quantityButtonEnableType.isEnable
-            binding.quantityButtonEnableAction.text = if (binding.quantityButtonEnableType.isEnable) "Deshabilitar" else "Habilitar"
+            binding.quantityButtonEnableAction.text = if (isActionEnable) "Deshabilitar Add" else "Habilitar Add"
+            binding.quantityButtonEnableType.setEnableButtonType(
+                ButtonEnableType.PLUS,
+                !isActionEnable
+            )
+            isActionEnable = !isActionEnable
         }
 
         binding.quantityButtonDynamicQuantity.value = 2
