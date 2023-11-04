@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.components
+package com.afoxplus.uikit.designsystem.organisms
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.afoxplus.uikit.R
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.extensions.noRippleClickable
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

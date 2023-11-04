@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.components
+package com.afoxplus.uikit.designsystem.businesscomponents
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ import com.afoxplus.uikit.designsystem.foundations.BlueGray900
 import com.afoxplus.uikit.designsystem.foundations.Gray600
 import com.afoxplus.uikit.designsystem.foundations.Light01
 import com.afoxplus.uikit.designsystem.foundations.Red600
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 
 @Composable
 fun UIKitCardOrderType(

@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.components
+package com.afoxplus.uikit.designsystem.molecules
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
@@ -18,7 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

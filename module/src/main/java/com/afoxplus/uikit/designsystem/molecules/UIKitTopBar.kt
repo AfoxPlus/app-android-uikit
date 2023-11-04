@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.components
+package com.afoxplus.uikit.designsystem.molecules
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.R
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 
 @Composable
 fun UIKitTopBar(

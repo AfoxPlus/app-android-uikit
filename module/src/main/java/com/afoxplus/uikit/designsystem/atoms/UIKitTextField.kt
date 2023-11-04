@@ -25,7 +25,7 @@ fun UIKitTextField(
         focusedContainerColor = Color.Transparent,
         unfocusedContainerColor = Color.Transparent
     ),
-    onValueChange: (TextFieldValue) -> Unit,
+    onValueChange: (TextFieldValue) -> Unit
 ) {
 
     var inputText by rememberSaveable(stateSaver = TextFieldValue.Saver) {
@@ -52,7 +52,7 @@ fun TextFieldYaListoComponentPreview() {
 
     UIKitTextField(
         modifier = Modifier.fillMaxWidth(),
-        placeholder = "Helouda",
+        placeholder = "Hello world",
         onValueChange = { inputText = it }
     )
 }

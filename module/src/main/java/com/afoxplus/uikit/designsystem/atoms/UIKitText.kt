@@ -9,7 +9,7 @@ import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 
 @Composable
 fun UIKitText(

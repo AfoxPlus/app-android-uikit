@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.theme
+package com.afoxplus.uikit.designsystem.foundations
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -12,20 +12,6 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import com.afoxplus.uikit.designsystem.foundations.UIKitDarkColorScheme
-import com.afoxplus.uikit.designsystem.foundations.LocalUIKitColors
-import com.afoxplus.uikit.designsystem.foundations.LocalUIKitShapes
-import com.afoxplus.uikit.designsystem.foundations.LocalUIKitSpacing
-import com.afoxplus.uikit.designsystem.foundations.LocalUIKitTypography
-import com.afoxplus.uikit.designsystem.foundations.UIKitColors
-import com.afoxplus.uikit.designsystem.foundations.UIKitShapes
-import com.afoxplus.uikit.designsystem.foundations.UIKitSpacing
-import com.afoxplus.uikit.designsystem.foundations.UIKitTypography
-import com.afoxplus.uikit.designsystem.foundations.Shapes
-import com.afoxplus.uikit.designsystem.foundations.TypographyTheme
-import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
-import com.afoxplus.uikit.designsystem.foundations.UIKitLightColorScheme
-import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
 
 @Composable
 fun UIKitTheme(

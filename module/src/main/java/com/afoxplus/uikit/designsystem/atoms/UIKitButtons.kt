@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 
 @Composable
 fun UIKitButtonPrimaryLarge(
@@ -105,7 +105,7 @@ internal fun ButtonsComponentPreview() = UIKitTheme {
 
         UIKitButtonOutlineLarge(
             modifier = Modifier.fillMaxWidth(),
-            text = "Ingresar",
+            text = "Entiendo",
             border = BorderStroke(UIKitTheme.spacing.spacing02, UIKitTheme.colors.primaryColor),
             onClick = {})
     }

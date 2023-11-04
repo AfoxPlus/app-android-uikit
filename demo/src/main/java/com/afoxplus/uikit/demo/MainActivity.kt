@@ -15,7 +15,7 @@ import com.afoxplus.uikit.demo.components.modal.ModalActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
 import com.afoxplus.uikit.demo.databinding.ActivityMainBinding
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.theme.UIKitTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.objects.vendor.VendorShared
 
 import dagger.hilt.android.AndroidEntryPoint
