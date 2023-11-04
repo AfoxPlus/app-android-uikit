@@ -16,11 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.foundations.BlueGray800
-import com.afoxplus.uikit.designsystem.foundations.BlueGray900
-import com.afoxplus.uikit.designsystem.foundations.Gray600
-import com.afoxplus.uikit.designsystem.foundations.Light01
-import com.afoxplus.uikit.designsystem.foundations.Red600
+import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 
 @Composable
@@ -69,12 +65,11 @@ fun UIKitCardOrderType(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     text = orderTypeVO.description ?: "",
-                    color = orderType.textDescriptionColor ?: Light01,
+                    color = orderType.textDescriptionColor ?: UIKitColorTheme.light01,
                     style = UIKitTheme.typography.header03Bold
                 )
             }
         }
-
     }
 }
 
@@ -110,7 +105,20 @@ sealed class UIKitOrderType(
     val textTitleColor: Color,
     val textDescriptionColor: Color? = null
 ) {
-    class Table : UIKitOrderType(BlueGray800, Light01, Light01)
-    class Delivery : UIKitOrderType(Red600, Light01)
-    class Amount : UIKitOrderType(Light01, Gray600, BlueGray900)
+    class Table : UIKitOrderType(
+        backgroundColor = UIKitColorTheme.blueGray800,
+        textTitleColor = UIKitColorTheme.light01,
+        textDescriptionColor = UIKitColorTheme.light01
+    )
+
+    class Delivery : UIKitOrderType(
+        backgroundColor = UIKitColorTheme.red600,
+        textTitleColor = UIKitColorTheme.light01
+    )
+
+    class Amount : UIKitOrderType(
+        backgroundColor = UIKitColorTheme.light01,
+        textTitleColor = UIKitColorTheme.gray600,
+        textDescriptionColor = UIKitColorTheme.blueGray900
+    )
 }

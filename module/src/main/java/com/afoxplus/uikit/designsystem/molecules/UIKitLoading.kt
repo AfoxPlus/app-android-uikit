@@ -1,4 +1,4 @@
-package com.afoxplus.uikit.designsystem.atoms
+package com.afoxplus.uikit.designsystem.molecules
 
 
 import androidx.compose.animation.core.Animatable
