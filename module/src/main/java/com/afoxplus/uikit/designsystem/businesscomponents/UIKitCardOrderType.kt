@@ -106,7 +106,7 @@ sealed class UIKitOrderType(
     val textDescriptionColor: Color? = null
 ) {
     class Table : UIKitOrderType(
-        backgroundColor = UIKitColorTheme.blueGray800,
+        backgroundColor = UIKitColorTheme.gray800,
         textTitleColor = UIKitColorTheme.light01,
         textDescriptionColor = UIKitColorTheme.light01
     )
@@ -119,6 +119,6 @@ sealed class UIKitOrderType(
     class Amount : UIKitOrderType(
         backgroundColor = UIKitColorTheme.light01,
         textTitleColor = UIKitColorTheme.gray600,
-        textDescriptionColor = UIKitColorTheme.blueGray900
+        textDescriptionColor = UIKitColorTheme.secondaryColor
     )
 }
