@@ -112,7 +112,7 @@ sealed class UIKitOrderType(
     )
 
     class Delivery : UIKitOrderType(
-        backgroundColor = UIKitColorTheme.red600,
+        backgroundColor = UIKitColorTheme.rose600,
         textTitleColor = UIKitColorTheme.light01
     )
 
