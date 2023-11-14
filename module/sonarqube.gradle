@@ -14,7 +14,7 @@ android {
             property("sonar.organization", ConfigureApp.organization)
             property("sonar.projectName", ConfigureApp.projectName)
             property("sonar.projectDescription", "This project is $ConfigureApp.projectName")
-            property("sonar.projectVersion", ConfigureApp.version)
+            property("sonar.projectVersion", ConfigureApp.versionName)
             property("sonar.projectBaseDir", "${projectDir.absolutePath}")
             property("sonar.sources", "./src/main/")
             property("sonar.sourceEncoding", "UTF-8")

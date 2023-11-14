@@ -1,4 +1,4 @@
-name: "Setup and Build"
+name: "Android Setup"
 description: "Run steps to build project"
 runs:
   using: "composite"
@@ -15,3 +15,11 @@ runs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
+
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+        cache: 'gradle'
+        check-latest: true

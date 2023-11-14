@@ -11,28 +11,60 @@ env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
-  test:
-    name: Code Analysis
+  lint-test-sonar:
+    name: Lint & Test & Sonar
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-          cache: 'gradle'
-          check-latest: true
-
       - name: Setup Project
         uses: ./.github/actions/android
 
+      - name: Run Lint
+        run: ./gradlew module:lintDebug
+
+      - name: Upload Lint Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: lint_report
+          path: module/build/reports/lint-results-debug.html
+
       - name: Run Jacoco Test Coverage Verification
         run: ./gradlew module:jacocoTestCoverageVerification
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit_test_report
+          path: module/build/reports/tests/testDebugUnitTest/
+
+      - name: Upload Coverage Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco_test_report
+          path: module/build/reports/jacoco/jacocoTestReport/
 
       - name: Run SonarQube Scan
         run: ./gradlew module:sonarqube -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARCLOUDTOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tag:
+    name: Tag
+    runs-on: ubuntu-latest
+    needs: lint-test-sonar
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Project
+        uses: ./.github/actions/android
+
+      - name: Create Release Tag
+        run: |
+          currentVersion=`grep versionName ./buildSrc/src/main/kotlin/ConfigureApp.kt | awk -F" " '{ print $5 }' `
+          versionFormatted=`echo $currentVersion | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
+          echo "Version: $versionFormatted"
+          git tag $versionFormatted
+          git push origin --tags

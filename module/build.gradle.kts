@@ -12,6 +12,7 @@ apply {
     from("sonarqube.gradle")
     from("jacoco.gradle")
     from("upload.gradle")
+    from("graph.gradle.kts")
 }
 
 android {
