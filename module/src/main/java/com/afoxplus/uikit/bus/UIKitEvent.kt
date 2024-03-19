@@ -21,8 +21,8 @@ open class UIKitEvent<out T>(private val content: T) {
 
 @Deprecated("Use SharedFlow in yours viewmodels")
 class UIKitEventObserver<T>(private val onEventUnhandledContent: (T) -> Unit) : Observer<UIKitEvent<T>> {
-    override fun onChanged(UIKitEvent: UIKitEvent<T>?) {
-        UIKitEvent?.getContentIfNotHandled()?.let {
+    override fun onChanged(UIKitEvent: UIKitEvent<T>) {
+        UIKitEvent.getContentIfNotHandled()?.let {
             onEventUnhandledContent(it)
         }
     }

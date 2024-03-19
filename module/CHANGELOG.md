@@ -1,5 +1,12 @@
 # app-android-uikit Changelog
 
+## Version 6.0.3
+## Added
+- Update dependencies.
+- Update GithubActions.
+- Added graph task.
+- Update version to versionName.
+
 ## Version 6.0.0
 ## Added
 - Update dependencies.

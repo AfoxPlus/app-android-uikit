@@ -1,7 +1,7 @@
-version = obtainVersion(ConfigureApp.version)
+version = obtainVersion(ConfigureApp.versionName)
 
-fun obtainVersion(version: String): String {
-    val version = generateVersion(ConfigureApp.version)
+fun obtainVersion(versionName: String): String {
+    val version = generateVersion(versionName)
     printSignature()
     printVersionModule(version)
     printDependencyModule(version)
