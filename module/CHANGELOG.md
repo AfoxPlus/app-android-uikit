@@ -1,5 +1,10 @@
 # app-android-uikit Changelog
 
+## Version 6.1.0
+## Updates
+- Update config gradle
+- Update to build/deploy
+
 ## Version 6.0.3
 ## Added
 - Update dependencies.
