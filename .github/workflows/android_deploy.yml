@@ -1,5 +1,5 @@
-name: Android Artifact
-run-name: Android Artifact execute by @${{ github.actor }}
+name: Android Deploy
+run-name: Deploy Artifact execute by @${{ github.actor }}
 
 on: [ workflow_dispatch ]
 
@@ -8,7 +8,7 @@ env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
 jobs:
-  artifact:
+  deploy:
     name: Artifact
     runs-on: ubuntu-latest
     steps:

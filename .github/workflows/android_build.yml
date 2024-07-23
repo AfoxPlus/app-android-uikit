@@ -1,5 +1,5 @@
-name: Android Publish
-run-name: Android Publish execute by @${{ github.actor }}
+name: Android Build
+run-name: Build execute by @${{ github.actor }}
 
 on: [ workflow_dispatch ]
 
