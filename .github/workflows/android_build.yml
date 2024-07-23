@@ -1,10 +1,7 @@
-name: Android Publish
-run-name: Android Publish execute by @${{ github.actor }}
+name: Android Build
+run-name: Build execute by @${{ github.actor }}
 
-on:
-  push:
-    branches:
-      - 'master'
+on: [ workflow_dispatch ]
 
 env:
   REPO_USERID: ${{ secrets.REPO_USERID }}
