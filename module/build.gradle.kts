@@ -9,9 +9,9 @@ plugins {
 }
 
 apply {
-    from("sonarqube.gradle")
-    from("jacoco.gradle")
-    from("upload.gradle")
+    from(Gradle.Sonarqube)
+    from(Gradle.Jacoco)
+    from(Gradle.UploadArtifact)
     from("graph.gradle.kts")
 }
 
