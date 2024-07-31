@@ -46,6 +46,7 @@ private fun ProvideUIKitThemeDependencies(content: @Composable () -> Unit) {
     CompositionLocalProvider(
         LocalUIKitColors provides UIKitColorTheme,
         LocalUIKitTypography provides UIKitTypographyTheme,
+        LocalUIKitIconTheme provides UIKitIconTheme,
         LocalUIKitShapes provides UIKitShapes(),
         LocalUIKitSpacing provides UIKitSpacing()
     ) {
@@ -73,4 +74,9 @@ object UIKitTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalUIKitSpacing.current
+
+    val icons: UIKitIcon
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalUIKitIconTheme.current
 }
