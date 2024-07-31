@@ -24,6 +24,10 @@
             android:exported="false"
             android:theme="@style/UIKit.NoActionBar.Light" />
         <activity
+            android:name=".components.compose.ComposePreviewActivity"
+            android:exported="false"
+            android:theme="@style/UIKit.NoActionBar.Light" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
