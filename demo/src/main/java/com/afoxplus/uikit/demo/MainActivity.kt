@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.demo.components.alert.AlertsActivity
@@ -14,7 +15,10 @@ import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.modal.ModalActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
 import com.afoxplus.uikit.demo.databinding.ActivityMainBinding
+import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
+import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
+import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.objects.vendor.VendorShared
 
@@ -33,8 +37,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             UIKitTheme {
-                Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp)
+                ) {
                     UIKitText(text = "Hello World!", style = UIKitTheme.typography.title03)
+                    UIKitIcon(icon = UIKitTheme.icons.icon_whatsapp_outline)
+                    UIKitIcon(icon = UIKitIconTheme.icon_pin_location_outline)
+                    getUIKitIcon("icon_pin_location_outline")?.let { UIKitIcon(icon = it) }
                 }
             }
         }
