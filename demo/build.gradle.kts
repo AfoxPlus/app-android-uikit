@@ -97,16 +97,19 @@ dependencies {
     implementation(Deps.Jetpack.core)
     implementation(Deps.Jetpack.appcompat)
 
+    // JetpackCompose
     implementation(Deps.JetpackCompose.activity)
-
     implementation(Deps.JetpackCompose.constraintlayout)
     implementation(Deps.JetpackCompose.navigation)
     implementation(platform(Deps.JetpackCompose.bom))
     implementation(Deps.JetpackCompose.ui)
     implementation(Deps.JetpackCompose.graphics)
     implementation(Deps.JetpackCompose.toolingPreview)
+    debugImplementation(Deps.JetpackCompose.tooling)
     implementation(Deps.JetpackCompose.material3)
     implementation(Deps.JetpackCompose.materialIconExtended)
+    implementation(Deps.JetpackCompose.coilCompose)
+    implementation(Deps.JetpackCompose.hiltNavigationCompose)
 
     implementation(Deps.UI.materialDesign)
     implementation(Deps.UI.constraintLayout)

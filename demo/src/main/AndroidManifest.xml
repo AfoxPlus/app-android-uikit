@@ -26,10 +26,12 @@
         <activity
             android:name=".components.compose.ComposePreviewActivity"
             android:exported="false"
-            android:theme="@style/UIKit.NoActionBar.Light" />
+            android:theme="@style/UIKitCompose.Theme"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/UIKit.NoActionBar.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
