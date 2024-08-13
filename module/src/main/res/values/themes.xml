@@ -3,8 +3,8 @@
 
     <style name="UIKit.Theme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/orange_01</item>
-        <item name="colorPrimaryDark">@color/orange_01</item>
-        <item name="colorAccent">@color/pink_02</item>
+        <item name="colorPrimaryDark">@color/dark_01</item>
+        <item name="colorAccent">@color/light_01</item>
     </style>
 
     <style name="UIKitCompose.Theme" parent="android:Theme.Material.Light.NoActionBar" />
