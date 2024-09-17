@@ -1,6 +1,5 @@
 package com.afoxplus.uikit.designsystem.molecules
 
-import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -59,8 +58,6 @@ fun UIKitTabs(
             state = pagerState,
             modifier = Modifier.fillMaxWidth()
         ) {
-            val item = tabItems[selectedTabIndex.value]
-            Log.d("LOG_VALE", "PAGER $item")
             onTabSelected(selectedTabIndex.value, tabItems[selectedTabIndex.value])
         }
     }
