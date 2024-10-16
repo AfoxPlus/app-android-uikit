@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductItem
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -39,6 +40,12 @@ class ComposePreviewActivity : ComponentActivity() {
                             title = "Pure con asado de rez",
                             description = "Acompañado con arroz y pure de papa mas ensalada ...",
                             price = "S/ 15.00"
+                        )
+                        UIKitProductItem(
+                            imageUrl = "https://via.placeholder.com/150",
+                            title = "Lomito saltado a la norteñita...",
+                            description = "200 gr meat + rice lettuce + tomato...",
+                            price = "S/ 22.00"
                         )
                     }
                 }
