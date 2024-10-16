@@ -30,6 +30,7 @@ fun UIKitProductItem(
     Card(
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray25),
         modifier = Modifier
             .width(200.dp)
             .padding(8.dp)
@@ -78,7 +79,7 @@ fun UIKitProductItem(
 
                 UIKitText(
                     text = price,
-                    style = UIKitTypographyTheme.header03,
+                    style = UIKitTypographyTheme.header03Bold,
                     color = UIKitColorTheme.primaryColor
                 )
             }

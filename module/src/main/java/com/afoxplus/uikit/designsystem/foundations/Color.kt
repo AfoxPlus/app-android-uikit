@@ -103,7 +103,7 @@ internal val Gray300 = Color(0xFFD0D5DD)
 internal val Gray200 = Color(0xFFEAECF0)
 internal val Gray100 = Color(0xFFF2F4F7)
 internal val Gray50 = Color(0xFFF9FAFB)
-internal val Gray25 = Color(0xFFFCFCFD)
+internal val Gray25 = Color(0xFFFDFDFD)
 
 
 @Immutable

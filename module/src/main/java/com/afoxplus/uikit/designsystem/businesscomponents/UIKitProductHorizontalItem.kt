@@ -25,6 +25,7 @@ import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
 
 @Composable
 fun UIKitProductHorizontalItem(
+    modifier: Modifier = Modifier,
     imageUrl: String,
     title: String,
     description: String,
@@ -33,9 +34,10 @@ fun UIKitProductHorizontalItem(
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(UIKitTheme.spacing.spacing04),
-        modifier = Modifier
+        colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray25),
+        modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(8.dp),
     ) {
         Row(
             modifier = Modifier
