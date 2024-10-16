@@ -37,7 +37,6 @@ fun UIKitProductHorizontalItem(
         colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
     ) {
         Row(
             modifier = Modifier
@@ -51,7 +50,7 @@ fun UIKitProductHorizontalItem(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(100.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(topStart = 8.dp, bottomStart = 8.dp))
             )
 
             Spacer(modifier = Modifier.width(8.dp))

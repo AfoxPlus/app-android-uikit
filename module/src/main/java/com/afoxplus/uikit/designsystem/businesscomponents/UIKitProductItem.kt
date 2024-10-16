@@ -34,7 +34,6 @@ fun UIKitProductItem(
         colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
         modifier = modifier
             .width(200.dp)
-            .padding(8.dp)
     ) {
         Column(
             modifier = Modifier
@@ -48,7 +47,7 @@ fun UIKitProductItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(150.dp)
-                    .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
+                    .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
             )
 
             Spacer(modifier = Modifier.height(8.dp))
