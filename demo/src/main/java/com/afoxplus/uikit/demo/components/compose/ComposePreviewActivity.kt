@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -33,10 +34,14 @@ class ComposePreviewActivity : ComponentActivity() {
                         UIKitIcon(icon = UIKitIconTheme.icon_pin_location_outline)
                         UIKitIcon(icon = UIKitIconTheme.icon_calendar_small_outline)
                         getUIKitIcon("icon_trash_outline")?.let { UIKitIcon(icon = it) }
+                        UIKitProductHorizontalItem(
+                            imageUrl = "https://via.placeholder.com/100",
+                            title = "Pure con asado de rez",
+                            description = "Acompañado con arroz y pure de papa mas ensalada ...",
+                            price = "S/ 15.00"
+                        )
                     }
-
                 }
-
             }
         }
     }
