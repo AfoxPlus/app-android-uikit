@@ -22,6 +22,7 @@ import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
 
 @Composable
 fun UIKitProductItem(
+    modifier: Modifier = Modifier,
     imageUrl: String,
     title: String,
     description: String,
@@ -30,8 +31,8 @@ fun UIKitProductItem(
     Card(
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(4.dp),
-        colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray25),
-        modifier = Modifier
+        colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
+        modifier = modifier
             .width(200.dp)
             .padding(8.dp)
     ) {

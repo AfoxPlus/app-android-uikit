@@ -34,7 +34,7 @@ fun UIKitProductHorizontalItem(
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(UIKitTheme.spacing.spacing04),
-        colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray25),
+        colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp),
