@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
+import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
 
 @Composable
@@ -29,8 +30,8 @@ fun UIKitProductItem(
     price: String,
 ) {
     Card(
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(4.dp),
+        shape = RoundedCornerShape(UIKitTheme.spacing.spacing10),
+        elevation = CardDefaults.cardElevation(UIKitTheme.spacing.spacing04),
         colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
         modifier = modifier
             .width(200.dp)
@@ -47,15 +48,15 @@ fun UIKitProductItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(150.dp)
-                    .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
+                    .clip(RoundedCornerShape(topStart = UIKitTheme.spacing.spacing10, topEnd = UIKitTheme.spacing.spacing10))
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
 
             // Text Section (Title, Description, Price)
             Column(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(UIKitTheme.spacing.spacing08)
             ) {
                 UIKitText(
                     text = title,
@@ -65,7 +66,7 @@ fun UIKitProductItem(
                     maxLines = 2
                 )
 
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing04))
 
                 UIKitText(
                     text = description,
@@ -75,7 +76,7 @@ fun UIKitProductItem(
                     maxLines = 2
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
 
                 UIKitText(
                     text = price,

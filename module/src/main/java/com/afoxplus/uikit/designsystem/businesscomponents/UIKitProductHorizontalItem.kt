@@ -32,7 +32,7 @@ fun UIKitProductHorizontalItem(
     price: String
 ) {
     Card(
-        shape = RoundedCornerShape(8.dp),
+        shape = RoundedCornerShape(UIKitTheme.spacing.spacing08),
         elevation = CardDefaults.cardElevation(UIKitTheme.spacing.spacing04),
         colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
         modifier = modifier
@@ -49,31 +49,31 @@ fun UIKitProductHorizontalItem(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(100.dp)
-                    .clip(RoundedCornerShape(topStart = 8.dp, bottomStart = 8.dp))
+                    .clip(RoundedCornerShape(topStart = UIKitTheme.spacing.spacing08, bottomStart = UIKitTheme.spacing.spacing08))
             )
 
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.width(UIKitTheme.spacing.spacing08))
 
             // Text and Price Section
             Column(
                 modifier = Modifier
                     .weight(1f)
                     .align(Alignment.CenterVertically)
-                    .padding(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 8.dp)
+                    .padding(start = UIKitTheme.spacing.spacing12, end = UIKitTheme.spacing.spacing12, top = UIKitTheme.spacing.spacing08, bottom = UIKitTheme.spacing.spacing08)
             ) {
                 UIKitText(
                     text = title,
                     style = UIKitTypographyTheme.header04SemiBold,
                     color = UIKitColorTheme.secondaryColor
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing04))
                 UIKitText(
                     text = description,
                     style = UIKitTypographyTheme.paragraph01,
                     color = UIKitColorTheme.gray700,
                     maxLines = 1
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
                 UIKitText(
                     text = price,
                     style = UIKitTypographyTheme.header03Bold,
