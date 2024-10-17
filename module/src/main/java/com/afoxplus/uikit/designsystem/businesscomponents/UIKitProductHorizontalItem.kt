@@ -41,7 +41,6 @@ fun UIKitProductHorizontalItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
         ) {
             // Image Section
             AsyncImage(
@@ -60,6 +59,7 @@ fun UIKitProductHorizontalItem(
                 modifier = Modifier
                     .weight(1f)
                     .align(Alignment.CenterVertically)
+                    .padding(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 8.dp)
             ) {
                 UIKitText(
                     text = title,
