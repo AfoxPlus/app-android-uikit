@@ -104,6 +104,7 @@ internal val Gray200 = Color(0xFFEAECF0)
 internal val Gray100 = Color(0xFFF2F4F7)
 internal val Gray50 = Color(0xFFF9FAFB)
 internal val Gray25 = Color(0xFFFCFCFD)
+internal val Gray20 = Color(0xFFFDFDFD)
 
 
 @Immutable
@@ -207,6 +208,7 @@ abstract class UIKitColors {
     abstract val gray100: Color
     abstract val gray50: Color
     abstract val gray25: Color
+    abstract val gray20: Color
 }
 
 val UIKitColorTheme = object : UIKitColors() {
@@ -311,6 +313,7 @@ val UIKitColorTheme = object : UIKitColors() {
     override val gray100: Color = Gray100
     override val gray50: Color = Gray50
     override val gray25: Color = Gray25
+    override val gray20: Color = Gray20
 }
 
 internal val UIKitDarkColorScheme = darkColorScheme(
