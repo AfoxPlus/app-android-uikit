@@ -28,13 +28,15 @@ fun UIKitProductItem(
     title: String,
     description: String,
     price: String,
+    onClick: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(UIKitTheme.spacing.spacing10),
         elevation = CardDefaults.cardElevation(UIKitTheme.spacing.spacing04),
         colors = CardDefaults.cardColors(containerColor = UIKitColorTheme.gray20),
         modifier = modifier
-            .width(200.dp)
+            .width(200.dp),
+        onClick = { onClick() }
     ) {
         Column(
             modifier = Modifier
@@ -48,7 +50,12 @@ fun UIKitProductItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(150.dp)
-                    .clip(RoundedCornerShape(topStart = UIKitTheme.spacing.spacing10, topEnd = UIKitTheme.spacing.spacing10))
+                    .clip(
+                        RoundedCornerShape(
+                            topStart = UIKitTheme.spacing.spacing10,
+                            topEnd = UIKitTheme.spacing.spacing10
+                        )
+                    )
             )
 
             Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
