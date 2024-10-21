@@ -7,7 +7,7 @@ runs:
       uses: ./.github/actions/configure
 
     - name: Cache local
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           ~/.gradle/caches
@@ -17,7 +17,7 @@ runs:
           ${{ runner.os }}-gradle-
 
     - name: Setup Java
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
         java-version: '17'
