@@ -29,7 +29,7 @@
         <activity
             android:name=".components.compose.ComposePreviewActivity"
             android:exported="false"
-            android:theme="@style/UIKitCompose.Theme"
+            android:theme="@style/UIKit.NoActionBar.Light"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".components.compose.UiKitCardEstablishmentActivity"
