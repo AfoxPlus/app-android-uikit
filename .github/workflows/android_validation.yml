@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Project
         uses: ./.github/actions/android
@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew module:lintDebug
 
       - name: Upload Lint Test Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lint_report
           path: module/build/reports/lint-results-debug.html
@@ -34,13 +34,13 @@ jobs:
         run: ./gradlew module:jacocoTestCoverageVerification
 
       - name: Upload Test Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: unit_test_report
           path: module/build/reports/tests/testDebugUnitTest/
 
       - name: Upload Coverage Test Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jacoco_test_report
           path: module/build/reports/jacoco/jacocoTestReport/

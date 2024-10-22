@@ -44,13 +44,13 @@ class ComposePreviewActivity : ComponentActivity() {
                             title = "Lomito saltado a la norteñita...",
                             description = "200 gr meat + rice lettuce + tomato...",
                             price = "S/ 22.00"
-                        )
+                        ){}
                         UIKitProductHorizontalItem(
                             imageUrl = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
                             title = "Pure con asado de rez Pure con asado de rez Pure con asado de rez",
                             description = "Acompañado con arroz y pure de papa mas ensalada, Acompañado con arroz y pure de papa mas ensalada ,Acompañado con arroz y pure de papa mas ensalada",
                             price = "S/ 15.00"
-                        )
+                        ){}
                     }
                 }
             }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.afoxplus.uikit.demo.components.alert.AlertsActivity
 import com.afoxplus.uikit.demo.components.compose.ComposePreviewActivity
+import com.afoxplus.uikit.demo.components.compose.UiKitCardEstablishmentActivity
 import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.modal.ModalActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
@@ -33,23 +34,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadComponents() {
-        binding.openQuantity.setOnClickListener {
-            startActivity(Intent(this, QuantityButtonActivity::class.java))
-        }
-        binding.openEditText.setOnClickListener {
-            startActivity(Intent(this, EditTextActivity::class.java))
-        }
+        with(binding) {
+            openQuantity.setOnClickListener {
+                startActivity(Intent(this@MainActivity, QuantityButtonActivity::class.java))
+            }
+            openEditText.setOnClickListener {
+                startActivity(Intent(this@MainActivity, EditTextActivity::class.java))
+            }
 
-        binding.openModal.setOnClickListener {
-            startActivity(Intent(this, ModalActivity::class.java))
-        }
+            openModal.setOnClickListener {
+                startActivity(Intent(this@MainActivity, ModalActivity::class.java))
+            }
 
-        binding.openAlerts.setOnClickListener {
-            startActivity(Intent(this, AlertsActivity::class.java))
-        }
+            openAlerts.setOnClickListener {
+                startActivity(Intent(this@MainActivity, AlertsActivity::class.java))
+            }
 
-        binding.openCompose.setOnClickListener {
-            startActivity(Intent(this, ComposePreviewActivity::class.java))
+            openCompose.setOnClickListener {
+                startActivity(Intent(this@MainActivity, ComposePreviewActivity::class.java))
+            }
+
+            bEstablishmentPreview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, UiKitCardEstablishmentActivity::class.java))
+            }
         }
     }
 
