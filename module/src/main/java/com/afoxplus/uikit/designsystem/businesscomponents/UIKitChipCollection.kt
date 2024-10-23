@@ -11,13 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.atoms.UIKitChip
-import com.afoxplus.uikit.objects.vendor.RestaurantCategory
+import com.afoxplus.uikit.objects.vendor.ChipItem
 
 @Composable
-fun UIKitCategoryMap(
-    chipItems: List<RestaurantCategory>,
+fun UIKitChipCollection(
+    chipItems: List<ChipItem>,
     modifier: Modifier = Modifier,
-    onSelectedChips: (List<RestaurantCategory>) -> Unit
+    onSelectedChips: (List<ChipItem>) -> Unit
 ) {
     val selectedStates =
         remember { mutableStateListOf(*chipItems.map { it.isSelected }.toTypedArray()) }

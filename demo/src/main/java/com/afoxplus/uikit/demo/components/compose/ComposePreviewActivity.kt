@@ -15,7 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCategoryMap
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitChipCollection
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
@@ -24,7 +24,7 @@ import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.objects.vendor.Establishment
-import com.afoxplus.uikit.objects.vendor.RestaurantCategory
+import com.afoxplus.uikit.objects.vendor.ChipItem
 
 class ComposePreviewActivity : ComponentActivity() {
 
@@ -100,13 +100,13 @@ class ComposePreviewActivity : ComponentActivity() {
 
                         }
 
-                        UIKitCategoryMap(
+                        UIKitChipCollection(
                             chipItems = listOf(
-                                RestaurantCategory("01", false, "Cafe"),
-                                RestaurantCategory("02", false, "Sandwich"),
-                                RestaurantCategory("03", false, "Cevicheria"),
-                                RestaurantCategory("03", false, "Criollo"),
-                                RestaurantCategory("03", false, "Campestre")
+                                ChipItem("01", false, "Cafe"),
+                                ChipItem("02", false, "Sandwich"),
+                                ChipItem("03", false, "Cevicheria"),
+                                ChipItem("03", false, "Criollo"),
+                                ChipItem("03", false, "Campestre")
                             )
                         ) {
                             println("Here is the data: $it")
