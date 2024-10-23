@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductItem
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
@@ -37,6 +38,9 @@ class ComposePreviewActivity : ComponentActivity() {
                             .verticalScroll(rememberScrollState())
                             .fillMaxSize()
                     ) {
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing12))
+                        UIKitMapSearch(modifier = Modifier.padding(UIKitTheme.spacing.spacing12), placeholderText = "Buscar más aquí")
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing20))
                         UIKitText(text = "Hello World!", style = UIKitTheme.typography.title03)
                         UIKitIcon(icon = UIKitTheme.icons.icon_whatsapp_outline)
                         UIKitIcon(icon = UIKitIconTheme.icon_pin_location_outline)
@@ -83,10 +87,13 @@ class ComposePreviewActivity : ComponentActivity() {
                                 addressDescription = "Av. Arenales 1241",
                                 phoneDescription = "966885488"
                             )
-                        ){
+                        ) {
 
                         }
 
+                        UIKitMapSearch(placeholderText = "Buscar más aquí") {
+
+                        }
                     }
                 }
             }

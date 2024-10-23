@@ -25,6 +25,7 @@ abstract class UIKitIcon {
     abstract val icon_verified_solid: Icon
     abstract val icon_star_disable: Icon
     abstract val icon_star_enable: Icon
+    abstract val icon_search: Icon
 
     @JvmInline
     value class Icon(@DrawableRes val drawableRes: Int)
@@ -45,4 +46,5 @@ val UIKitIconTheme: UIKitIcon = object : UIKitIcon() {
     override val icon_verified_solid: Icon = Icon(drawableRes = R.drawable.icon_verified_solid)
     override val icon_star_disable: Icon = Icon(drawableRes = R.drawable.icon_star_disable)
     override val icon_star_enable: Icon = Icon(drawableRes = R.drawable.icon_star_enable)
+    override val icon_search: Icon = Icon(drawableRes = R.drawable.icon_search)
 }
