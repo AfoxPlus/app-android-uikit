@@ -17,6 +17,7 @@ import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitChipCollection
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitItemAutocomplete
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductItem
@@ -111,6 +112,38 @@ class ComposePreviewActivity : ComponentActivity() {
                         ) {
                             println("Here is the data: $it")
                         }
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
+                        UIKitItemAutocomplete(
+                            establishment = Establishment(
+                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                name = "Kitchen Resto",
+                                description = "Cafe & Resto",
+                                hasSubscription = true,
+                                isOpen = true,
+                                rating = 4f,
+                                addressDescription = "Av. Arenales 1241",
+                                phoneDescription = "966885488"
+                            )
+                        ) {
+
+                        }
+                        UIKitItemAutocomplete(
+                            establishment = Establishment(
+                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                name = "Kitchen Resto",
+                                description = "Cafe & Resto",
+                                hasSubscription = true,
+                                isOpen = true,
+                                rating = 4f,
+                                addressDescription = "Av. Arenales 1241",
+                                phoneDescription = "966885488"
+                            )
+                        ) {
+
+                        }
+
                     }
                 }
             }
