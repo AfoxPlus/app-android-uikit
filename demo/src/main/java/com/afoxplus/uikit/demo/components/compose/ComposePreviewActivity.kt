@@ -12,9 +12,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCategoryMap
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
@@ -23,6 +25,7 @@ import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.objects.vendor.Establishment
+import com.afoxplus.uikit.objects.vendor.RestaurantCategory
 
 class ComposePreviewActivity : ComponentActivity() {
 
@@ -39,7 +42,10 @@ class ComposePreviewActivity : ComponentActivity() {
                             .fillMaxSize()
                     ) {
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing12))
-                        UIKitMapSearch(modifier = Modifier.padding(UIKitTheme.spacing.spacing12), placeholderText = "Buscar más aquí")
+                        UIKitMapSearch(
+                            modifier = Modifier.padding(UIKitTheme.spacing.spacing12),
+                            placeholderText = "Buscar más aquí"
+                        )
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing20))
                         UIKitText(text = "Hello World!", style = UIKitTheme.typography.title03)
                         UIKitIcon(icon = UIKitTheme.icons.icon_whatsapp_outline)
@@ -93,6 +99,18 @@ class ComposePreviewActivity : ComponentActivity() {
 
                         UIKitMapSearch(placeholderText = "Buscar más aquí") {
 
+                        }
+
+                        UIKitCategoryMap(
+                            chipItems = listOf(
+                                RestaurantCategory("01", false, "Cafe"),
+                                RestaurantCategory("02", false, "Sandwich"),
+                                RestaurantCategory("03", false, "Cevicheria"),
+                                RestaurantCategory("03", false, "Criollo"),
+                                RestaurantCategory("03", false, "Campestre")
+                            )
+                        ) {
+                            println("Here is the data: $it")
                         }
                     }
                 }
