@@ -5,7 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.afoxplus.uikit.demo.components.alert.AlertsActivity
 import com.afoxplus.uikit.demo.components.compose.ComposePreviewActivity
-import com.afoxplus.uikit.demo.components.compose.UiKitCardEstablishmentActivity
+import com.afoxplus.uikit.demo.components.compose.UIKitCardEstablishmentActivity
+import com.afoxplus.uikit.demo.components.compose.UIKitTopBannerActivity
 import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.modal.ModalActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
@@ -55,7 +56,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             bEstablishmentPreview.setOnClickListener {
-                startActivity(Intent(this@MainActivity, UiKitCardEstablishmentActivity::class.java))
+                startActivity(Intent(this@MainActivity, UIKitCardEstablishmentActivity::class.java))
+            }
+
+            bTopBannerPreview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, UIKitTopBannerActivity::class.java))
             }
         }
     }

@@ -31,7 +31,7 @@ import com.afoxplus.uikit.designsystem.molecules.UIKitItemTextIcon
 import com.afoxplus.uikit.objects.vendor.Establishment
 
 @Composable
-fun UiKitCardEstablishment(
+fun UIKitCardEstablishment(
     context: Context,
     modifier: Modifier = Modifier,
     establishment: Establishment,
