@@ -13,6 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitChipCollection
@@ -21,6 +22,7 @@ import com.afoxplus.uikit.designsystem.businesscomponents.UIKitItemAutocomplete
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductItem
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitSearchAutocomplete
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -46,6 +48,14 @@ class ComposePreviewActivity : ComponentActivity() {
                             modifier = Modifier.padding(UIKitTheme.spacing.spacing12),
                             placeholderText = "Buscar más aquí"
                         )
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
+                        UIKitSearchAutocomplete(
+                            modifier = Modifier.padding(UIKitTheme.spacing.spacing10),
+                            placeholder = "Buscar más aquí", onBackClick = {
+                                println("On back action")
+                            }) {
+                            println("this is a new text $it")
+                        }
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing20))
                         UIKitText(text = "Hello World!", style = UIKitTheme.typography.title03)
                         UIKitIcon(icon = UIKitTheme.icons.icon_whatsapp_outline)
