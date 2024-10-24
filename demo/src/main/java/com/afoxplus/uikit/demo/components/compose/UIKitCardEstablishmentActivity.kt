@@ -10,13 +10,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.molecules.UIKitItemTextIcon
 import com.afoxplus.uikit.designsystem.organisms.UIKitCardEstablishment
@@ -35,6 +39,7 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
+                            .verticalScroll(rememberScrollState())
                             .padding(paddingValues = paddingValues)
                             .padding(8.dp)
                     ) {
@@ -78,6 +83,37 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                             ),
                             context = LocalContext.current
                         ) {}
+                        Spacer(modifier = Modifier.padding(16.dp))
+                        UIKitEstablishmentMap(
+                            establishment = Establishment(
+                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                name = "Kitchen Resto",
+                                description = "Cafe & Resto",
+                                hasSubscription = true,
+                                isOpen = false,
+                                rating = 1f,
+                                addressDescription = "Av. Arenales 1241",
+                                phoneDescription = "966885488"
+                            )
+                        ) {}
+
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
+                        UIKitEstablishmentMap(
+                            establishment = Establishment(
+                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
+                                name = "Kitchen Resto",
+                                description = "Cafe & Resto",
+                                hasSubscription = true,
+                                isOpen = true,
+                                rating = 4f,
+                                addressDescription = "Av. Arenales 1241",
+                                phoneDescription = "966885488"
+                            )
+                        ) {
+
+                        }
                     }
                 }
             }

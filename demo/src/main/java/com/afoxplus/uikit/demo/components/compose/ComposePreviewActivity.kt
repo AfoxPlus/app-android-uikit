@@ -13,21 +13,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitChipCollection
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitItemAutocomplete
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductHorizontalItem
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitProductItem
-import com.afoxplus.uikit.designsystem.businesscomponents.UIKitSearchAutocomplete
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
-import com.afoxplus.uikit.objects.vendor.Establishment
-import com.afoxplus.uikit.objects.vendor.ChipItem
 
 class ComposePreviewActivity : ComponentActivity() {
 
@@ -44,116 +34,12 @@ class ComposePreviewActivity : ComponentActivity() {
                             .fillMaxSize()
                     ) {
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing12))
-                        UIKitMapSearch(
-                            modifier = Modifier.padding(UIKitTheme.spacing.spacing12),
-                            placeholderText = "Buscar más aquí"
-                        )
-                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
-                        UIKitSearchAutocomplete(
-                            modifier = Modifier.padding(UIKitTheme.spacing.spacing10),
-                            placeholder = "Buscar más aquí", onBackClick = {
-                                println("On back action")
-                            }) {
-                            println("this is a new text $it")
-                        }
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing20))
                         UIKitText(text = "Hello World!", style = UIKitTheme.typography.title03)
                         UIKitIcon(icon = UIKitTheme.icons.icon_whatsapp_outline)
                         UIKitIcon(icon = UIKitIconTheme.icon_pin_location_outline)
                         UIKitIcon(icon = UIKitIconTheme.icon_calendar_small_outline)
                         getUIKitIcon("icon_trash_outline")?.let { UIKitIcon(icon = it) }
-                        UIKitProductItem(
-                            imageUrl = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                            title = "Lomito saltado a la norteñita...",
-                            description = "200 gr meat + rice lettuce + tomato...",
-                            price = "S/ 22.00"
-                        ) {}
-                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
-                        UIKitProductHorizontalItem(
-                            imageUrl = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                            title = "Pure con asado de rez Pure con asado de rez Pure con asado de rez",
-                            description = "Acompañado con arroz y pure de papa mas ensalada, Acompañado con arroz y pure de papa mas ensalada ,Acompañado con arroz y pure de papa mas ensalada",
-                            price = "S/ 15.00"
-                        ) {}
-                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
-                        UIKitEstablishmentMap(
-                            establishment = Establishment(
-                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                name = "Kitchen Resto",
-                                description = "Cafe & Resto",
-                                hasSubscription = true,
-                                isOpen = false,
-                                rating = 1f,
-                                addressDescription = "Av. Arenales 1241",
-                                phoneDescription = "966885488"
-                            )
-                        ) {}
-
-                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
-                        UIKitEstablishmentMap(
-                            establishment = Establishment(
-                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                name = "Kitchen Resto",
-                                description = "Cafe & Resto",
-                                hasSubscription = true,
-                                isOpen = true,
-                                rating = 4f,
-                                addressDescription = "Av. Arenales 1241",
-                                phoneDescription = "966885488"
-                            )
-                        ) {
-
-                        }
-
-                        UIKitMapSearch(placeholderText = "Buscar más aquí") {
-
-                        }
-
-                        UIKitChipCollection(
-                            chipItems = listOf(
-                                ChipItem("01", false, "Cafe"),
-                                ChipItem("02", false, "Sandwich"),
-                                ChipItem("03", false, "Cevicheria"),
-                                ChipItem("03", false, "Criollo"),
-                                ChipItem("03", false, "Campestre")
-                            )
-                        ) {
-                            println("Here is the data: $it")
-                        }
-                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
-                        UIKitItemAutocomplete(
-                            establishment = Establishment(
-                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                name = "Kitchen Resto",
-                                description = "Cafe & Resto",
-                                hasSubscription = true,
-                                isOpen = true,
-                                rating = 4f,
-                                addressDescription = "Av. Arenales 1241",
-                                phoneDescription = "966885488"
-                            )
-                        ) {
-
-                        }
-                        UIKitItemAutocomplete(
-                            establishment = Establishment(
-                                imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
-                                name = "Kitchen Resto",
-                                description = "Cafe & Resto",
-                                hasSubscription = true,
-                                isOpen = true,
-                                rating = 4f,
-                                addressDescription = "Av. Arenales 1241",
-                                phoneDescription = "966885488"
-                            )
-                        ) {
-
-                        }
-
                     }
                 }
             }

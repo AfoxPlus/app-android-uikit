@@ -7,6 +7,8 @@ import com.afoxplus.uikit.demo.components.alert.AlertsActivity
 import com.afoxplus.uikit.demo.components.compose.ComposePreviewActivity
 import com.afoxplus.uikit.demo.components.compose.UIKitCardEstablishmentActivity
 import com.afoxplus.uikit.demo.components.compose.UIKitTopBannerActivity
+import com.afoxplus.uikit.demo.components.compose.UiKitProductsActivity
+import com.afoxplus.uikit.demo.components.compose.UiKitSearchActivity
 import com.afoxplus.uikit.demo.components.edittext.EditTextActivity
 import com.afoxplus.uikit.demo.components.modal.ModalActivity
 import com.afoxplus.uikit.demo.components.quantitybutton.QuantityButtonActivity
@@ -61,6 +63,13 @@ class MainActivity : AppCompatActivity() {
 
             bTopBannerPreview.setOnClickListener {
                 startActivity(Intent(this@MainActivity, UIKitTopBannerActivity::class.java))
+            }
+
+            bProductPreview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, UiKitProductsActivity::class.java))
+            }
+            bSearchPreview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, UiKitSearchActivity::class.java))
             }
         }
     }
