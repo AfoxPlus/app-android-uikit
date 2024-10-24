@@ -15,6 +15,7 @@ internal val LargeSpace = 32.dp
 internal val ExtraLargeSpace = 40.dp
 internal val LargestSpace = 64.dp
 
+internal val Spacing00 = 0.dp
 internal val Spacing01 = 1.dp
 internal val Spacing02 = 2.dp
 internal val Spacing03 = 3.dp
@@ -51,6 +52,7 @@ data class UIKitSpacing(
     val extraLarge: Dp = ExtraLargeSpace,
     val largest: Dp = LargestSpace,
 
+    val spacing00: Dp = Spacing00,
     val spacing01: Dp = Spacing01,
     val spacing02: Dp = Spacing02,
     val spacing03: Dp = Spacing03,

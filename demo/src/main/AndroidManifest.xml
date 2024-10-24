@@ -32,7 +32,12 @@
             android:theme="@style/UIKit.NoActionBar.Light"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".components.compose.UiKitCardEstablishmentActivity"
+            android:name=".components.compose.UIKitCardEstablishmentActivity"
+            android:exported="false"
+            android:theme="@style/UIKitCompose.Theme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".components.compose.UIKitTopBannerActivity"
             android:exported="false"
             android:theme="@style/UIKitCompose.Theme"
             android:windowSoftInputMode="adjustResize" />

@@ -19,10 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.molecules.UIKitItemTextIcon
-import com.afoxplus.uikit.designsystem.organisms.UiKitCardEstablishment
+import com.afoxplus.uikit.designsystem.organisms.UIKitCardEstablishment
 import com.afoxplus.uikit.objects.vendor.Establishment
 
-class UiKitCardEstablishmentActivity : ComponentActivity() {
+class UIKitCardEstablishmentActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("TAG", "Here - onCreate: UiKitCardEstablishmentActivity")
@@ -49,7 +49,7 @@ class UiKitCardEstablishmentActivity : ComponentActivity() {
                             rightIcon = UIKitTheme.icons.icon_whatsapp_outline
                         )
                         Spacer(modifier = Modifier.padding(16.dp))
-                        UiKitCardEstablishment(
+                        UIKitCardEstablishment(
                             establishment = Establishment(
                                 imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                                 imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
@@ -64,7 +64,7 @@ class UiKitCardEstablishmentActivity : ComponentActivity() {
                             context = LocalContext.current
                         ) {}
                         Spacer(modifier = Modifier.padding(16.dp))
-                        UiKitCardEstablishment(
+                        UIKitCardEstablishment(
                             establishment = Establishment(
                                 imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                                 imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
@@ -106,7 +106,7 @@ fun UiKitCardEstablishmentPreview() {
                 rightIcon = UIKitTheme.icons.icon_whatsapp_outline
             )
             Spacer(modifier = Modifier.padding(16.dp))
-            UiKitCardEstablishment(
+            UIKitCardEstablishment(
                 establishment = Establishment(
                     imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                     imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
@@ -121,7 +121,7 @@ fun UiKitCardEstablishmentPreview() {
                 context = LocalContext.current
             ) {}
             Spacer(modifier = Modifier.padding(16.dp))
-            UiKitCardEstablishment(
+            UIKitCardEstablishment(
                 establishment = Establishment(
                     imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                     imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
