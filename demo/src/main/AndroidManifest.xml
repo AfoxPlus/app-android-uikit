@@ -52,6 +52,11 @@
             android:theme="@style/UIKitCompose.Theme"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".components.compose.UIKitButtonsActivity"
+            android:exported="false"
+            android:theme="@style/UIKitCompose.Theme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/UIKit.NoActionBar.Light">
