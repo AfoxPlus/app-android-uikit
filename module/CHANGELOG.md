@@ -1,5 +1,10 @@
 # app-android-uikit Changelog
 
+## Version 6.2.8
+## Added
+- Added UIKitButton component.
+- Update UIKitTopBanner component.
+
 ## Version 6.1.0
 ## Updates
 - Update config gradle

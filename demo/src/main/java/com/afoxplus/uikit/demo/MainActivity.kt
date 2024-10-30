@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.afoxplus.uikit.demo.components.alert.AlertsActivity
 import com.afoxplus.uikit.demo.components.compose.ComposePreviewActivity
+import com.afoxplus.uikit.demo.components.compose.UIKitButtonsActivity
 import com.afoxplus.uikit.demo.components.compose.UIKitCardEstablishmentActivity
 import com.afoxplus.uikit.demo.components.compose.UIKitTopBannerActivity
 import com.afoxplus.uikit.demo.components.compose.UiKitProductsActivity
@@ -70,6 +71,9 @@ class MainActivity : AppCompatActivity() {
             }
             bSearchPreview.setOnClickListener {
                 startActivity(Intent(this@MainActivity, UiKitSearchActivity::class.java))
+            }
+            bButtonsPreview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, UIKitButtonsActivity::class.java))
             }
         }
     }

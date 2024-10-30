@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +25,9 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.afoxplus.uikit.designsystem.atoms.UIKitButtonOutlineLarge
+import com.afoxplus.uikit.designsystem.atoms.UIKitButton
+import com.afoxplus.uikit.designsystem.atoms.UIKitButtonStatus
+import com.afoxplus.uikit.designsystem.atoms.UIKitButtonType
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.extensions.getImage
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -79,27 +82,23 @@ fun UIKitTopBanner(
                     color = UIKitTheme.colors.secondaryColor
                 )
                 Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing16))
-                UIKitButtonOutlineLarge(
+                UIKitButton(
                     modifier = Modifier
-                        .width(91.dp)
-                        .height(30.dp),
+                        .width(83.dp)
+                        .height(31.dp),
+                    type = UIKitButtonType.OutlineSmall(status = UIKitButtonStatus.ACTIVE),
                     text = banner.buttonText,
+                    textStyle = UIKitTheme.typography.paragraph02,
                     textColor = UIKitTheme.colors.secondaryColor,
-                    border = BorderStroke(
-                        width = UIKitTheme.spacing.spacing01,
-                        color = UIKitTheme.colors.secondaryColor,
+                    buttonColor = ButtonDefaults.buttonColors(
+                        containerColor = Color.Transparent,
+                        contentColor = Color.Transparent
                     ),
-                    shape = UIKitTheme.shapes.small,
-                    onClick = { })
-
-                /*UIKitButtonOutlineLarge(
-                    text = banner.buttonText,
-                    textColor = UIKitTheme.colors.secondaryColor,
-                    border = BorderStroke(
+                    buttonBorder = BorderStroke(
                         width = UIKitTheme.spacing.spacing01,
                         color = UIKitTheme.colors.secondaryColor
                     ),
-                    onClick = { })*/
+                    onClick = { })
             }
 
             Column(
@@ -123,6 +122,6 @@ fun UIKitTopBanner(
             contentScale = contextScaleImage,
             alignment = Alignment.BottomEnd,
 
-        )
+            )
     }
 }
