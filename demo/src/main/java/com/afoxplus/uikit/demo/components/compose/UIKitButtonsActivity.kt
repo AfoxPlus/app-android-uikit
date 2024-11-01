@@ -80,19 +80,26 @@ fun UIKitButtonsBase() {
     )
     UIKitText(text = "Active", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(UIKitTheme.spacing.spacing52),
         text = "Ir al inicio",
         type = UIKitButtonType.OutlineLarge(status = UIKitButtonStatus.ACTIVE)
     ) { }
     UIKitText(text = "Disable", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(UIKitTheme.spacing.spacing52),
         text = "Ir al inicio",
         type = UIKitButtonType.OutlineLarge(status = UIKitButtonStatus.DISABLED)
     ) { }
     UIKitText(text = "Loading", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(UIKitTheme.spacing.spacing52),
+        text = "Ir al inicio",
         type = UIKitButtonType.OutlineLarge(status = UIKitButtonStatus.LOADING)
     ) { }
 
@@ -104,19 +111,25 @@ fun UIKitButtonsBase() {
     )
     UIKitText(text = "Active", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(UIKitTheme.spacing.spacing52),
         text = "Hacer otro pedido",
         type = UIKitButtonType.FilledLarge(status = UIKitButtonStatus.ACTIVE)
     ) { }
     UIKitText(text = "Disable", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(UIKitTheme.spacing.spacing52),
         text = "Hacer otro pedido",
         type = UIKitButtonType.FilledLarge(status = UIKitButtonStatus.DISABLED)
     ) { }
     UIKitText(text = "Loading", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(UIKitTheme.spacing.spacing52),
         type = UIKitButtonType.FilledLarge(status = UIKitButtonStatus.LOADING)
     ) { }
 
@@ -128,19 +141,25 @@ fun UIKitButtonsBase() {
     )
     UIKitText(text = "Active", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = UIKitTheme.spacing.spacing42),
         text = "No, continuar pedido",
         type = UIKitButtonType.OutlineMedium(status = UIKitButtonStatus.ACTIVE)
     ) { }
     UIKitText(text = "Disable", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = UIKitTheme.spacing.spacing42),
         text = "No, continuar pedido",
         type = UIKitButtonType.OutlineMedium(status = UIKitButtonStatus.DISABLED)
     ) { }
     UIKitText(text = "Loading", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = UIKitTheme.spacing.spacing42),
         type = UIKitButtonType.OutlineMedium(status = UIKitButtonStatus.LOADING)
     ) { }
 
@@ -152,19 +171,25 @@ fun UIKitButtonsBase() {
     )
     UIKitText(text = "Active", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = UIKitTheme.spacing.spacing42),
         text = "Entendido",
         type = UIKitButtonType.FilledMedium(status = UIKitButtonStatus.ACTIVE)
     ) { }
     UIKitText(text = "Disable", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = UIKitTheme.spacing.spacing42),
         text = "Entendido",
         type = UIKitButtonType.FilledMedium(status = UIKitButtonStatus.DISABLED)
     ) { }
     UIKitText(text = "Loading", modifier = Modifier.padding(start = 15.dp))
     UIKitButton(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = UIKitTheme.spacing.spacing42),
         type = UIKitButtonType.FilledMedium(status = UIKitButtonStatus.LOADING)
     ) { }
 
@@ -178,7 +203,7 @@ fun UIKitButtonsBase() {
     UIKitButton(
         modifier = Modifier
             .width(83.dp)
-            .height(31.dp),
+            .height(UIKitTheme.spacing.spacing31),
         text = "Probar",
         type = UIKitButtonType.OutlineSmall(status = UIKitButtonStatus.ACTIVE)
     ) { }
@@ -187,7 +212,7 @@ fun UIKitButtonsBase() {
     UIKitButton(
         modifier = Modifier
             .width(83.dp)
-            .height(31.dp),
+            .height(UIKitTheme.spacing.spacing31),
         type = UIKitButtonType.OutlineSmall(status = UIKitButtonStatus.ACTIVE),
         text = "Probar",
         textStyle = UIKitTheme.typography.paragraph02,
@@ -211,7 +236,7 @@ fun UIKitButtonsBase() {
     UIKitButton(
         modifier = Modifier
             .width(83.dp)
-            .height(31.dp),
+            .height(UIKitTheme.spacing.spacing31),
         text = "Probar",
         type = UIKitButtonType.FilledSmall(status = UIKitButtonStatus.ACTIVE)
     ) { }
