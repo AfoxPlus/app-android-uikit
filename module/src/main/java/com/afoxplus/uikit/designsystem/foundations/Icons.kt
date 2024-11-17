@@ -28,6 +28,7 @@ abstract class UIKitIcon {
     abstract val icon_search: Icon
     abstract val icon_clean: Icon
     abstract val icon_back: Icon
+    abstract val icon_current_location: Icon
 
     @JvmInline
     value class Icon(@DrawableRes val drawableRes: Int)
@@ -51,4 +52,6 @@ val UIKitIconTheme: UIKitIcon = object : UIKitIcon() {
     override val icon_search: Icon = Icon(drawableRes = R.drawable.icon_search)
     override val icon_clean: Icon = Icon(drawableRes = R.drawable.icon_clean)
     override val icon_back: Icon = Icon(drawableRes = R.drawable.icon_back)
+    override val icon_current_location: Icon =
+        Icon(drawableRes = R.drawable.icon_current_location_outline)
 }

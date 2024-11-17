@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMap
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitEstablishmentMapShimmer
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.molecules.UIKitItemTextIcon
 import com.afoxplus.uikit.designsystem.organisms.UIKitCardEstablishment
@@ -114,6 +115,8 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                         ) {
 
                         }
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
+                        UIKitEstablishmentMapShimmer()
                     }
                 }
             }

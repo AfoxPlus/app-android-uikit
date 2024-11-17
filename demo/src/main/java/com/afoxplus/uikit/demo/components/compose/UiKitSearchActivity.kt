@@ -15,6 +15,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitChipCollection
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitChipCollectionShimmer
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitItemAutocompleteShimmer
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitMapSearch
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitSearchAutocomplete
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -59,6 +61,9 @@ class UiKitSearchActivity : ComponentActivity() {
                         ) {
                             println("Here is the data: $it")
                         }
+                        Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
+                        UIKitChipCollectionShimmer()
+                        UIKitItemAutocompleteShimmer()
                     }
                 }
             }

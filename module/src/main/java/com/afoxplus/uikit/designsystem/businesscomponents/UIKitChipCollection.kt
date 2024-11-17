@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.atoms.UIKitChip
+import com.afoxplus.uikit.designsystem.atoms.UIKitChipShimmer
 import com.afoxplus.uikit.objects.vendor.ChipItem
 
 @Composable
@@ -37,6 +38,20 @@ fun UIKitChipCollection(
                     onSelectedChips(selectedChips)
                 }
             )
+        }
+    }
+}
+
+@Composable
+fun UIKitChipCollectionShimmer(modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier,
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        items(4) {
+            UIKitChipShimmer()
         }
     }
 }
