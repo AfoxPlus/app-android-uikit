@@ -31,7 +31,8 @@ fun UIKitSearchAutocomplete(
     focusRequester: FocusRequester,
     placeholder: String = "",
     onBackClick: () -> Unit,
-    onTextChange: (String) -> Unit
+    onTextChange: (String) -> Unit,
+    onTextClear: () -> Unit
 ) {
     val textState = remember { mutableStateOf(TextFieldValue("")) }
     Surface(
@@ -100,7 +101,9 @@ fun UIKitSearchAutocomplete(
                 if (textState.value.text.isNotEmpty()) {
                     UIKitIcon(
                         modifier = Modifier
-                            .clickable { textState.value = TextFieldValue("") },
+                            .clickable {
+                                onTextClear()
+                                textState.value = TextFieldValue("") },
                         icon = UIKitTheme.icons.icon_clean,
                         tint = UIKitTheme.colors.secondaryColor
                     )
