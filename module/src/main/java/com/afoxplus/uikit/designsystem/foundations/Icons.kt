@@ -29,6 +29,8 @@ abstract class UIKitIcon {
     abstract val icon_clean: Icon
     abstract val icon_back: Icon
     abstract val icon_current_location: Icon
+    abstract val icon_location_filled: Icon
+    abstract val icon_location_filled_red: Icon
 
     @JvmInline
     value class Icon(@DrawableRes val drawableRes: Int)
@@ -54,4 +56,7 @@ val UIKitIconTheme: UIKitIcon = object : UIKitIcon() {
     override val icon_back: Icon = Icon(drawableRes = R.drawable.icon_back)
     override val icon_current_location: Icon =
         Icon(drawableRes = R.drawable.icon_current_location_outline)
+    override val icon_location_filled: Icon = Icon(drawableRes = R.drawable.icon_location_filled)
+    override val icon_location_filled_red: Icon =
+        Icon(drawableRes = R.drawable.icon_location_filled_red)
 }
