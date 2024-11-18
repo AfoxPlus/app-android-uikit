@@ -31,8 +31,8 @@ fun UIKitSearchAutocomplete(
     focusRequester: FocusRequester,
     placeholder: String = "",
     onBackClick: () -> Unit,
+    onTextClear: () -> Unit,
     onTextChange: (String) -> Unit,
-    onTextClear: () -> Unit
 ) {
     val textState = remember { mutableStateOf(TextFieldValue("")) }
     Surface(
