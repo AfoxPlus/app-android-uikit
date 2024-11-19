@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.afoxplus.uikit.designsystem.atoms.UIKitRadioButton
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -36,14 +35,5 @@ fun UIKitLabelledRadioButton(
             style = UIKitTypographyTheme.paragraph01Bold,
             color = radioButtonStyle.selectedColor
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewComponent() {
-    UIKitTheme {
-
-        UIKitLabelledRadioButton(label = "Efectivo", selected = false, onClick = {})
     }
 }

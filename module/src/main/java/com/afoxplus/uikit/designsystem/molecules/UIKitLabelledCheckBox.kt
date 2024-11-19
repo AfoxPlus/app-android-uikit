@@ -15,7 +15,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import com.afoxplus.uikit.designsystem.atoms.UIKitCheckbox
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
@@ -54,18 +53,6 @@ fun UIKitLabelledCheckBox(
             text = label,
             style = UIKitTypographyTheme.paragraph01Bold,
             color = checkboxStyle.checkedColor
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun preview() {
-    UIKitTheme {
-        UIKitLabelledCheckBox(
-            checked = false,
-            onCheckedChange = {},
-            label = "Label"
         )
     }
 }
