@@ -14,12 +14,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
-import com.afoxplus.uikit.designsystem.foundations.UIKitIcon
+import com.afoxplus.uikit.designsystem.foundations.IconTheme
 
 @Composable
 fun UIKitItemTextIcon(
     modifier: Modifier = Modifier,
-    leftIcon: UIKitIcon.Icon? = null,
+    leftIcon: IconTheme.Icon? = null,
     leftIconSize: Dp = 14.dp,
     leftIconPaddingValues: PaddingValues = PaddingValues(
         start = 0.dp,
@@ -27,7 +27,7 @@ fun UIKitItemTextIcon(
         end = 0.dp,
         bottom = 0.dp
     ),
-    rightIcon: UIKitIcon.Icon? = null,
+    rightIcon: IconTheme.Icon? = null,
     rightIconSize: Dp = 14.dp,
     rightIconPaddingValues: PaddingValues = PaddingValues(
         start = 0.dp,

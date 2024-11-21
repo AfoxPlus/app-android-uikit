@@ -44,7 +44,7 @@ internal val Spacing70 = 70.dp
 internal val Spacing80 = 80.dp
 
 @Immutable
-data class UIKitSpacing(
+data class SpacingTheme(
     val default: Dp = DefaultSpace,
     val extraSmall: Dp = ExtraSmallSpace,
     val small: Dp = SmallSpace,
@@ -84,4 +84,4 @@ data class UIKitSpacing(
     val spacing80: Dp = Spacing80
 )
 
-internal val LocalUIKitSpacing = staticCompositionLocalOf { UIKitSpacing() }
+internal val LocalUIKitSpacing = staticCompositionLocalOf { SpacingTheme() }

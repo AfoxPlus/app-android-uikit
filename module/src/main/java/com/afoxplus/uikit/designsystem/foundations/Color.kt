@@ -108,7 +108,7 @@ internal val Gray20 = Color(0xFFFDFDFD)
 
 
 @Immutable
-abstract class UIKitColors {
+abstract class ColorTheme {
     abstract val default: Color
     abstract val primaryColor: Color
     abstract val secondaryColor: Color
@@ -211,7 +211,7 @@ abstract class UIKitColors {
     abstract val gray20: Color
 }
 
-val UIKitColorTheme = object : UIKitColors() {
+val UIKitColorTheme = object : ColorTheme() {
     override val default: Color = Color.Unspecified
 
     override val primaryColor: Color = Orange600
@@ -330,6 +330,6 @@ internal val UIKitLightColorScheme = lightColorScheme(
     surface = Light01
 )
 
-internal val LocalUIKitColors: ProvidableCompositionLocal<UIKitColors> = staticCompositionLocalOf {
+val LocalUIKitColors: ProvidableCompositionLocal<ColorTheme> = staticCompositionLocalOf {
     error("No ColorTheme provided")
 }
