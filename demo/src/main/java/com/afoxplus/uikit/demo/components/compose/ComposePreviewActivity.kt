@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -21,6 +22,7 @@ import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardCheckbox
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardRadioButton
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitSectionTitle
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
@@ -90,6 +92,11 @@ class ComposePreviewActivity : ComponentActivity() {
                             onClick = {
 
                             })
+
+                        UIKitSectionTitle(
+                            modifier = Modifier.fillMaxWidth(),
+                            title = "Establecimiento"
+                        )
                     }
                 }
             }
