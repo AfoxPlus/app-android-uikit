@@ -6,12 +6,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
-import com.afoxplus.uikit.designsystem.foundations.UIKitIcon
+import com.afoxplus.uikit.designsystem.foundations.IconTheme
 
 @Composable
 fun UIKitIcon(
     modifier: Modifier = Modifier,
-    icon: UIKitIcon.Icon,
+    icon: IconTheme.Icon,
     contentDescription: String? = null,
     tint: Color = UIKitColorTheme.secondaryColor
 ) {

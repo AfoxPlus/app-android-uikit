@@ -23,7 +23,7 @@ internal val Mulish = FontFamily(
 )
 
 @Immutable
-abstract class UIKitTypography {
+abstract class TypographyTheme {
     abstract val header01: TextStyle
     abstract val header01SemiBold: TextStyle
     abstract val header01Bold: TextStyle
@@ -51,7 +51,7 @@ abstract class UIKitTypography {
     abstract val title04: TextStyle
 }
 
-val UIKitTypographyTheme = object : UIKitTypography() {
+val UIKitTypographyTheme = object : TypographyTheme() {
     override val header01: TextStyle =  defaultTextStyle( 
         fontSize = 32.sp,
         fontWeight = FontWeight.Medium
@@ -178,7 +178,7 @@ val UIKitTypographyTheme = object : UIKitTypography() {
     )
 }
 
-internal val TypographyTheme = defaultTypography()
+internal val DefaultTypographyTheme = defaultTypography()
 
 private fun defaultTypography() = with(UIKitTypographyTheme) {
     MaterialTypography(
@@ -213,6 +213,6 @@ private fun defaultTextStyle(
 )
 private val LetterSpacing = (0.12f).sp
 
-val LocalUIKitTypography: ProvidableCompositionLocal<UIKitTypography> = staticCompositionLocalOf {
+val LocalUIKitTypography: ProvidableCompositionLocal<TypographyTheme> = staticCompositionLocalOf {
     error("No TypographyTheme provided")
 }

@@ -15,18 +15,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.atoms.UIKitVerticalDashedLine
+import com.afoxplus.uikit.designsystem.extensions.getUIKitColor
+import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
+import com.afoxplus.uikit.designsystem.foundations.IconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
-import com.afoxplus.uikit.designsystem.foundations.UIKitIcon
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTypographyTheme
-
 
 @Composable
 fun UIKitSectionTitle(
     modifier: Modifier = Modifier,
     title: String,
-    icon: UIKitIcon.Icon = UIKitIconTheme.icon_whatsapp_outline,
+    iconToken: String,
+    backgroundToken: String,
+    contentColorToken: String
+) {
+    UIKitSectionTitle(
+        modifier = modifier,
+        title = title,
+        icon = getUIKitIcon(token = iconToken),
+        background = getUIKitColor(token = backgroundToken),
+        contentColor = getUIKitColor(token = contentColorToken)
+    )
+}
+
+@Composable
+fun UIKitSectionTitle(
+    modifier: Modifier = Modifier,
+    title: String,
+    icon: IconTheme.Icon = UIKitIconTheme.icon_whatsapp_outline,
     background: Color = UIKitColorTheme.gray100,
     contentColor: Color = UIKitColorTheme.gray700
 ) {
