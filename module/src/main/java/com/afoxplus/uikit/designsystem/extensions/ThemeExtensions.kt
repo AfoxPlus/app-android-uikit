@@ -6,11 +6,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import com.afoxplus.uikit.designsystem.foundations.ColorTheme
 import com.afoxplus.uikit.designsystem.foundations.IconTheme
 import com.afoxplus.uikit.designsystem.foundations.LocalUIKitColors
 import com.afoxplus.uikit.designsystem.foundations.LocalUIKitIconTheme
+import com.afoxplus.uikit.designsystem.foundations.LocalUIKitSpacing
 import com.afoxplus.uikit.designsystem.foundations.LocalUIKitTypography
+import com.afoxplus.uikit.designsystem.foundations.SpacingTheme
 import com.afoxplus.uikit.designsystem.foundations.TypographyTheme
 import kotlin.reflect.full.memberProperties
 
@@ -49,6 +52,22 @@ fun getUIKitColor(token: String): Color {
     selectedColor.value = options.first { it.name == token }.value
 
     return selectedColor.value ?: throw IllegalArgumentException("Unknown Color")
+}
+
+@Composable
+fun getUIKitSpacing(token: String): Dp {
+
+    val spacingTheme = LocalUIKitSpacing.current
+    val defaultSpacing: MutableState<Dp?>? = null
+    val selectedSpacing = defaultSpacing ?: remember { mutableStateOf<Dp?>(null) }
+
+    val options = SpacingTheme::class.memberProperties.map {
+        ParameterValue(it.name, (it.get(spacingTheme) as Dp))
+    }
+
+    selectedSpacing.value = options.first { it.name == token }.value
+
+    return selectedSpacing.value ?: throw IllegalArgumentException("Unknown Spacing")
 }
 
 

@@ -23,6 +23,7 @@ import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardCheckbox
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardRadioButton
 import com.afoxplus.uikit.designsystem.extensions.getUIKitColor
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
+import com.afoxplus.uikit.designsystem.extensions.getUIKitSpacing
 import com.afoxplus.uikit.designsystem.extensions.getUIKitTypography
 import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
@@ -41,10 +42,10 @@ class ComposePreviewActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(paddingValues = paddingValues)
-                            .padding(horizontal = UIKitTheme.spacing.spacing16)
+                            .padding(horizontal = getUIKitSpacing("medium"))
                             .verticalScroll(rememberScrollState())
                             .fillMaxSize(),
-                        verticalArrangement = Arrangement.spacedBy(UIKitTheme.spacing.spacing08)
+                        verticalArrangement = Arrangement.spacedBy(getUIKitSpacing("spacing08"))
                     ) {
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing12))
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing20))
@@ -60,6 +61,7 @@ class ComposePreviewActivity : ComponentActivity() {
                         )
                         UIKitIcon(icon = getUIKitIcon("icon_trash_outline"))
                         UIKitIcon(icon = getUIKitIcon("icon_dish_outline"))
+                        Spacer(modifier = Modifier.height(getUIKitSpacing("extraMedium")))
                         UIKitIcon(icon = getUIKitIcon("icon_three_dots_filled"))
 
 
