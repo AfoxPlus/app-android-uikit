@@ -21,7 +21,11 @@ import com.afoxplus.uikit.designsystem.atoms.UIKitIcon
 import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardCheckbox
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardRadioButton
+import com.afoxplus.uikit.designsystem.extensions.getUIKitColor
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
+import com.afoxplus.uikit.designsystem.extensions.getUIKitSpacing
+import com.afoxplus.uikit.designsystem.extensions.getUIKitTypography
+import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.foundations.styles.UIKitCheckboxStyle
@@ -38,10 +42,10 @@ class ComposePreviewActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(paddingValues = paddingValues)
-                            .padding(horizontal = UIKitTheme.spacing.spacing16)
+                            .padding(horizontal = getUIKitSpacing("medium"))
                             .verticalScroll(rememberScrollState())
                             .fillMaxSize(),
-                        verticalArrangement = Arrangement.spacedBy(UIKitTheme.spacing.spacing08)
+                        verticalArrangement = Arrangement.spacedBy(getUIKitSpacing("spacing08"))
                     ) {
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing12))
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing20))
@@ -49,7 +53,17 @@ class ComposePreviewActivity : ComponentActivity() {
                         UIKitIcon(icon = UIKitTheme.icons.icon_whatsapp_outline)
                         UIKitIcon(icon = UIKitIconTheme.icon_pin_location_outline)
                         UIKitIcon(icon = UIKitIconTheme.icon_calendar_small_outline)
-                        getUIKitIcon("icon_trash_outline")?.let { UIKitIcon(icon = it) }
+
+                        UIKitText(
+                            text = "By string token",
+                            style = getUIKitTypography(token = "title03"),
+                            color = getUIKitColor(token = "red700")
+                        )
+                        UIKitIcon(icon = getUIKitIcon("icon_trash_outline"))
+                        UIKitIcon(icon = getUIKitIcon("icon_dish_outline"))
+                        Spacer(modifier = Modifier.height(getUIKitSpacing("extraMedium")))
+                        UIKitIcon(icon = getUIKitIcon("icon_three_dots_filled"))
+
 
                         val isChecked = remember { mutableStateOf(false) }
                         val isCardChecked = remember { mutableStateOf(false) }

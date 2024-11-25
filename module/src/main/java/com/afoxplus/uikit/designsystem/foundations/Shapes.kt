@@ -17,10 +17,10 @@ internal val ExtraMediumShape = RoundedCornerShape(24.dp)
 internal val LargeShape = RoundedCornerShape(32.dp)
 internal val ExtraLargeShape = RoundedCornerShape(40.dp)
 
-internal val Shapes = Shapes(small = SmallShape, medium = MediumShape, large = LargeShape)
+internal val DefaultShapesTheme = Shapes(small = SmallShape, medium = MediumShape, large = LargeShape)
 
 @Immutable
-data class UIKitShapes(
+data class ShapesTheme(
     val default: Shape = DefaultShape,
     val extraSmall: Shape = ExtraSmallShape,
     val small: Shape = SmallShape,
@@ -31,4 +31,4 @@ data class UIKitShapes(
     val extraLarge: Shape = ExtraLargeShape
 )
 
-internal val LocalUIKitShapes = staticCompositionLocalOf { UIKitShapes() }
+internal val LocalUIKitShapes = staticCompositionLocalOf { ShapesTheme() }
