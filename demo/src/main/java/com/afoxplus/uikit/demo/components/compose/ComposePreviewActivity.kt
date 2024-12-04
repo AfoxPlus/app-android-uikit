@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -22,10 +23,10 @@ import com.afoxplus.uikit.designsystem.atoms.UIKitText
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardCheckbox
 import com.afoxplus.uikit.designsystem.businesscomponents.UIKitCardRadioButton
 import com.afoxplus.uikit.designsystem.extensions.getUIKitColor
+import com.afoxplus.uikit.designsystem.businesscomponents.UIKitSectionTitle
 import com.afoxplus.uikit.designsystem.extensions.getUIKitIcon
 import com.afoxplus.uikit.designsystem.extensions.getUIKitSpacing
 import com.afoxplus.uikit.designsystem.extensions.getUIKitTypography
-import com.afoxplus.uikit.designsystem.foundations.UIKitColorTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitIconTheme
 import com.afoxplus.uikit.designsystem.foundations.UIKitTheme
 import com.afoxplus.uikit.designsystem.foundations.styles.UIKitCheckboxStyle
@@ -104,6 +105,19 @@ class ComposePreviewActivity : ComponentActivity() {
                             onClick = {
 
                             })
+
+                        UIKitSectionTitle(
+                            modifier = Modifier.fillMaxWidth(),
+                            title = "Establecimiento"
+                        )
+
+                        UIKitSectionTitle(
+                            modifier = Modifier.fillMaxWidth(),
+                            title = "Menu",
+                            iconToken = "icon_dish_outline",
+                            backgroundToken = "green100",
+                            contentColorToken = "green700"
+                        )
                     }
                 }
             }
