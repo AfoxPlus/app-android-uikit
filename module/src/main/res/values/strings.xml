@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="uikit_text_see_more">Ver más</string>
+    <string name="uikit_text_see_less">Ver menos</string>
+</resources>

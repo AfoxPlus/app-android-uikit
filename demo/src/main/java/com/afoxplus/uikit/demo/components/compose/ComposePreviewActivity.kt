@@ -115,8 +115,8 @@ class ComposePreviewActivity : ComponentActivity() {
                             modifier = Modifier.fillMaxWidth(),
                             title = "Menu",
                             iconToken = "icon_dish_outline",
-                            backgroundToken = "green100",
-                            contentColorToken = "green700"
+                            backgroundToken = "gray100",
+                            contentColorToken = "gray700"
                         )
                     }
                 }

@@ -211,7 +211,7 @@ private fun defaultTextStyle(
     fontWeight = fontWeight,
     letterSpacing = LetterSpacing
 )
-private val LetterSpacing = (0.12f).sp
+private val LetterSpacing = 5.sp
 
 val LocalUIKitTypography: ProvidableCompositionLocal<TypographyTheme> = staticCompositionLocalOf {
     error("No TypographyTheme provided")
