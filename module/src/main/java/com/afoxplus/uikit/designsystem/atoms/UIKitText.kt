@@ -70,11 +70,13 @@ fun UIKitText(
             textAlign = textAlign,
             color = color,
             onTextLayout = { textLayoutResult ->
-                isOverflowing = textLayoutResult.hasVisualOverflow
+                if (!isExpanded) {
+                    isOverflowing = textLayoutResult.hasVisualOverflow
+                }
                 onTextLayout(textLayoutResult)
             }
         )
-        if (isOverflowing) {
+        if (isOverflowing || isExpanded) {
             UIKitText(
                 text = if (isExpanded) stringResource(R.string.uikit_text_see_less) else stringResource(
                     R.string.uikit_text_see_more
@@ -82,7 +84,12 @@ fun UIKitText(
                 color = colorExpandableText,
                 modifier = Modifier
                     .padding(top = UIKitTheme.spacing.spacing04)
-                    .clickable { isExpanded = !isExpanded },
+                    .clickable {
+                        isExpanded = !isExpanded
+                        if (!isExpanded) {
+                            isOverflowing = false
+                        }
+                    },
                 style = styleExpandableText
             )
         }
