@@ -39,6 +39,8 @@ abstract class IconTheme {
     abstract val icon_location_filled: Icon
     abstract val icon_three_dots_filled: Icon
     abstract val icon_upload_cloud_file_outline: Icon
+    abstract val icon_current_location: Icon
+    abstract val icon_location_filled_red: Icon
 
     @JvmInline
     value class Icon(@DrawableRes val drawableRes: Int)
@@ -60,6 +62,11 @@ val UIKitIconTheme: IconTheme = object : IconTheme() {
     override val icon_search: Icon = Icon(drawableRes = R.drawable.icon_search)
     override val icon_clean: Icon = Icon(drawableRes = R.drawable.icon_clean)
     override val icon_back: Icon = Icon(drawableRes = R.drawable.icon_back)
+    override val icon_current_location: Icon =
+        Icon(drawableRes = R.drawable.icon_current_location_outline)
+    override val icon_location_filled: Icon = Icon(drawableRes = R.drawable.icon_location_filled)
+    override val icon_location_filled_red: Icon =
+        Icon(drawableRes = R.drawable.icon_location_filled_red)
     override val icon_about_info_outline: Icon = Icon(drawableRes = R.drawable.icon_about_info_outline)
     override val icon_basket_outline: Icon = Icon(drawableRes = R.drawable.icon_basket_outline)
     override val icon_building_home_outline: Icon = Icon(drawableRes = R.drawable.icon_building_home_outline)
@@ -68,7 +75,6 @@ val UIKitIconTheme: IconTheme = object : IconTheme() {
     override val icon_current_location_outline: Icon = Icon(drawableRes = R.drawable.icon_current_location_outline)
     override val icon_dish_outline: Icon = Icon(drawableRes = R.drawable.icon_dish_outline)
     override val icon_list_detail_filled: Icon = Icon(drawableRes = R.drawable.icon_list_detail_filled)
-    override val icon_location_filled: Icon = Icon(drawableRes = R.drawable.icon_location_filled)
     override val icon_three_dots_filled: Icon = Icon(drawableRes = R.drawable.icon_three_dots_filled)
     override val icon_upload_cloud_file_outline: Icon = Icon(drawableRes = R.drawable.icon_upload_cloud_file_outline)
 }

@@ -1,5 +1,9 @@
 package com.afoxplus.uikit.designsystem.extensions
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import androidx.core.content.ContextCompat
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -81,4 +85,19 @@ fun getUIKitIcon(token: String): IconTheme.Icon {
     }
 
     return options.first { it.name == token }.value
+}
+
+fun IconTheme.Icon.getBitmapFromVectorDrawable(context: Context): Bitmap {
+    val drawable = ContextCompat.getDrawable(context, this.drawableRes)
+        ?: throw IllegalArgumentException("Drawable not found")
+
+    val bitmap = Bitmap.createBitmap(
+        drawable.intrinsicWidth,
+        drawable.intrinsicHeight,
+        Bitmap.Config.ARGB_8888
+    )
+    val canvas = Canvas(bitmap)
+    drawable.setBounds(0, 0, canvas.width, canvas.height)
+    drawable.draw(canvas)
+    return bitmap
 }

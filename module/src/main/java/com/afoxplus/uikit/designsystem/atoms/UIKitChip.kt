@@ -3,7 +3,10 @@ package com.afoxplus.uikit.designsystem.atoms
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -43,6 +46,21 @@ fun UIKitChip(
                 style = UIKitTheme.typography.paragraph01Bold,
                 color = textColor,
             )
+        }
+    }
+}
+
+@Composable
+fun UIKitChipShimmer() {
+    Surface(
+        shape = UIKitTheme.shapes.smallMedium,
+        modifier = Modifier
+            .height(24.dp)
+            .width(92.dp)
+    ) {
+        ShimmerPlaceholder {
+            Box(modifier = Modifier.fillMaxSize()) {
+            }
         }
     }
 }
