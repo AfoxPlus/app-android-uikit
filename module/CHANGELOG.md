@@ -1,5 +1,9 @@
 # app-android-uikit Changelog
 
+## Version 6.2.9
+## Added
+- Fix loading in UIKitButton component. [111](https://github.com/AfoxPlus/app-android-uikit/issues/111)
+
 ## Version 6.2.8
 ## Added
 - Added UIKitButton component.

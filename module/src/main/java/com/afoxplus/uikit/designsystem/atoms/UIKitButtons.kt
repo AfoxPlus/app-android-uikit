@@ -3,6 +3,7 @@ package com.afoxplus.uikit.designsystem.atoms
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.material3.Button
@@ -53,7 +54,7 @@ fun UIKitButton(
     modifier: Modifier = Modifier,
     type: UIKitButtonType = UIKitButtonType.OutlineLarge(UIKitButtonStatus.ACTIVE),
 
-    text: String? = null,
+    text: String = "",
     textStyle: TextStyle? = null,
     textColor: Color? = null,
 
@@ -70,7 +71,7 @@ fun UIKitButton(
                 UIKitButtonStatus.ACTIVE -> {
                     UIKitButtonGeneric(
                         modifier = modifier,
-                        text = text ?: "",
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.header05SemiBold,
                         textColor = textColor ?: UIKitTheme.colors.primaryColor,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -93,7 +94,7 @@ fun UIKitButton(
                 UIKitButtonStatus.DISABLED -> {
                     UIKitButtonGeneric(
                         modifier = modifier,
-                        text = text ?: "",
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.header05SemiBold,
                         textColor = textColor ?: UIKitTheme.colors.gray300,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -134,7 +135,8 @@ fun UIKitButton(
                         buttonShape = buttonShape ?: UIKitTheme.shapes.medium,
                         circleColor = UIKitTheme.colors.primaryColor,
                         circleSize = UIKitTheme.spacing.spacing12,
-                        onClick = { onClick() }
+                        onClick = { onClick() },
+                        isLoading = true
                     )
                 }
             }
@@ -145,7 +147,7 @@ fun UIKitButton(
                 UIKitButtonStatus.ACTIVE -> {
                     UIKitButtonGeneric(
                         modifier = modifier,
-                        text = text ?: "",
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.header05SemiBold,
                         textColor = textColor ?: UIKitTheme.colors.light01,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -168,7 +170,7 @@ fun UIKitButton(
                 UIKitButtonStatus.DISABLED -> {
                     UIKitButtonGeneric(
                         modifier = modifier,
-                        text = text ?: "",
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.header05SemiBold,
                         textColor = textColor ?: UIKitTheme.colors.light01,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -209,7 +211,8 @@ fun UIKitButton(
                         buttonShape = buttonShape ?: UIKitTheme.shapes.medium,
                         circleColor = UIKitTheme.colors.light01,
                         circleSize = UIKitTheme.spacing.spacing12,
-                        onClick = { onClick() }
+                        onClick = { onClick() },
+                        isLoading = true
                     )
                 }
             }
@@ -219,9 +222,8 @@ fun UIKitButton(
             when (type.status) {
                 UIKitButtonStatus.ACTIVE -> {
                     UIKitButtonGeneric(
-                        modifier = modifier
-                            .requiredHeight(height = UIKitTheme.spacing.spacing52),
-                        text = text ?: "",
+                        modifier = modifier,
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph01,
                         textColor = textColor ?: UIKitTheme.colors.primaryColor,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -243,9 +245,8 @@ fun UIKitButton(
 
                 UIKitButtonStatus.DISABLED -> {
                     UIKitButtonGeneric(
-                        modifier = modifier
-                            .requiredHeight(height = UIKitTheme.spacing.spacing42),
-                        text = text ?: "",
+                        modifier = modifier,
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph01,
                         textColor = textColor ?: UIKitTheme.colors.gray300,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -267,8 +268,7 @@ fun UIKitButton(
 
                 UIKitButtonStatus.LOADING -> {
                     UIKitButtonGeneric(
-                        modifier = modifier
-                            .requiredHeight(height = UIKitTheme.spacing.spacing42),
+                        modifier = modifier,
                         text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph01,
                         textColor = textColor ?: UIKitTheme.colors.gray300,
@@ -287,7 +287,8 @@ fun UIKitButton(
                         buttonShape = buttonShape ?: UIKitTheme.shapes.small,
                         circleColor = UIKitTheme.colors.primaryColor,
                         circleSize = UIKitTheme.spacing.spacing10,
-                        onClick = { onClick() }
+                        onClick = { onClick() },
+                        isLoading = true
                     )
                 }
             }
@@ -297,9 +298,8 @@ fun UIKitButton(
             when (type.status) {
                 UIKitButtonStatus.ACTIVE -> {
                     UIKitButtonGeneric(
-                        modifier = modifier
-                            .requiredHeight(height = UIKitTheme.spacing.spacing42),
-                        text = text ?: "",
+                        modifier = modifier,
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph01,
                         textColor = textColor ?: UIKitTheme.colors.light01,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -321,9 +321,8 @@ fun UIKitButton(
 
                 UIKitButtonStatus.DISABLED -> {
                     UIKitButtonGeneric(
-                        modifier = modifier
-                            .requiredHeight(height = UIKitTheme.spacing.spacing42),
-                        text = text ?: "",
+                        modifier = modifier,
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph01,
                         textColor = textColor ?: UIKitTheme.colors.light01,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -345,8 +344,7 @@ fun UIKitButton(
 
                 UIKitButtonStatus.LOADING -> {
                     UIKitButtonGeneric(
-                        modifier = modifier
-                            .requiredHeight(height = UIKitTheme.spacing.spacing42),
+                        modifier = modifier,
                         text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph01,
                         textColor = textColor ?: UIKitTheme.colors.gray300,
@@ -365,7 +363,8 @@ fun UIKitButton(
                         buttonShape = buttonShape ?: UIKitTheme.shapes.small,
                         circleColor = UIKitTheme.colors.light01,
                         circleSize = UIKitTheme.spacing.spacing10,
-                        onClick = { onClick() }
+                        onClick = { onClick() },
+                        isLoading = true
                     )
                 }
             }
@@ -376,7 +375,7 @@ fun UIKitButton(
                 UIKitButtonStatus.ACTIVE -> {
                     UIKitButtonGeneric(
                         modifier = modifier,
-                        text = text ?: "",
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph02,
                         textColor = textColor ?: UIKitTheme.colors.primaryColor,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -411,7 +410,7 @@ fun UIKitButton(
                 UIKitButtonStatus.ACTIVE -> {
                     UIKitButtonGeneric(
                         modifier = modifier,
-                        text = text ?: "",
+                        text = text,
                         textStyle = textStyle ?: UIKitTheme.typography.paragraph02,
                         textColor = textColor ?: UIKitTheme.colors.light01,
                         buttonColor = buttonColor ?: ButtonDefaults.buttonColors(
@@ -446,7 +445,7 @@ fun UIKitButton(
 @Composable
 private fun UIKitButtonGeneric(
     modifier: Modifier,
-    text: String? = null,
+    text: String = "",
     textStyle: TextStyle,
     textColor: Color,
     buttonColor: ButtonColors,
@@ -455,7 +454,8 @@ private fun UIKitButtonGeneric(
     buttonShape: Shape,
     circleColor: Color = UIKitTheme.colors.primaryColor,
     circleSize: Dp = UIKitTheme.spacing.spacing12,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    isLoading: Boolean = false
 ) {
     OutlinedButton(
         modifier = modifier,
@@ -467,7 +467,13 @@ private fun UIKitButtonGeneric(
             onClick()
         }
     ) {
-        if (text != null) {
+        if (isLoading) {
+            UIKitLoading(
+                travelDistance = UIKitTheme.spacing.spacing06,
+                circleColor = circleColor,
+                circleSize = circleSize
+            )
+        } else {
             UIKitText(
                 modifier = Modifier
                     .align(Alignment.CenterVertically),
@@ -475,12 +481,6 @@ private fun UIKitButtonGeneric(
                 textAlign = TextAlign.Center,
                 style = textStyle,
                 color = textColor
-            )
-        } else {
-            UIKitLoading(
-                travelDistance = UIKitTheme.spacing.spacing06,
-                circleColor = circleColor,
-                circleSize = circleSize
             )
         }
     }

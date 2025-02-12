@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -56,6 +57,8 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                         )
                         Spacer(modifier = Modifier.padding(16.dp))
                         UIKitCardEstablishment(
+                            shape = UIKitTheme.shapes.default,
+                            elevation = CardDefaults.cardElevation(defaultElevation = UIKitTheme.spacing.spacing00),
                             establishment = Establishment(
                                 imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                                 imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
@@ -64,8 +67,8 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                                 hasSubscription = false,
                                 isOpen = false,
                                 rating = 4f,
-                                addressDescription = "Av. Arenales 1241",
-                                phoneDescription = "966885488"
+                                addressDescription = "",
+                                phoneDescription = ""
                             ),
                             context = LocalContext.current
                         ) {}

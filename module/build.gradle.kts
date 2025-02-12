@@ -96,6 +96,7 @@ android {
 
 dependencies {
     //Jetpack
+    implementation(Deps.Jetpack.kotlinReflect)
     implementation(Deps.Jetpack.kotlin)
     implementation(Deps.Jetpack.core)
     implementation(Deps.Jetpack.appcompat)

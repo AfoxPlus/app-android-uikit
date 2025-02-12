@@ -17,8 +17,8 @@ import androidx.compose.material3.Typography as MaterialTypography
 @Composable
 fun UIKitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    shapes: Shapes = Shapes,
-    typography: MaterialTypography = TypographyTheme,
+    shapes: Shapes = DefaultShapesTheme,
+    typography: MaterialTypography = DefaultTypographyTheme,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -48,35 +48,35 @@ private fun ProvideUIKitThemeDependencies(content: @Composable () -> Unit) {
         LocalUIKitColors provides UIKitColorTheme,
         LocalUIKitTypography provides UIKitTypographyTheme,
         LocalUIKitIconTheme provides UIKitIconTheme,
-        LocalUIKitShapes provides UIKitShapes(),
-        LocalUIKitSpacing provides UIKitSpacing()
+        LocalUIKitShapes provides ShapesTheme(),
+        LocalUIKitSpacing provides SpacingTheme()
     ) {
         content()
     }
 }
 
 object UIKitTheme {
-    val colors: UIKitColors
+    val colors: ColorTheme
         @Composable
         @ReadOnlyComposable
         get() = LocalUIKitColors.current
 
-    val shapes: UIKitShapes
+    val shapes: ShapesTheme
         @Composable
         @ReadOnlyComposable
         get() = LocalUIKitShapes.current
 
-    val typography: UIKitTypography
+    val typography: TypographyTheme
         @Composable
         @ReadOnlyComposable
         get() = LocalUIKitTypography.current
 
-    val spacing: UIKitSpacing
+    val spacing: SpacingTheme
         @Composable
         @ReadOnlyComposable
         get() = LocalUIKitSpacing.current
 
-    val icons: UIKitIcon
+    val icons: IconTheme
         @Composable
         @ReadOnlyComposable
         get() = LocalUIKitIconTheme.current

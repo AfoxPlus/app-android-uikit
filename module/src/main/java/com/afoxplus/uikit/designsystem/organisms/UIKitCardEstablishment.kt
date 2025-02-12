@@ -3,7 +3,6 @@ package com.afoxplus.uikit.designsystem.organisms
 import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,9 +13,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -35,14 +36,15 @@ fun UIKitCardEstablishment(
     context: Context,
     modifier: Modifier = Modifier,
     establishment: Establishment,
+    elevation: CardElevation = CardDefaults.cardElevation(defaultElevation = UIKitTheme.spacing.spacing04),
+    shape: Shape = UIKitTheme.shapes.small,
     onClick: () -> Unit
 ) {
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable { onClick() },
-        shape = UIKitTheme.shapes.small,
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        modifier = modifier.fillMaxWidth(),
+        shape = shape,
+        elevation = elevation,
+        onClick = { onClick() },
         colors = CardDefaults.cardColors(
             containerColor = UIKitTheme.colors.light01,
             contentColor = UIKitTheme.colors.light01
@@ -143,25 +145,30 @@ fun UIKitCardEstablishment(
                             .fillMaxWidth()
                             .size(UIKitTheme.spacing.spacing08)
                     )
-                    UIKitItemTextIcon(
-                        leftIcon = UIKitTheme.icons.icon_location_outline,
-                        text = establishment.addressDescription,
-                        textPaddingValues = PaddingValues(start = UIKitTheme.spacing.spacing04),
-                        textStyle = UIKitTheme.typography.paragraph02,
-                        textColor = UIKitTheme.colors.gray700
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .size(UIKitTheme.spacing.spacing04)
-                    )
-                    UIKitItemTextIcon(
-                        leftIcon = UIKitTheme.icons.icon_whatsapp_outline,
-                        text = establishment.phoneDescription,
-                        textPaddingValues = PaddingValues(start = UIKitTheme.spacing.spacing04),
-                        textStyle = UIKitTheme.typography.paragraph02,
-                        textColor = UIKitTheme.colors.gray700
-                    )
+                    if (establishment.addressDescription.isNotEmpty()) {
+                        UIKitItemTextIcon(
+                            leftIcon = UIKitTheme.icons.icon_location_outline,
+                            text = establishment.addressDescription,
+                            textPaddingValues = PaddingValues(start = UIKitTheme.spacing.spacing04),
+                            textStyle = UIKitTheme.typography.paragraph02,
+                            textColor = UIKitTheme.colors.gray700
+                        )
+                    }
+
+                    if (establishment.phoneDescription.isNotEmpty()) {
+                        Spacer(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .size(UIKitTheme.spacing.spacing04)
+                        )
+                        UIKitItemTextIcon(
+                            leftIcon = UIKitTheme.icons.icon_whatsapp_outline,
+                            text = establishment.phoneDescription,
+                            textPaddingValues = PaddingValues(start = UIKitTheme.spacing.spacing04),
+                            textStyle = UIKitTheme.typography.paragraph02,
+                            textColor = UIKitTheme.colors.gray700
+                        )
+                    }
                 }
             }
         }

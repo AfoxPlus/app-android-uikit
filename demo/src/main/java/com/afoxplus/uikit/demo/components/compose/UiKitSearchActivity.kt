@@ -48,18 +48,18 @@ class UiKitSearchActivity : ComponentActivity() {
                         UIKitSearchAutocomplete(
                             focusRequester = focusRequester,
                             placeholder = "Buscar más aquí",
-                            onBackClick = {  println("On back action") },
-                            onTextClear = {  println("On onTextClear") }) {
+                            onBackClick = { println("On back action") },
+                            onTextClear = { println("On onTextClear") }) {
                             println("this is a new text $it")
                         }
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing08))
                         UIKitChipCollection(
                             chipItems = listOf(
-                                ChipItem("01", false, "Cafe"),
-                                ChipItem("02", false, "Sandwich"),
-                                ChipItem("03", false, "Cevicheria"),
-                                ChipItem("03", false, "Criollo"),
-                                ChipItem("03", false, "Campestre")
+                                ChipItem(isSelected = false, name = "Cafe"),
+                                ChipItem(isSelected = false, name = "Sandwich"),
+                                ChipItem(isSelected = false, name = "Cevicheria"),
+                                ChipItem(isSelected = false, name = "Criollo"),
+                                ChipItem(isSelected = false, name = "Campestre")
                             )
                         ) {
                             println("Here is the data: $it")
