@@ -49,7 +49,8 @@ fun UIKitTopBanner(
     alignmentImage: Alignment = Alignment.BottomEnd,
     paddingImage: PaddingValues = PaddingValues(bottom = UIKitTheme.spacing.spacing03),
     backgroundImage: Color = Color.Transparent,
-    contextScaleImage: ContentScale = ContentScale.Fit
+    contextScaleImage: ContentScale = ContentScale.Fit,
+    onClickButton: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -98,7 +99,8 @@ fun UIKitTopBanner(
                         width = UIKitTheme.spacing.spacing01,
                         color = UIKitTheme.colors.secondaryColor
                     ),
-                    onClick = { })
+                    onClick = onClickButton
+                )
             }
 
             Column(

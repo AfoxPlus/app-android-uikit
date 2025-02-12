@@ -56,9 +56,12 @@ fun UIKitTopBannerBase() {
             banner = Banner(
                 title = "Busca tu restaurante favorito",
                 subtitle = "Todos los restaurantes cerca de ti Encuéntralos Aquí",
-                imageUrl = "https://static.vecteezy.com/system/resources/previews/047/554/336/non_2x/three-hamburgers-with-lettuce-tomato-and-cheese-png.png",
+                imageUrl = "https://raw.githubusercontent.com/AfoxPlus/app-resources/refs/heads/main/app/home/home_banner_burgers.png",
                 buttonText = "Probar"
-            )
+            ),
+            widthImage = 240.dp,
+            heightImage = 110.dp,
+            onClickButton = {}
         )
         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing16))
         UIKitTopBanner(
@@ -68,7 +71,8 @@ fun UIKitTopBannerBase() {
                 subtitle = "Todos los restaurantes cerca de ti Encuéntralos Aquí",
                 imageUrl = "https://freshburger.ca/wp-content/uploads/2020/09/highcompress_Kenix-Angus.png",
                 buttonText = "Probar"
-            )
+            ),
+            onClickButton = {}
         )
         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing16))
         UIKitTopBanner(
@@ -78,7 +82,8 @@ fun UIKitTopBannerBase() {
                 subtitle = "Todos los restaurantes cerca de ti, encuéntralos aquí y haz tu pedido.",
                 imageUrl = "https://static.vecteezy.com/system/resources/previews/047/554/336/non_2x/three-hamburgers-with-lettuce-tomato-and-cheese-png.png",
                 buttonText = "Probar"
-            )
+            ),
+            onClickButton = {}
         )
     }
 }
