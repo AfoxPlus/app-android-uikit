@@ -118,7 +118,7 @@ fun UIKitEstablishmentMap(
                 }
                 UIKitText(
                     modifier = Modifier.fillMaxWidth(),
-                    text = establishment.description,
+                    text = establishment.primaryType,
                     color = UIKitTheme.colors.secondaryColor,
                     style = UIKitTheme.typography.paragraph01SemiBold
                 )

@@ -60,6 +60,7 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                             shape = UIKitTheme.shapes.default,
                             elevation = CardDefaults.cardElevation(defaultElevation = UIKitTheme.spacing.spacing00),
                             establishment = Establishment(
+                                primaryType = "Restaurante",
                                 imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                                 imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
                                 name = "Kitchen Resto",
@@ -75,6 +76,7 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.padding(16.dp))
                         UIKitCardEstablishment(
                             establishment = Establishment(
+                                primaryType = "Restaurante",
                                 imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                                 imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
                                 name = "Kitchen Resto",
@@ -90,6 +92,7 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.padding(16.dp))
                         UIKitEstablishmentMap(
                             establishment = Establishment(
+                                primaryType = "Restaurante",
                                 imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
                                 imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
                                 name = "Kitchen Resto",
@@ -105,6 +108,7 @@ class UIKitCardEstablishmentActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(UIKitTheme.spacing.spacing10))
                         UIKitEstablishmentMap(
                             establishment = Establishment(
+                                primaryType = "Restaurante",
                                 imageLandscape = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
                                 imagePortrait = "https://static.wixstatic.com/media/8fb78d_c77b22a3f89744a4bb1329a8d5c4e2a5~mv2.jpg",
                                 name = "Kitchen Resto",
@@ -150,6 +154,7 @@ fun UiKitCardEstablishmentPreview() {
             Spacer(modifier = Modifier.padding(16.dp))
             UIKitCardEstablishment(
                 establishment = Establishment(
+                    primaryType = "",
                     imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                     imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
                     name = "Kitchen Resto",
@@ -165,6 +170,7 @@ fun UiKitCardEstablishmentPreview() {
             Spacer(modifier = Modifier.padding(16.dp))
             UIKitCardEstablishment(
                 establishment = Establishment(
+                    primaryType = "",
                     imageLandscape = "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/Page-Setup-Revamp/DBSZ_banner_mobile.jpg",
                     imagePortrait = "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/e6550a5a29624aee479b088bbefa4abc0097dc9253bca3d0.png",
                     name = "Kitchen Resto",

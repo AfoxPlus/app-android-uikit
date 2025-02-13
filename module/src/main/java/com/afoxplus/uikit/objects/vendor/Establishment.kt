@@ -7,6 +7,7 @@ data class Establishment(
     val imageLandscape: String,
     val imagePortrait: String,
     val name: String,
+    val primaryType: String,
     val description: String,
     val hasSubscription: Boolean,
     val subscriptionImage: IconTheme.Icon = UIKitIconTheme.icon_calendar_small_outline,
