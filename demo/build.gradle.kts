@@ -17,7 +17,7 @@ android {
         minSdk = Versions.minSdkVersion
         targetSdk = Versions.targetSdkVersion
         versionCode = 1
-        versionName = "1.0.0"
+        versionName = ConfigureApp.versionName
         testInstrumentationRunner = Versions.testInstrumentationRunner
     }
 
@@ -71,7 +71,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.8"
+        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
     }
 
     lint {
