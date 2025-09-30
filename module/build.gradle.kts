@@ -1,9 +1,9 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
-    id("com.google.dagger.hilt.android")
-    id("org.jetbrains.kotlin.plugin.parcelize")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.jetbrains.kotlin.plugin.parcelize)
     id("org.sonarqube") version "3.3"
     id("jacoco")
 }
@@ -96,40 +96,40 @@ android {
 
 dependencies {
     //Jetpack
-    implementation(Deps.Jetpack.kotlinReflect)
-    implementation(Deps.Jetpack.kotlin)
-    implementation(Deps.Jetpack.core)
-    implementation(Deps.Jetpack.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.kotlin.reflect)
 
     //Jetpack UI
-    implementation(Deps.UI.materialDesign)
-    implementation(Deps.UI.constraintLayout)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
 
     // Jetpack Compose
-    implementation(Deps.JetpackCompose.activity)
-    implementation(Deps.JetpackCompose.constraintlayout)
-    implementation(Deps.JetpackCompose.navigation)
-    implementation(platform(Deps.JetpackCompose.bom))
-    implementation(Deps.JetpackCompose.ui)
-    implementation(Deps.JetpackCompose.graphics)
-    implementation(Deps.JetpackCompose.toolingPreview)
-    debugImplementation(Deps.JetpackCompose.tooling)
-    implementation(Deps.JetpackCompose.material3)
-    implementation(Deps.JetpackCompose.materialIconExtended)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.constraintlayout.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.material.icons.extended)
     //Image Async
-    implementation(Deps.JetpackCompose.coilCompose)
-    implementation(Deps.UI.glide)
-    kapt(Deps.UI.glideCompiler)
+    implementation(libs.coil.compose)
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
 
     // Coroutines
-    implementation(Deps.Arch.coroutinesCore)
-    implementation(Deps.Arch.coroutinesAndroid)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     // Dagger - Hilt
-    implementation(Deps.Arch.hiltAndroid)
-    kapt(Deps.Arch.hiltAndroidCompiler)
-    implementation(Deps.JetpackCompose.hiltNavigationCompose)
-    kapt(Deps.Arch.hiltCompiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.androidx.hilt.compiler)
 
     testImplementation(Deps.Test.jUnit)
     androidTestImplementation(Deps.Test.androidJUnit)
