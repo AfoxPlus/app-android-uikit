@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.devtools.ksp)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.jetbrains.kotlin.plugin.parcelize)
+    alias(libs.plugins.kotlin.compose)
     id("org.sonarqube") version "3.3"
     id("jacoco")
 }
@@ -17,12 +18,11 @@ apply {
 
 android {
     namespace = "com.afoxplus.uikit"
-    compileSdk = Versions.compileSdkVersion
+    compileSdk = ConfigureApp.Versions.compileSdkVersion
 
     defaultConfig {
-        minSdk = Versions.minSdkVersion
-        targetSdk = Versions.targetSdkVersion
-        testInstrumentationRunner = Versions.testInstrumentationRunner
+        minSdk = ConfigureApp.Versions.minSdkVersion
+        testInstrumentationRunner = ConfigureApp.Versions.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
         renderscriptSupportModeEnabled = true
     }
@@ -64,10 +64,6 @@ android {
     buildFeatures {
         viewBinding = true
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
     }
 
     lint {
