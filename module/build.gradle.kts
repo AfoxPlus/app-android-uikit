@@ -101,19 +101,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
 
+
     // Jetpack Compose
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.constraintlayout.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    debugImplementation(libs.androidx.ui.tooling)
-    implementation(libs.androidx.material.icons.extended)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.androidx.compose)
+
     //Image Async
-    implementation(libs.coil.compose)
     implementation(libs.glide)
     ksp(libs.glide.compiler)
 
@@ -127,7 +120,10 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.androidx.hilt.compiler)
 
-    testImplementation(Deps.Test.jUnit)
-    androidTestImplementation(Deps.Test.androidJUnit)
-    androidTestImplementation(Deps.Test.espresso)
+    // Test
+    testImplementation(libs.bundles.unit.test)
+
+    //Compose Debug
+    debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.tooling.preview)
 }
