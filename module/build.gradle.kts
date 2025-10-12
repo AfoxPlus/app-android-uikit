@@ -59,8 +59,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
-
     buildFeatures {
         viewBinding = true
         compose = true
@@ -125,5 +123,4 @@ dependencies {
 
     //Compose Debug
     debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.tooling.preview)
 }
