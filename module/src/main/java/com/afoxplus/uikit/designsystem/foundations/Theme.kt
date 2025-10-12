@@ -21,17 +21,13 @@ fun UIKitTheme(
     typography: MaterialTypography = DefaultTypographyTheme,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        darkTheme -> UIKitDarkColorScheme
-        else -> UIKitLightColorScheme
-    }
-
+    val colorScheme = if (darkTheme) UIKitDarkColorScheme else UIKitLightColorScheme
     val view = LocalView.current
+
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = Color.Transparent.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            WindowCompat.setDecorFitsSystemWindows(window, false)
         }
     }
 
